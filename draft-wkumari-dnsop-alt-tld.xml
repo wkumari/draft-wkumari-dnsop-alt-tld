@@ -56,6 +56,22 @@
 
   <middle>
     <section title="Introduction">
+      <t>Many protocols and systems need to name entities, even though these
+      systems are not (and should not be) part of the DNS. The DNS "standard"
+      naming scheme of a series of labels separated by dots has become a
+      common naming scheme for systems outside the DNS. An issue arises when
+      DNS tries to resolve these name and cannot. This document reserves the
+      string "ALT" (short for Alternate), as a Special Use Domain. The purpose
+      of this string would be to signify that this name is not rooted in the
+      DNS (and instead is part of a different protocol or system), and thus
+      normal registration and lookup rules do not apply. This would cut down
+      on unnecessary DNS traffic, and will make it more likely that users get
+      an expected result.</t>
+
+      <t></t>
+
+      <t>[ED NOTE: Alternate ] </t>
+
       <t>Lots of protocols and systems need to name entities, and the DNS
       "standard" of a series of labels separated with dots has become common,
       even in systems that are not actually part of the DNS, and involving
@@ -96,27 +112,29 @@
       human memorable names to IP addresses. DNS names are composed of a set
       of LDH (Letter, Digit and Hyphen) labels, separated by dots. The DNS has
       a single root, and each delegation under this is a Top Level Domain
-      (TLD). TLDs delegate portions of their namespace to nameserver, who may
-      then delegate further. The hierarchical, distributed, caching nature of
-      the DNS has made it the primary resolution system on the Internet. </t>
+      (TLD). TLDs delegate portions of their namespace to others, who may then
+      delegate further. The hierarchical, distributed, caching nature of the
+      DNS has made it the primary resolution system on the Internet. </t>
 
-      <t>The success of the DNS means make sit a natural starting point for
+      <t>The success of the DNS means makes it a natural starting point for
       systems that need to name entities in a non-DNS context. These name
       resolutions occur in a namespace distinct from the DNS. A number of good
       examples of these sorts of systems are documented in Special-Use Domain
       Names of Peer-to-Peer Systems
       (draft-grothoff-iesg-special-use-p2p-names) [TODO(WK): Make ref].</t>
 
-      <t>In many cases these systems build a DNS style inverted tree parallel
+      <t>In many cases, these systems build a DNS style inverted tree parallel
       to the "standard" (IANA?) DNS tree, and use a pseudo-TLD to cause
       resolution in this alternate namespace, using things like browser
       plugins, shims in the name resolution process, or simply applications
       only use this alternate namespace.</t>
 
       <t>In many cases the creators of these alternate namespaces have simply
-      chosen a convenient / descriptive string and started using this. Using
-      names in an alternate namespace may cause issues if they are looked up
-      in the DNS. These include:</t>
+      chosen a convenient / descriptive string and started using this. These
+      new strings are "alternate" strings, and not actually registered
+      anywhere or part of the DNS. However they appear to be TLDs, as they are
+      the in the right-most position of a name. Issues may arise if they are
+      looked up in the DNS. These include:</t>
 
       <t><list style="symbols">
           <t>User confusion: If someone emails a link of the form
@@ -130,6 +148,8 @@
 
           <t>Collisions. If the pseudo-TLD is eventually delegated by ICANN
           the behavior may be non-deterministic.</t>
+
+          <t>Lack of success for the user's original goal.</t>
         </list></t>
     </section>
 
@@ -173,8 +193,8 @@
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       (for example, the ".onion" pseudo-TLD (and other labels in
-      draft-grothoff-iesg-special-use-p2p-names ) are not expected to move
-      under the ALT TLD (but may do so if they wish, this is a common
+      draft-grothoff-iesg-special-use-p2p-names) are not expected to move
+      under the ALT TLD (but may do so if they wish; this is a common
       resource). Rather, the ALT TLD is being reserved so that future projects
       of a similar nature have a designated place to create alternate
       resolution namespaces that will not conflict with the regular DNS
@@ -185,7 +205,7 @@
       <t>The IANA is requested to add the ALT string to the "Special-Use
       Domain Name" registry (<xref target="RFC6761"></xref>, and reference
       this document. In addition, the "Locally Served DNS Zones" (<xref
-      target="RFC6303"></xref>) registry should be updated to refernce this
+      target="RFC6303"></xref>) registry should be updated to reference this
       document. </t>
     </section>
 
@@ -196,7 +216,7 @@
     <section title="Acknowledgements">
       <t>The authors understand that there is much politics surrounding the
       delegation of a new TLD and thank the ICANN liaison (and any other poor
-      bugger who gets sucked into this) in advance. </t>
+      sod who gets sucked into this) in advance. </t>
     </section>
   </middle>
 
