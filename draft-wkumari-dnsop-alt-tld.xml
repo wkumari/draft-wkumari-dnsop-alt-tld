@@ -3,7 +3,8 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-wkumari-template-00" ipr="trust200902">
+<rfc category="info" docName="draft-wkumari-dnsop-alt-tld-00"
+     ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -21,7 +22,8 @@
   <front>
     <!-- WK: Set long title. -->
 
-    <title abbrev="template">TODO: Template.</title>
+    <title abbrev="Reserve ALT TLD">The ALT Special Use Top Level
+    Domain</title>
 
     <author fullname="Warren Kumari" initials="W." surname="Kumari">
       <organization>Google</organization>
@@ -41,11 +43,29 @@
       </address>
     </author>
 
-    <date day="14" month="January" year="2014" />
+    <author fullname="Andrew Sullivan" initials="A." surname="Sullivan">
+      <organization>Dyn</organization>
+
+      <address>
+        <postal>
+          <street>150 Dow Street</street>
+
+          <city>Manchester, NH</city>
+
+          <code>03101</code>
+
+          <country>US</country>
+        </postal>
+
+        <email>asullivan@dyn.com</email>
+      </address>
+    </author>
+
+    <date day="" month="" year="" />
 
     <area>template</area>
 
-    <workgroup>template</workgroup>
+    <workgroup>dnsop</workgroup>
 
     <abstract>
       <t>This document reserves a string to be used as a TLD label in non-DNS
@@ -56,34 +76,15 @@
 
   <middle>
     <section title="Introduction">
-      <t>Many protocols and systems need to name entities, even though these
-      systems are not (and should not be) part of the DNS. The DNS "standard"
-      naming scheme of a series of labels separated by dots has become a
-      common naming scheme for systems outside the DNS. An issue arises when
-      DNS tries to resolve these name and cannot. This document reserves the
-      string "ALT" (short for Alternate), as a Special Use Domain. The purpose
-      of this string would be to signify that this name is not rooted in the
-      DNS (and instead is part of a different protocol or system), and thus
-      normal registration and lookup rules do not apply. This would cut down
-      on unnecessary DNS traffic, and will make it more likely that users get
-      an expected result.</t>
-
-      <t></t>
-
-      <t>[ED NOTE: Alternate ] </t>
-
       <t>Lots of protocols and systems need to name entities, and the DNS
       "standard" of a series of labels separated with dots has become common,
-      even in systems that are not actually part of the DNS, and involving
-      lookups that do not actually </t>
+      even in systems that are not actually part of the DNS.</t>
 
       <t>This document reserves the string "ALT" (short for Alternate) as a
       Special Use Domain (<xref target="RFC6761"></xref>) that should be used
       in the right-most label position to signify that this name is not rooted
-      in the DNS, and that normal registration and lookup rules do not apply.
-      </t>
-
-      <t></t>
+      in the DNS, and that normal registration and lookup rules do not
+      apply.</t>
 
       <section title="Requirements notation">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -93,38 +94,35 @@
       </section>
 
       <section title="Terminology">
-        <t>[ WK: I'm really bad at terminology thingies. This section needs
-        much more precision ] </t>
+        <t>This document assumes familiarity with DNS terms and concepts.
+        Please see <xref target="RFC1034"></xref> for background and
+        concepts.</t>
 
         <t><list style="symbols">
             <t>DNS context: The namespace administered by ICANN. This is the
             namespace / context that "normal" DNS uses.</t>
 
             <t>non-DNS context: Any other / alternate namespace.</t>
-
-            <t></t>
           </list></t>
       </section>
     </section>
 
     <section title="Background">
-      <t>The DNS is a distributed hierarchical database, primarily used to map
-      human memorable names to IP addresses. DNS names are composed of a set
-      of LDH (Letter, Digit and Hyphen) labels, separated by dots. The DNS has
-      a single root, and each delegation under this is a Top Level Domain
-      (TLD). TLDs delegate portions of their namespace to others, who may then
-      delegate further. The hierarchical, distributed, caching nature of the
-      DNS has made it the primary resolution system on the Internet. </t>
+      <t>The DNS is a tree, and so has a single root. Conventionally, a name
+      immediately beneath the root is called a "Top Level Domain" or "TLD".
+      TLDs usually delegate portions of their namespace to others, who may
+      then delegate further. The hierarchical, distributed, caching nature of
+      the DNS has made it the primary resolution system on the Internet.</t>
 
       <t>The success of the DNS means makes it a natural starting point for
       systems that need to name entities in a non-DNS context. These name
       resolutions occur in a namespace distinct from the DNS. A number of good
       examples of these sorts of systems are documented in Special-Use Domain
-      Names of Peer-to-Peer Systems
-      (draft-grothoff-iesg-special-use-p2p-names) [TODO(WK): Make ref].</t>
+      Names of Peer-to-Peer Systems <xref
+      target="I-D.grothoff-iesg-special-use-p2p-names"></xref> </t>
 
-      <t>In many cases, these systems build a DNS style inverted tree parallel
-      to the "standard" (IANA?) DNS tree, and use a pseudo-TLD to cause
+      <t>In many cases, these systems build a DNS style tree parallel to the
+      global DNS administered by IANA. They often use a pseudo-TLD to cause
       resolution in this alternate namespace, using things like browser
       plugins, shims in the name resolution process, or simply applications
       only use this alternate namespace.</t>
@@ -146,8 +144,8 @@
           pseudo-TLD namespace and end up hitting the DNS root
           nameservers.</t>
 
-          <t>Collisions. If the pseudo-TLD is eventually delegated by ICANN
-          the behavior may be non-deterministic.</t>
+          <t>Collisions. If the pseudo-TLD is eventually delegated from the
+          root zone the behavior may be non-deterministic.</t>
 
           <t>Lack of success for the user's original goal.</t>
         </list></t>
@@ -156,33 +154,30 @@
     <section title="The ALT namespace">
       <t>In order to avoid the above issues we reserve the .ALT label. This
       label should be used as a pseudo-TLD (in the right most (TLD) position
-      of a name) to signify that this is an alternate (non-DNS) namespace.
-      </t>
+      of a name) to signify that this is an alternate (non-DNS) namespace.</t>
 
       <t>Alternate namespaces should differentiate themselves from other
       alternate namespaces by choosing a name and using it in the label
       position just before the pseudo-TLD. For example, a group wishing create
-      a namespace for [TODO(?): Need something better] Friends Of Olaf they
-      may choose the string "foo" and use any set of labels under foo.alt.</t>
+      a namespace for Friends Of Olaf they may choose the string "foo" and use
+      any set of labels under foo.alt.</t>
 
       <t>As they are in an alternate namespace they have no significance in
       the regular DNS context and so should not be looked up in the DNS
       context. Unfortunately simply saying that "something should not happen"
       doesn't actually stop it from happening, so we need some rules to deal
-      with these. </t>
+      with these.</t>
 
       <t><list style="numbers">
-          <t>Stub resolvers SHOULD NOT send queries to recursive resolvers for
-          names in the ALT TLD</t>
+          <t>Stub resolvers MAY elect not to send queries to any upstream
+          resolver for names in the ALT TLD.</t>
 
-          <t>Recursive resolvers SHOULD return NXDOMAIN (authoritative (AA=1)
-          name errors (RCODE=3)) for queries in the ALT TLD. [ED NOTE: The ALT
-          "TLD" should be added to the RFC6303 "Locally Served Zones"
-          registry.]</t>
+          <t>Iterative resolvers SHOULD follow the advice in <xref
+          target="RFC6303"></xref>, Section 3.</t>
 
           <t>The root zone nameservers should either return NXDOMAIN
           responses, or the ALT TLD should be delegated to "new style" AS112
-          nameservers (TODO(WK): WK, JA, BD to revive AS112 / AS112-bis).</t>
+          nameservers. (TODO(WK): WK, JA, BD to revive AS112 / AS112-bis).</t>
         </list></t>
 
       <t>Groups wishing to create alternate namespaces SHOULD create their
@@ -192,11 +187,11 @@
       uniqueness is not guaranteed.</t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
-      (for example, the ".onion" pseudo-TLD (and other labels in
-      draft-grothoff-iesg-special-use-p2p-names) are not expected to move
-      under the ALT TLD (but may do so if they wish; this is a common
-      resource). Rather, the ALT TLD is being reserved so that future projects
-      of a similar nature have a designated place to create alternate
+      (for example, the ".onion" pseudo-TLD (and other labels in <xref
+      target="I-D.grothoff-iesg-special-use-p2p-names"></xref>) are not
+      expected to move under the ALT TLD (but may do so if they wish; this is
+      a common resource). Rather, the ALT TLD is being reserved so that future
+      projects of a similar nature have a designated place to create alternate
       resolution namespaces that will not conflict with the regular DNS
       context.</t>
     </section>
@@ -206,17 +201,37 @@
       Domain Name" registry (<xref target="RFC6761"></xref>, and reference
       this document. In addition, the "Locally Served DNS Zones" (<xref
       target="RFC6303"></xref>) registry should be updated to reference this
-      document. </t>
+      document.</t>
+
+      <t>[ Ed: There are two options here. Option 1: We could ask the IANA to
+      run a "First Come First Served" registry for labels under the ALT TLD.
+      By registry I mean a "standard" IANA registry, not a registry in the DNS
+      sense of the word (IANA would publish on a webpage "Foo |
+      fred@example.com | Used for the foo project"). Option 2: This is a fully
+      uncoordinated space (in the same way that people have been picking
+      pseudo-TLDs up till now) -- pick something that, as far as you know
+      other's are not using... There are pros and cons to both -- I don't want
+      to overload the IANA, have people stage a land-grab for names, or give
+      the impression that this is a "real" TLD. Thoughts? Currently we say
+      there is no registry (Section 3), but that can be changed.)]</t>
     </section>
 
     <section anchor="security" title="Security Considerations">
-      <t>TODO: Fill this out!</t>
+      <t>One of the motivators for the creation of the alt pseudo-TLD is that
+      unmanaged labels in the managed root name space are subject to
+      unexpected takeover if the manager of the root name space decides to
+      delegate the unmanaged label.</t>
+
+      <t>The unmanaged and registry-free nature of labels beneath .ALT
+      provides the opportunity for an attacker to re-use the chosen label and
+      thereby possibly compromise applications dependent on the special host
+      name.</t>
     </section>
 
     <section title="Acknowledgements">
       <t>The authors understand that there is much politics surrounding the
       delegation of a new TLD and thank the ICANN liaison (and any other poor
-      sod who gets sucked into this) in advance. </t>
+      sod who gets sucked into this) in advance.</t>
     </section>
   </middle>
 
@@ -227,6 +242,10 @@
       <?rfc include='reference.RFC.6761'?>
 
       <?rfc include='reference.RFC.6303'?>
+
+      <?rfc include='reference.RFC.1034'?>
+
+      <?rfc include='reference.I-D.grothoff-iesg-special-use-p2p-names.xml'?>
 
       <reference anchor="IANA.AS_Numbers"
                  target="http://www.iana.org/assignments/as-numbers">
@@ -253,7 +272,7 @@
       <t>From -00 to -01.</t>
 
       <t><list style="symbols">
-          <t>Nothing changed in the template!</t>
+          <t>Initial version. </t>
         </list></t>
     </section>
   </back>
