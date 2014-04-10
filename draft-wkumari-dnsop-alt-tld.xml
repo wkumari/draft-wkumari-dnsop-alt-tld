@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-wkumari-dnsop-alt-tld-00"
+<rfc category="info" docName="draft-wkumari-dnsop-alt-tld-01"
      ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
@@ -68,17 +68,17 @@
     <workgroup>dnsop</workgroup>
 
     <abstract>
-      <t>This document reserves a string to be used as a TLD label in non-DNS
-      contexts. [Ed note: By now you should be wildly confused. Go read the
-      intro / background :-P ]</t>
+      <t>This document reserves a string (ALT) to be used as a TLD label in
+      non-DNS contexts. It also provides advice / guidance to developers
+      developing alternate namespaces.</t>
     </abstract>
   </front>
 
   <middle>
     <section title="Introduction">
-      <t>Lots of protocols and systems need to name entities, and the DNS
-      "standard" of a series of labels separated with dots has become common,
-      even in systems that are not actually part of the DNS.</t>
+      <t>Many protocols and systems need to name entities. The DNS "standard"
+      of a series of labels separated with dots has become common, even in
+      systems that are not actually part of the DNS.</t>
 
       <t>This document reserves the string "ALT" (short for Alternate) as a
       Special Use Domain (<xref target="RFC6761"></xref>) that should be used
@@ -111,21 +111,22 @@
       <t>The DNS is a tree, and so has a single root. Conventionally, a name
       immediately beneath the root is called a "Top Level Domain" or "TLD".
       TLDs usually delegate portions of their namespace to others, who may
-      then delegate further. The hierarchical, distributed, caching nature of
-      the DNS has made it the primary resolution system on the Internet.</t>
+      then delegate further. The hierarchical, distributed and caching nature
+      of the DNS has made it the primary resolution system on the
+      Internet.</t>
 
-      <t>The success of the DNS means makes it a natural starting point for
-      systems that need to name entities in a non-DNS context. These name
-      resolutions occur in a namespace distinct from the DNS. A number of good
-      examples of these sorts of systems are documented in Special-Use Domain
-      Names of Peer-to-Peer Systems <xref
-      target="I-D.grothoff-iesg-special-use-p2p-names"></xref> </t>
+      <t>The success of the DNS makes it a natural starting point for systems
+      that need to name entities in a non-DNS context. These name resolutions
+      occur in a namespace distinct from the DNS. A number of good examples of
+      these sorts of systems are documented in Special-Use Domain Names of
+      Peer-to-Peer Systems <xref
+      target="I-D.grothoff-iesg-special-use-p2p-names"></xref>. </t>
 
       <t>In many cases, these systems build a DNS style tree parallel to the
       global DNS administered by IANA. They often use a pseudo-TLD to cause
-      resolution in this alternate namespace, using things like browser
-      plugins, shims in the name resolution process, or simply applications
-      only use this alternate namespace.</t>
+      resolution in this alternate namespace, using browser plugins, shims in
+      the name resolution process, or simply applications that only use this
+      alternate namespace.</t>
 
       <t>In many cases the creators of these alternate namespaces have simply
       chosen a convenient / descriptive string and started using this. These
@@ -144,11 +145,24 @@
           pseudo-TLD namespace and end up hitting the DNS root
           nameservers.</t>
 
-          <t>Collisions. If the pseudo-TLD is eventually delegated from the
+          <t>Collisions: If the pseudo-TLD is eventually delegated from the
           root zone the behavior may be non-deterministic.</t>
 
           <t>Lack of success for the user's original goal.</t>
         </list></t>
+
+      <t>One of the primary design goals of a number of these alternate name
+      resolution systems it to provide confidentiality of the names being
+      resolved.</t>
+
+      <t>A significant number of these alternate name resolution systems are
+      specifically designed to provide confidentiality of the looked up name,
+      and provide a distributed and censorship resistant namespace. For
+      example, the Tor project use of .onion is intended to provide a
+      confidential and alternate name resolution process. This goal may be
+      defeated if the queries leak into the DNS, for example if a Tor user
+      shares a link with a friend who doesn't have the Tor browser
+      installed.</t>
     </section>
 
     <section title="The ALT namespace">
@@ -177,7 +191,7 @@
 
           <t>The root zone nameservers should either return NXDOMAIN
           responses, or the ALT TLD should be delegated to "new style" AS112
-          nameservers. (TODO(WK): WK, JA, BD to revive AS112 / AS112-bis).</t>
+          nameservers.</t>
         </list></t>
 
       <t>Groups wishing to create alternate namespaces SHOULD create their
@@ -194,6 +208,59 @@
       projects of a similar nature have a designated place to create alternate
       resolution namespaces that will not conflict with the regular DNS
       context.</t>
+
+      <t>A number of names other than .ALT were considered and discarded. In
+      order for this technique to be effective the names need to continue to
+      followed the DNS format (a prime consideration for alternate name
+      formats be that they can be entered in places that normally take DNS
+      context names), this rules out using suffixes that are not themselves
+      DNS labels. Another proposal was that the ALT TLD instead be a
+      reservation under .arpa. This was considered, but rejected because of we
+      are suggesting that this be served as an <xref target="RFC6303"></xref>
+      and that recursive operators configure themselves to serve empty
+      authoritative zones for the reserved labeled. There is a concern that if
+      there were placed under .arpa less experienced nameserver operators may
+      inadvertently cover .arpa. A more significant concern is that the scope
+      of the issue if the query does leak, and the fact that this would then
+      make the root of the alternate naming namespace a third level domain,
+      and not a second one. A project may be willing to have a name of the
+      form example.alt, but example.alt.arpa may be not look as good [TODO:
+      Better wording here. Don't want to say "vanity" ! ]</t>
+    </section>
+
+    <section title="Advice to developers">
+      <t>An option would be for name resolution systems that operate outside
+      to DNS to "root" themselves under a DNS name that the project or
+      organization controls. So, for example if the Tor project controls
+      tor.example.com it could "root" their namespace under
+      onion.tor.example.com. The concept of "rooting" a non-DNS context in a
+      DNS context requires some explanation. This document tries to mitigate
+      collisions in the DNS context. This means that if a name from the
+      alternate naming system gets resolved in the DNS, it should not conflict
+      or cause unexpected behavior. By "rooting a non-DNS context namespace in
+      the DNS context, under a name controlled by the project" we mean that
+      the rightmost set of labels should, if resolved in the DNS context be in
+      a domain controlled by the developers / project. This means that, in the
+      above example the software implementing the alternate namespace (browser
+      plugins, custom stub resolvers, etc) would then match on names that end
+      in the string "onion.example.com" and provide the alternate name
+      resolution (instead of matching on the strings ending in ".onion".)</t>
+
+      <t>In a number of cases the purpose of the alternate name resolution
+      system is to provide confidentiality. For these systems the above advice
+      is problematic. If the a query for one of these names (for example
+      dissident.onion.example.com (this is not a real .onion address)) were to
+      leak into the DNS the query would hit the recursive resolver, and
+      (assuming empty caches) would then hit the root, the .com name servers,
+      the example.com name servers and then the onion.example.com nameservers.
+      This means that the fact that a user is resolving
+      disident.onion.example.com would be visible to a large number of people.
+      Furthermore, the onion.example.com nameservers become a good oracle to
+      determine what names exist, and who is trying to reach them. </t>
+
+      <t>For projects that are very latency sensitive, or which desire to
+      provide confidentiality we recommend rooting the alternate namespace
+      under the .ALT TLD.</t>
     </section>
 
     <section title="IANA Considerations">
@@ -203,6 +270,8 @@
       target="RFC6303"></xref>) registry should be updated to reference this
       document.</t>
 
+      <t></t>
+
       <t>[ Ed: There are two options here. Option 1: We could ask the IANA to
       run a "First Come First Served" registry for labels under the ALT TLD.
       By registry I mean a "standard" IANA registry, not a registry in the DNS
@@ -210,14 +279,14 @@
       fred@example.com | Used for the foo project"). Option 2: This is a fully
       uncoordinated space (in the same way that people have been picking
       pseudo-TLDs up till now) -- pick something that, as far as you know
-      other's are not using... There are pros and cons to both -- I don't want
+      others are not using... There are pros and cons to both -- I don't want
       to overload the IANA, have people stage a land-grab for names, or give
       the impression that this is a "real" TLD. Thoughts? Currently we say
       there is no registry (Section 3), but that can be changed.)]</t>
     </section>
 
     <section anchor="security" title="Security Considerations">
-      <t>One of the motivators for the creation of the alt pseudo-TLD is that
+      <t>One of the motivations for the creation of the alt pseudo-TLD is that
       unmanaged labels in the managed root name space are subject to
       unexpected takeover if the manager of the root name space decides to
       delegate the unmanaged label.</t>
@@ -272,7 +341,7 @@
       <t>From -00 to -01.</t>
 
       <t><list style="symbols">
-          <t>Initial version. </t>
+          <t>Initial version.</t>
         </list></t>
     </section>
   </back>
