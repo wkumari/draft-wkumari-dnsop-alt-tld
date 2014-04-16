@@ -61,7 +61,7 @@
       </address>
     </author>
 
-    <date day="" month="" year="" />
+    <date day="16" month="April" year="2014" />
 
     <area>template</area>
 
@@ -315,20 +315,6 @@
       <?rfc include='reference.RFC.1034'?>
 
       <?rfc include='reference.I-D.grothoff-iesg-special-use-p2p-names.xml'?>
-
-      <reference anchor="IANA.AS_Numbers"
-                 target="http://www.iana.org/assignments/as-numbers">
-        <front>
-          <title abbrev="Autonomous System (AS) Numbers">Autonomous System
-          (AS) Numbers</title>
-
-          <author>
-            <organization>IANA</organization>
-          </author>
-
-          <date />
-        </front>
-      </reference>
     </references>
 
     <references title="Informative References">
@@ -338,10 +324,15 @@
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
+      <t></t>
+
       <t>From -00 to -01.</t>
 
       <t><list style="symbols">
-          <t>Initial version.</t>
+          <t>Fixed the abstract.</t>
+
+          <t>Recommended that folk root their non-DNS namespace under a DNS
+          namespace that they control (Joe Abley)</t>
         </list></t>
     </section>
   </back>
