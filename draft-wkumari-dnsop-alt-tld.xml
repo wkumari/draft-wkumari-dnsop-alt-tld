@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-wkumari-dnsop-alt-tld-01"
+<rfc category="info" docName="draft-wkumari-dnsop-alt-tld-02"
      ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
@@ -61,7 +61,7 @@
       </address>
     </author>
 
-    <date day="16" month="April" year="2014" />
+    <date day="4" month="July" year="2014"/>
 
     <area>template</area>
 
@@ -76,27 +76,25 @@
 
   <middle>
     <section title="Introduction">
-      <t>Many protocols and systems need to name entities. The DNS "standard"
-      of a series of labels separated with dots has become common, even in
-      systems that are not actually part of the DNS.</t>
+      <t>Many protocols and systems need to name entities. Names that look
+      like DNS names (a series of labels separated with dots) have become
+      common, even in systems that are not part of the DNS.</t>
 
-      <t>This document reserves the string "ALT" (short for Alternate) as a
-      Special Use Domain (<xref target="RFC6761"></xref>) that should be used
-      in the right-most label position to signify that this name is not rooted
-      in the DNS, and that normal registration and lookup rules do not
-      apply.</t>
+      <t>This document reserves the string "ALT" (short for "Alternate") as a
+      Special Use Domain (<xref target="RFC6761"/>) that should be used in the
+      right-most label position to signify that this name is not rooted in the
+      DNS, and that normal registration and lookup rules do not apply.</t>
 
       <section title="Requirements notation">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
         "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
         document are to be interpreted as described in <xref
-        target="RFC2119"></xref>.</t>
+        target="RFC2119"/>.</t>
       </section>
 
       <section title="Terminology">
         <t>This document assumes familiarity with DNS terms and concepts.
-        Please see <xref target="RFC1034"></xref> for background and
-        concepts.</t>
+        Please see <xref target="RFC1034"/> for background and concepts.</t>
 
         <t><list style="symbols">
             <t>DNS context: The namespace administered by ICANN. This is the
@@ -120,7 +118,7 @@
       occur in a namespace distinct from the DNS. A number of good examples of
       these sorts of systems are documented in Special-Use Domain Names of
       Peer-to-Peer Systems <xref
-      target="I-D.grothoff-iesg-special-use-p2p-names"></xref>. </t>
+      target="I-D.grothoff-iesg-special-use-p2p-names"/>.</t>
 
       <t>In many cases, these systems build a DNS style tree parallel to the
       global DNS administered by IANA. They often use a pseudo-TLD to cause
@@ -151,18 +149,13 @@
           <t>Lack of success for the user's original goal.</t>
         </list></t>
 
-      <t>One of the primary design goals of a number of these alternate name
-      resolution systems it to provide confidentiality of the names being
-      resolved.</t>
-
       <t>A significant number of these alternate name resolution systems are
       specifically designed to provide confidentiality of the looked up name,
       and provide a distributed and censorship resistant namespace. For
       example, the Tor project use of .onion is intended to provide a
       confidential and alternate name resolution process. This goal may be
       defeated if the queries leak into the DNS, for example if a Tor user
-      shares a link with a friend who doesn't have the Tor browser
-      installed.</t>
+      shares a link with a friend who isnt using the Tor browser.</t>
     </section>
 
     <section title="The ALT namespace">
@@ -187,7 +180,7 @@
           resolver for names in the ALT TLD.</t>
 
           <t>Iterative resolvers SHOULD follow the advice in <xref
-          target="RFC6303"></xref>, Section 3.</t>
+          target="RFC6303"/>, Section 3.</t>
 
           <t>The root zone nameservers should either return NXDOMAIN
           responses, or the ALT TLD should be delegated to "new style" AS112
@@ -202,10 +195,10 @@
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       (for example, the ".onion" pseudo-TLD (and other labels in <xref
-      target="I-D.grothoff-iesg-special-use-p2p-names"></xref>) are not
-      expected to move under the ALT TLD (but may do so if they wish; this is
-      a common resource). Rather, the ALT TLD is being reserved so that future
-      projects of a similar nature have a designated place to create alternate
+      target="I-D.grothoff-iesg-special-use-p2p-names"/>) are not expected to
+      move under the ALT TLD (but may do so if they wish; this is a common
+      resource). Rather, the ALT TLD is being reserved so that future projects
+      of a similar nature have a designated place to create alternate
       resolution namespaces that will not conflict with the regular DNS
       context.</t>
 
@@ -216,8 +209,8 @@
       context names), this rules out using suffixes that are not themselves
       DNS labels. Another proposal was that the ALT TLD instead be a
       reservation under .arpa. This was considered, but rejected because of we
-      are suggesting that this be served as an <xref target="RFC6303"></xref>
-      and that recursive operators configure themselves to serve empty
+      are suggesting that this be served as an <xref target="RFC6303"/> and
+      that recursive operators configure themselves to serve empty
       authoritative zones for the reserved labeled. There is a concern that if
       there were placed under .arpa less experienced nameserver operators may
       inadvertently cover .arpa. A more significant concern is that the scope
@@ -256,7 +249,7 @@
       This means that the fact that a user is resolving
       disident.onion.example.com would be visible to a large number of people.
       Furthermore, the onion.example.com nameservers become a good oracle to
-      determine what names exist, and who is trying to reach them. </t>
+      determine what names exist, and who is trying to reach them.</t>
 
       <t>For projects that are very latency sensitive, or which desire to
       provide confidentiality we recommend rooting the alternate namespace
@@ -265,24 +258,10 @@
 
     <section title="IANA Considerations">
       <t>The IANA is requested to add the ALT string to the "Special-Use
-      Domain Name" registry (<xref target="RFC6761"></xref>, and reference
-      this document. In addition, the "Locally Served DNS Zones" (<xref
-      target="RFC6303"></xref>) registry should be updated to reference this
+      Domain Name" registry (<xref target="RFC6761"/>, and reference this
+      document. In addition, the "Locally Served DNS Zones" (<xref
+      target="RFC6303"/>) registry should be updated to reference this
       document.</t>
-
-      <t></t>
-
-      <t>[ Ed: There are two options here. Option 1: We could ask the IANA to
-      run a "First Come First Served" registry for labels under the ALT TLD.
-      By registry I mean a "standard" IANA registry, not a registry in the DNS
-      sense of the word (IANA would publish on a webpage "Foo |
-      fred@example.com | Used for the foo project"). Option 2: This is a fully
-      uncoordinated space (in the same way that people have been picking
-      pseudo-TLDs up till now) -- pick something that, as far as you know
-      others are not using... There are pros and cons to both -- I don't want
-      to overload the IANA, have people stage a land-grab for names, or give
-      the impression that this is a "real" TLD. Thoughts? Currently we say
-      there is no registry (Section 3), but that can be changed.)]</t>
     </section>
 
     <section anchor="security" title="Security Considerations">
@@ -324,7 +303,11 @@
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
-      <t></t>
+      <t>From -01 to -02</t>
+
+      <t><list style="symbols">
+          <t>Removed some fluffy wording, tightened up the language some.</t>
+        </list></t>
 
       <t>From -00 to -01.</t>
 
