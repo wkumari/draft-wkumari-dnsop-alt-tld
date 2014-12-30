@@ -6,12 +6,12 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: January 5, 2015                                             Dyn
-                                                            July 4, 2014
+Expires: July 3, 2015                                                Dyn
+                                                       December 30, 2014
 
 
                   The ALT Special Use Top Level Domain
-                     draft-wkumari-dnsop-alt-tld-02
+                     draft-wkumari-dnsop-alt-tld-03
 
 Abstract
 
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 5, 2015.
+   This Internet-Draft will expire on July 3, 2015.
 
 Copyright Notice
 
@@ -54,9 +54,9 @@ Copyright Notice
 
 
 
-Kumari & Sullivan        Expires January 5, 2015                [Page 1]
+Kumari & Sullivan         Expires July 3, 2015                  [Page 1]
 
-Internet-Draft               Reserve ALT TLD                   July 2014
+Internet-Draft               Reserve ALT TLD               December 2014
 
 
 Table of Contents
@@ -110,9 +110,9 @@ Table of Contents
 
 
 
-Kumari & Sullivan        Expires January 5, 2015                [Page 2]
+Kumari & Sullivan         Expires July 3, 2015                  [Page 2]
 
-Internet-Draft               Reserve ALT TLD                   July 2014
+Internet-Draft               Reserve ALT TLD               December 2014
 
 
 2.  Background
@@ -166,9 +166,9 @@ Internet-Draft               Reserve ALT TLD                   July 2014
 
 
 
-Kumari & Sullivan        Expires January 5, 2015                [Page 3]
+Kumari & Sullivan         Expires July 3, 2015                  [Page 3]
 
-Internet-Draft               Reserve ALT TLD                   July 2014
+Internet-Draft               Reserve ALT TLD               December 2014
 
 
    shares a link with a friend who isn't using the Tor browser, the
@@ -222,9 +222,9 @@ Internet-Draft               Reserve ALT TLD                   July 2014
 
 
 
-Kumari & Sullivan        Expires January 5, 2015                [Page 4]
+Kumari & Sullivan         Expires July 3, 2015                  [Page 4]
 
-Internet-Draft               Reserve ALT TLD                   July 2014
+Internet-Draft               Reserve ALT TLD               December 2014
 
 
    These rules are intended to limit how far unintentional / non-global
@@ -278,9 +278,9 @@ Internet-Draft               Reserve ALT TLD                   July 2014
 
 
 
-Kumari & Sullivan        Expires January 5, 2015                [Page 5]
+Kumari & Sullivan         Expires July 3, 2015                  [Page 5]
 
-Internet-Draft               Reserve ALT TLD                   July 2014
+Internet-Draft               Reserve ALT TLD               December 2014
 
 
    more significant concern is that the scope of the issue if the query
@@ -334,9 +334,9 @@ Internet-Draft               Reserve ALT TLD                   July 2014
 
 
 
-Kumari & Sullivan        Expires January 5, 2015                [Page 6]
+Kumari & Sullivan         Expires July 3, 2015                  [Page 6]
 
-Internet-Draft               Reserve ALT TLD                   July 2014
+Internet-Draft               Reserve ALT TLD               December 2014
 
 
    For projects that are very latency sensitive, or which desire to
@@ -390,9 +390,9 @@ Internet-Draft               Reserve ALT TLD                   July 2014
 
 
 
-Kumari & Sullivan        Expires January 5, 2015                [Page 7]
+Kumari & Sullivan         Expires July 3, 2015                  [Page 7]
 
-Internet-Draft               Reserve ALT TLD                   July 2014
+Internet-Draft               Reserve ALT TLD               December 2014
 
 
 8.  References
@@ -446,9 +446,9 @@ Appendix A.  Changes / Author Notes.
 
 
 
-Kumari & Sullivan        Expires January 5, 2015                [Page 8]
+Kumari & Sullivan         Expires July 3, 2015                  [Page 8]
 
-Internet-Draft               Reserve ALT TLD                   July 2014
+Internet-Draft               Reserve ALT TLD               December 2014
 
 
    o  Fixed the abstract.
@@ -502,5 +502,5 @@ Authors' Addresses
 
 
 
-Kumari & Sullivan        Expires January 5, 2015                [Page 9]
+Kumari & Sullivan         Expires July 3, 2015                  [Page 9]
 ```
