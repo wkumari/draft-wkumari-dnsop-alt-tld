@@ -6,8 +6,8 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: July 3, 2015                                                Dyn
-                                                       December 30, 2014
+Expires: July 4, 2015                                                Dyn
+                                                       December 31, 2014
 
 
                   The ALT Special Use Top Level Domain
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 3, 2015.
+   This Internet-Draft will expire on July 4, 2015.
 
 Copyright Notice
 
@@ -54,7 +54,7 @@ Copyright Notice
 
 
 
-Kumari & Sullivan         Expires July 3, 2015                  [Page 1]
+Kumari & Sullivan         Expires July 4, 2015                  [Page 1]
 
 Internet-Draft               Reserve ALT TLD               December 2014
 
@@ -69,11 +69,11 @@ Table of Contents
    4.  Advice to developers  . . . . . . . . . . . . . . . . . . . .   6
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
-   7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   7
+   7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   8
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
      8.2.  Informative References  . . . . . . . . . . . . . . . . .   8
-   Appendix A.  Changes / Author Notes.  . . . . . . . . . . . . . .   8
+   Appendix A.  Changes / Author Notes.  . . . . . . . . . . . . . .   9
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
 
 1.  Introduction
@@ -86,10 +86,11 @@ Table of Contents
    instead of [RFC6761].  RFC6761 specifies Special Use TLDs which
    should only be used in exceptional circumstances.
 
-   This document reserves the string "ALT" (short for "Alternate") as a
-   Special Use Domain ([RFC6761]) that should be used in the right-most
-   label position to signify that this name is not rooted in the DNS,
-   and that normal registration and lookup rules do not apply.
+   This document reserves the label "ALT" (short for "Alternate") as a
+   Special Use Domain ([RFC6761]).  This label is intended to be used as
+   the final label (apart from the zero-length terminating) to signify
+   that the name is not rooted in the DNS, and that normal registration
+   and lookup rules do not apply.
 
 1.1.  Requirements notation
 
@@ -102,18 +103,25 @@ Table of Contents
    This document assumes familiarity with DNS terms and concepts.
    Please see [RFC1034] for background and concepts.
 
-   o  DNS context: The namespace administered by ICANN.  This is the
-      namespace / context that "normal" DNS uses.
+   o  DNS context: The namespace anchored at the globally-unique DNS
+      root.  This is the namespace / context that "normal" DNS uses.
 
    o  non-DNS context: Any other / alternate namespace.
 
 
 
-
-Kumari & Sullivan         Expires July 3, 2015                  [Page 2]
+Kumari & Sullivan         Expires July 4, 2015                  [Page 2]
 
 Internet-Draft               Reserve ALT TLD               December 2014
 
+
+   o  pseudo-TLD: A label that appears in a fully-qualified domain name
+      in the position of a TLD, but which is not registered in the
+      global DNS.
+
+   o  TLD: The last visible label in either a fully-qualified domain
+      name or a name that is qualified relative to the root.  See the
+      discussion in Section 2.
 
 2.  Background
 
@@ -124,32 +132,46 @@ Internet-Draft               Reserve ALT TLD               December 2014
    nature of the DNS has made it the primary resolution system on the
    Internet.
 
+   Domain names are terminated by a zero-length label, so the root label
+   is normally invisible.  Truly fully-qualified names indicate the root
+   label explicitly, thus: "an.example.tld.".  Most of the time, to save
+   typing, names are written implicitly relative to the root, thus:
+   "an.example.tld".  In both of these cases, the TLD is the last label
+   that is visible in presentation format -- in this example, the string
+   "tld".  (This little bit of pedantry is here because in different
+   contexts people can use the term "fully-qualified domain name" to
+   refer to either of these uses.)
+
    The success of the DNS makes it a natural starting point for systems
    that need to name entities in a non-DNS context, or that have no
-   unique meaning in a global context.  These name resolutions occur in
-   a namespace distinct from the DNS.  A number of good examples of
-   these sorts of systems are documented in Special-Use Domain Names of
-   Peer-to-Peer Systems [I-D.grothoff-iesg-special-use-p2p-names].
+   unique meaning in a global context.  These name resolutions can
+   therefore occur in a namespace distinct from the DNS.
 
-   In many cases, these systems build a DNS style tree parallel to the
+   In many cases, these systems build a DNS-style tree parallel to the
    global DNS administered by IANA.  They often use a pseudo-TLD to
-   cause resolution in this alternate namespace, using browser plugins,
+   cause resolution in the alternate namespace, using browser plugins,
    shims in the name resolution process, or simply applications that
    only use this alternate namespace.
 
    In many cases the creators of these alternate namespaces have simply
-   chosen a convenient / descriptive string and started using it.  These
-   new strings are "alternate" strings and are not registered anywhere
-   or part of the DNS.  However they appear to be TLDs, as they are the
-   in the right-most position of a name.  Issues may arise if they are
-   looked up in the DNS.  These include:
+   chosen a convenient or descriptive string and started using it.
+   These new strings are "alternate" strings and are not registered
+   anywhere or part of the DNS.  However they appear to be TLDs.  Issues
+   may arise if they are looked up in the DNS.  These include:
 
    o  User confusion: If someone emails a link of the form foo.bar
       .pseudo-TLD to someone who does not have the necessary software to
       resolve names in the pseudo-TLD namespace, the name will not
       resolve and the user may become confused.
 
-   o  Excess traffic hitting the DNS root.  Lookups leak out of the
+
+
+Kumari & Sullivan         Expires July 4, 2015                  [Page 3]
+
+Internet-Draft               Reserve ALT TLD               December 2014
+
+
+   o  Excess traffic hitting the DNS root: Lookups leak out of the
       pseudo-TLD namespace and end up hitting the DNS root nameservers.
 
    o  Collisions: If the pseudo-TLD is eventually delegated from the
@@ -157,39 +179,25 @@ Internet-Draft               Reserve ALT TLD               December 2014
 
    o  Lack of success for the user's original goal.
 
-   A significant number of these alternate name resolution systems are
-   specifically designed to provide confidentiality of the looked up
-   name, and provide a distributed and censorship resistant namespace.
-   For example, the Tor project use of .onion is intended to provide a
-   confidential and alternate name resolution process.  This goal may be
-   defeated if the queries leak into the DNS.  For example if a Tor user
-
-
-
-Kumari & Sullivan         Expires July 3, 2015                  [Page 3]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
-
-   shares a link with a friend who isn't using the Tor browser, the
-   recipient will attempt to resolve the Tor link - this resolution
-   attempt will query the client's recursive server and, as the TLD does
-   not exist in the DNS, the query will end up hitting the client's
-   iterative resolver, and then root, thereby leaking the user's query.
+   An alternate name resolution system might be specifically designed to
+   provide confidentiality of the looked up name, and to provide a
+   distributed and censorship resistant namespace.  This goal would
+   necessarily be defeated if the queries leak into the DNS, because the
+   attempt to look up the name would be visible at least to the
+   operators of root name servers.
 
 3.  The ALT namespace
 
-   In order to avoid the above issues we reserve the .ALT label.  Unless
+   In order to avoid the above issues we reserve the ALT label.  Unless
    the name desired is globally unique, has meaning on the global
    context and is delegated in the DNS, it should be considered an
-   alternate namespace, and follow the .ALT label scheme outlined below.
-   The .ALT label should be used as a pseudo-TLD (in the right most
-   (TLD) position of a name) to signify that this is an alternate (non-
-   DNS) namespace.
+   alternate namespace, and follow the ALT label scheme outlined below.
+   The ALT label MAY be used in any domain name as a pseudo-TLD to
+   signify that this is an alternate (non-DNS) namespace.
 
    Alternate namespaces should differentiate themselves from other
    alternate namespaces by choosing a name and using it in the label
-   position just before the pseudo-TLD (.ALT).  For example, a group
+   position just before the pseudo-TLD (ALT).  For example, a group
    wishing to create a namespace for Friends Of Olaf might choose the
    string "foo" and use any set of labels under foo.alt.  It is
    RECOMMENDED that users register their usage of this string with the
@@ -211,21 +219,20 @@ Internet-Draft               Reserve ALT TLD               December 2014
        as an alternative process to RFC6761 this no longer makes sense.
        Address?  Remove? ]
 
+
+
+
+Kumari & Sullivan         Expires July 4, 2015                  [Page 4]
+
+Internet-Draft               Reserve ALT TLD               December 2014
+
+
    2.  Iterative resolvers SHOULD follow the advice in [RFC6303],
        Section 3.
 
    3.  The ALT TLD is delegated to "new style" AS112 nameservers
        ([I-D.ietf-dnsop-as112-dname] ), which will return NXDOMAIN for
        all queries.
-
-
-
-
-
-Kumari & Sullivan         Expires July 3, 2015                  [Page 4]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
 
    These rules are intended to limit how far unintentional / non-global
    queries flow.
@@ -235,8 +242,9 @@ Internet-Draft               Reserve ALT TLD               December 2014
    "under" the ALT label.  They SHOULD choose a label that they expect
    to be unique / descriptive.  They SHOULD consult the TBD registry to
    see if anyone has published that they are already using this string,
-   and if so, MUST choose an alternative string.  As there is no
-   requirement to register the use of a label in the ALT namespace,
+   and if so, would be wise to choose an alternative string or risk the
+   possibility of collisions with some other application.  As there is
+   no requirement to register the use of a label in the ALT namespace,
    uniqueness is not guaranteed.
 
    Currently deployed projects and protocols that are using pseudo-TLDs
@@ -252,12 +260,12 @@ Internet-Draft               Reserve ALT TLD               December 2014
 
    A number of names other than .ALT were considered and discarded.  In
    order for this technique to be effective the names need to continue
-   to follow the DNS format (a prime consideration for alternate name
-   formats is that they can be entered in places that normally take DNS
-   context names), this rules out using suffixes that are not themselves
-   DNS labels.  Another proposal was that the ALT TLD instead be a
-   reservation under .arpa.  This was considered, but rejected for
-   several reasons.
+   to follow both the DNS format and conventions (a prime consideration
+   for alternate name formats is that they can be entered in places that
+   normally take DNS context names); this rules out using suffixes that
+   do not follow the usual letter, digit, and hyphen label convention.
+   Another proposal was that the ALT TLD instead be a reservation under
+   .arpa.  This was considered, but rejected for several reasons.
 
    1.  We wished this to make it clear that this is not in the DNS
        context, and .arpa clearly is.
@@ -267,22 +275,27 @@ Internet-Draft               Reserve ALT TLD               December 2014
 
    3.  We wanted the string to be short and easily used.
 
-   4.  We are suggesting that the string .ALT be get special treatment
-       in resolvers, and shim software.  We are concerned that using
+
+
+
+Kumari & Sullivan         Expires July 4, 2015                  [Page 5]
+
+Internet-Draft               Reserve ALT TLD               December 2014
+
+
+   4.  A name underneath .arpa would consume at least five additional
+       octets of the total 255 octets available in domain names, which
+       could put pressure on applications that need long machine-
+       generated names.
+
+   5.  We are suggesting that the string .ALT get special treatment in
+       resolvers, and shim software.  We are concerned that using
        subdomains of an existing TLD (like .arpa) might end up with bad
        implementations misconfiguring / overriding the TLD itself and
        breaking .arpa.
 
    There is a concern that if there were placed under .arpa, less
    experienced nameserver operators may inadvertently cover .arpa.  A
-
-
-
-Kumari & Sullivan         Expires July 3, 2015                  [Page 5]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
-
    more significant concern is that the scope of the issue if the query
    does leak, and the fact that this would then make the root of the
    alternate naming namespace a third level domain, and not a second
@@ -318,6 +331,14 @@ Internet-Draft               Reserve ALT TLD               December 2014
 
    In a number of cases the purpose of the alternate name resolution
    system is to provide confidentiality.  For these systems the above
+
+
+
+Kumari & Sullivan         Expires July 4, 2015                  [Page 6]
+
+Internet-Draft               Reserve ALT TLD               December 2014
+
+
    advice is problematic.  If the a query for one of these names (for
    example dissident.onion.example.com (this is not a real .onion
    address)) were to leak into the DNS the query would hit the recursive
@@ -328,16 +349,6 @@ Internet-Draft               Reserve ALT TLD               December 2014
    number of people.  Furthermore, the onion.example.com nameservers
    become a good oracle to determine what names exist, and who is trying
    to reach them.
-
-
-
-
-
-
-Kumari & Sullivan         Expires July 3, 2015                  [Page 6]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
 
    For projects that are very latency sensitive, or which desire to
    provide confidentiality we recommend rooting the alternate namespace
@@ -355,8 +366,8 @@ Internet-Draft               Reserve ALT TLD               December 2014
 
    The fields in the registry should be:
 
-   Label: An ASCII string containing a maximum of 63 letters, drawn from
-   the character set [a-z] and '-'.
+   Label: An ASCII string containing a maximum of 63 characters, using
+   only letters (a-z), digits (0-9), and hyphen (-).
 
    Description: A short, textual description explaining what the label
    is used for.
@@ -376,6 +387,14 @@ Internet-Draft               Reserve ALT TLD               December 2014
    unexpected takeover if the manager of the root name space decides to
    delegate the unmanaged label.
 
+
+
+
+Kumari & Sullivan         Expires July 4, 2015                  [Page 7]
+
+Internet-Draft               Reserve ALT TLD               December 2014
+
+
    The unmanaged and "registration not required" nature of labels
    beneath .ALT provides the opportunity for an attacker to re-use the
    chosen label and thereby possibly compromise applications dependent
@@ -386,14 +405,6 @@ Internet-Draft               Reserve ALT TLD               December 2014
    The authors understand that there is much politics surrounding the
    delegation of a new TLD and thank the ICANN liaison (and any other
    poor sod who gets sucked into this) in advance.
-
-
-
-
-Kumari & Sullivan         Expires July 3, 2015                  [Page 7]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
 
 8.  References
 
@@ -429,6 +440,17 @@ Internet-Draft               Reserve ALT TLD               December 2014
               issued by IANA", draft-ietf-sidr-iana-objects-03 (work in
               progress), May 2011.
 
+
+
+
+
+
+
+Kumari & Sullivan         Expires July 4, 2015                  [Page 8]
+
+Internet-Draft               Reserve ALT TLD               December 2014
+
+
 Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
@@ -443,13 +465,6 @@ Appendix A.  Changes / Author Notes.
    o  Removed some fluffy wording, tightened up the language some.
 
    From -00 to -01.
-
-
-
-Kumari & Sullivan         Expires July 3, 2015                  [Page 8]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
 
    o  Fixed the abstract.
 
@@ -487,20 +502,5 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Kumari & Sullivan         Expires July 3, 2015                  [Page 9]
+Kumari & Sullivan         Expires July 4, 2015                  [Page 9]
 ```
