@@ -203,12 +203,6 @@
       so recursive and stub resolvers will get NXDOMAIN for all queries.</t>
 
       <t><list style="numbers">
-          <t>Stub resolvers MAY elect not to send queries to any upstream
-          resolver for names in the ALT TLD. [ TODO(WK): This was originally
-          written for the non-DNS context only. If we use this as an
-          alternative process to RFC6761 this no longer makes sense. Address?
-          Remove? ]</t>
-
           <t>Iterative resolvers SHOULD follow the advice in <xref
           target="RFC6303"/>, Section 3.</t>
 
@@ -238,9 +232,6 @@
       place to create alternate resolution namespaces that will not conflict
       with the regular DNS context.</t>
 
-      <t>[Editor note: The text below (to end of section) is background /
-      discussion. Probably can be removed before publication ? ]</t>
-
       <t>A number of names other than .ALT were considered and discarded. In
       order for this technique to be effective the names need to continue to
       follow both the DNS format and conventions (a prime consideration for
@@ -254,7 +245,7 @@
           <t>We wished this to make it clear that this is not in the DNS
           context, and .arpa clearly is.</t>
 
-          <t>The use of ALT is intended to [remind ?] people of the alt.*
+          <t>The use of the string .ALT is intended to evoke the alt.*
           hierarchy in Usenet.</t>
 
           <t>We wanted the string to be short and easily used.</t>
@@ -277,8 +268,7 @@
       leak, and the fact that this would then make the root of the alternate
       naming namespace a third level domain, and not a second one. A project
       may be willing to have a name of the form example.alt, but
-      example.alt.arpa may be not look as good [TODO: Better wording here.
-      Don't want to say "vanity" ! ]</t>
+      example.alt.arpa may be not look as good.</t>
     </section>
 
     <section title="Advice to developers">
@@ -363,8 +353,7 @@
 
     <section title="Acknowledgements">
       <t>The authors understand that there is much politics surrounding the
-      delegation of a new TLD and thank the ICANN liaison (and any other poor
-      sod who gets sucked into this) in advance.</t>
+      delegation of a new TLD and thank the ICANN liaison in advance.</t>
     </section>
   </middle>
 

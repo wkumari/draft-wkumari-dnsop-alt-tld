@@ -69,11 +69,11 @@ Table of Contents
    4.  Advice to developers  . . . . . . . . . . . . . . . . . . . .   6
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
-   7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   8
+   7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   7
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
      8.2.  Informative References  . . . . . . . . . . . . . . . . .   8
-   Appendix A.  Changes / Author Notes.  . . . . . . . . . . . . . .   9
+   Appendix A.  Changes / Author Notes.  . . . . . . . . . . . . . .   8
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
 
 1.  Introduction
@@ -213,12 +213,12 @@ Internet-Draft               Reserve ALT TLD               December 2014
    AS112 servers, and so recursive and stub resolvers will get NXDOMAIN
    for all queries.
 
-   1.  Stub resolvers MAY elect not to send queries to any upstream
-       resolver for names in the ALT TLD. [ TODO(WK): This was
-       originally written for the non-DNS context only.  If we use this
-       as an alternative process to RFC6761 this no longer makes sense.
-       Address?  Remove? ]
+   1.  Iterative resolvers SHOULD follow the advice in [RFC6303],
+       Section 3.
 
+   2.  The ALT TLD is delegated to "new style" AS112 nameservers
+       ([I-D.ietf-dnsop-as112-dname] ), which will return NXDOMAIN for
+       all queries.
 
 
 
@@ -226,13 +226,6 @@ Kumari & Sullivan         Expires July 4, 2015                  [Page 4]
 
 Internet-Draft               Reserve ALT TLD               December 2014
 
-
-   2.  Iterative resolvers SHOULD follow the advice in [RFC6303],
-       Section 3.
-
-   3.  The ALT TLD is delegated to "new style" AS112 nameservers
-       ([I-D.ietf-dnsop-as112-dname] ), which will return NXDOMAIN for
-       all queries.
 
    These rules are intended to limit how far unintentional / non-global
    queries flow.
@@ -255,9 +248,6 @@ Internet-Draft               Reserve ALT TLD               December 2014
    designated place to create alternate resolution namespaces that will
    not conflict with the regular DNS context.
 
-   [Editor note: The text below (to end of section) is background /
-   discussion.  Probably can be removed before publication ? ]
-
    A number of names other than .ALT were considered and discarded.  In
    order for this technique to be effective the names need to continue
    to follow both the DNS format and conventions (a prime consideration
@@ -270,18 +260,10 @@ Internet-Draft               Reserve ALT TLD               December 2014
    1.  We wished this to make it clear that this is not in the DNS
        context, and .arpa clearly is.
 
-   2.  The use of ALT is intended to [remind ?] people of the alt.*
+   2.  The use of the string .ALT is intended to evoke the alt.*
        hierarchy in Usenet.
 
    3.  We wanted the string to be short and easily used.
-
-
-
-
-Kumari & Sullivan         Expires July 4, 2015                  [Page 5]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
 
    4.  A name underneath .arpa would consume at least five additional
        octets of the total 255 octets available in domain names, which
@@ -294,14 +276,20 @@ Internet-Draft               Reserve ALT TLD               December 2014
        implementations misconfiguring / overriding the TLD itself and
        breaking .arpa.
 
+
+
+Kumari & Sullivan         Expires July 4, 2015                  [Page 5]
+
+Internet-Draft               Reserve ALT TLD               December 2014
+
+
    There is a concern that if there were placed under .arpa, less
    experienced nameserver operators may inadvertently cover .arpa.  A
    more significant concern is that the scope of the issue if the query
    does leak, and the fact that this would then make the root of the
    alternate naming namespace a third level domain, and not a second
    one.  A project may be willing to have a name of the form
-   example.alt, but example.alt.arpa may be not look as good [TODO:
-   Better wording here.  Don't want to say "vanity" ! ]
+   example.alt, but example.alt.arpa may be not look as good.
 
 4.  Advice to developers
 
@@ -331,14 +319,6 @@ Internet-Draft               Reserve ALT TLD               December 2014
 
    In a number of cases the purpose of the alternate name resolution
    system is to provide confidentiality.  For these systems the above
-
-
-
-Kumari & Sullivan         Expires July 4, 2015                  [Page 6]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
-
    advice is problematic.  If the a query for one of these names (for
    example dissident.onion.example.com (this is not a real .onion
    address)) were to leak into the DNS the query would hit the recursive
@@ -349,6 +329,15 @@ Internet-Draft               Reserve ALT TLD               December 2014
    number of people.  Furthermore, the onion.example.com nameservers
    become a good oracle to determine what names exist, and who is trying
    to reach them.
+
+
+
+
+
+Kumari & Sullivan         Expires July 4, 2015                  [Page 6]
+
+Internet-Draft               Reserve ALT TLD               December 2014
+
 
    For projects that are very latency sensitive, or which desire to
    provide confidentiality we recommend rooting the alternate namespace
@@ -387,14 +376,6 @@ Internet-Draft               Reserve ALT TLD               December 2014
    unexpected takeover if the manager of the root name space decides to
    delegate the unmanaged label.
 
-
-
-
-Kumari & Sullivan         Expires July 4, 2015                  [Page 7]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
-
    The unmanaged and "registration not required" nature of labels
    beneath .ALT provides the opportunity for an attacker to re-use the
    chosen label and thereby possibly compromise applications dependent
@@ -403,8 +384,16 @@ Internet-Draft               Reserve ALT TLD               December 2014
 7.  Acknowledgements
 
    The authors understand that there is much politics surrounding the
-   delegation of a new TLD and thank the ICANN liaison (and any other
-   poor sod who gets sucked into this) in advance.
+   delegation of a new TLD and thank the ICANN liaison in advance.
+
+
+
+
+
+Kumari & Sullivan         Expires July 4, 2015                  [Page 7]
+
+Internet-Draft               Reserve ALT TLD               December 2014
+
 
 8.  References
 
@@ -440,17 +429,6 @@ Internet-Draft               Reserve ALT TLD               December 2014
               issued by IANA", draft-ietf-sidr-iana-objects-03 (work in
               progress), May 2011.
 
-
-
-
-
-
-
-Kumari & Sullivan         Expires July 4, 2015                  [Page 8]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
-
 Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
@@ -465,6 +443,13 @@ Appendix A.  Changes / Author Notes.
    o  Removed some fluffy wording, tightened up the language some.
 
    From -00 to -01.
+
+
+
+Kumari & Sullivan         Expires July 4, 2015                  [Page 8]
+
+Internet-Draft               Reserve ALT TLD               December 2014
+
 
    o  Fixed the abstract.
 
@@ -489,6 +474,21 @@ Authors' Addresses
    US
 
    Email: asullivan@dyn.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
