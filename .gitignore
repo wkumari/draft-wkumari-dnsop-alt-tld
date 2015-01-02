@@ -10,5 +10,9 @@
 # Ignore emacs backup files.
 *~
 
-# and the text versions of the drafts.
+# and the text and HTML versions of the drafts.
 *.txt
+*.html
+
+# and the Makefile
+Makefile
