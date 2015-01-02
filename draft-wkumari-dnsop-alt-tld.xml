@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-wkumari-dnsop-alt-tld-03"
+<rfc category="info" docName="draft-wkumari-dnsop-alt-tld-04"
      ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
@@ -61,7 +61,7 @@
       </address>
     </author>
 
-    <date day="31" month="December" year="2014"/>
+    <date day="2" month="January" year="2015"/>
 
     <area>template</area>
 
@@ -69,8 +69,8 @@
 
     <abstract>
       <t>This document reserves a string (ALT) to be used as a TLD label in
-      non-DNS contexts / for names that have no meaning in a global context.
-      It also provides advice / guidance to developers developing alternate
+      non-DNS contexts or for names that have no meaning in a global context.
+      It also provides advice and guidance to developers developing alternate
       namespaces.</t>
     </abstract>
   </front>
@@ -87,9 +87,9 @@
 
       <t>This document reserves the label "ALT" (short for "Alternate") as a
       Special Use Domain (<xref target="RFC6761"/>). This label is intended to
-      be used as the final label (apart from the zero-length terminating) to
-      signify that the name is not rooted in the DNS, and that normal
-      registration and lookup rules do not apply.</t>
+      be used as the final label (apart from the zero-length terminating
+      label) to signify that the name is not rooted in the DNS, and that
+      normal registration and lookup rules do not apply.</t>
 
       <section title="Requirements notation">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -354,6 +354,8 @@
     <section title="Acknowledgements">
       <t>The authors understand that there is much politics surrounding the
       delegation of a new TLD and thank the ICANN liaison in advance.</t>
+
+      <t>We would also like ot thank Paul Hoffman for feedback.</t>
     </section>
   </middle>
 
@@ -379,6 +381,12 @@
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+      <t>From -03 to -04</t>
+
+      <t><list style="symbols">
+          <t>Incorporated some comments from Paul Hoffman</t>
+        </list></t>
 
       <t>From -02 to -03</t>
 

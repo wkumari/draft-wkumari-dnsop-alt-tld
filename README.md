@@ -6,19 +6,19 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: July 4, 2015                                                Dyn
-                                                       December 31, 2014
+Expires: July 6, 2015                                                Dyn
+                                                         January 2, 2015
 
 
                   The ALT Special Use Top Level Domain
-                     draft-wkumari-dnsop-alt-tld-03
+                     draft-wkumari-dnsop-alt-tld-04
 
 Abstract
 
    This document reserves a string (ALT) to be used as a TLD label in
-   non-DNS contexts / for names that have no meaning in a global
-   context.  It also provides advice / guidance to developers developing
-   alternate namespaces.
+   non-DNS contexts or for names that have no meaning in a global
+   context.  It also provides advice and guidance to developers
+   developing alternate namespaces.
 
 Status of This Memo
 
@@ -35,11 +35,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 4, 2015.
+   This Internet-Draft will expire on July 6, 2015.
 
 Copyright Notice
 
-   Copyright (c) 2014 IETF Trust and the persons identified as the
+   Copyright (c) 2015 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -54,9 +54,9 @@ Copyright Notice
 
 
 
-Kumari & Sullivan         Expires July 4, 2015                  [Page 1]
+Kumari & Sullivan         Expires July 6, 2015                  [Page 1]
 
-Internet-Draft               Reserve ALT TLD               December 2014
+Internet-Draft               Reserve ALT TLD                January 2015
 
 
 Table of Contents
@@ -88,9 +88,9 @@ Table of Contents
 
    This document reserves the label "ALT" (short for "Alternate") as a
    Special Use Domain ([RFC6761]).  This label is intended to be used as
-   the final label (apart from the zero-length terminating) to signify
-   that the name is not rooted in the DNS, and that normal registration
-   and lookup rules do not apply.
+   the final label (apart from the zero-length terminating label) to
+   signify that the name is not rooted in the DNS, and that normal
+   registration and lookup rules do not apply.
 
 1.1.  Requirements notation
 
@@ -110,9 +110,9 @@ Table of Contents
 
 
 
-Kumari & Sullivan         Expires July 4, 2015                  [Page 2]
+Kumari & Sullivan         Expires July 6, 2015                  [Page 2]
 
-Internet-Draft               Reserve ALT TLD               December 2014
+Internet-Draft               Reserve ALT TLD                January 2015
 
 
    o  pseudo-TLD: A label that appears in a fully-qualified domain name
@@ -166,9 +166,9 @@ Internet-Draft               Reserve ALT TLD               December 2014
 
 
 
-Kumari & Sullivan         Expires July 4, 2015                  [Page 3]
+Kumari & Sullivan         Expires July 6, 2015                  [Page 3]
 
-Internet-Draft               Reserve ALT TLD               December 2014
+Internet-Draft               Reserve ALT TLD                January 2015
 
 
    o  Excess traffic hitting the DNS root: Lookups leak out of the
@@ -222,9 +222,9 @@ Internet-Draft               Reserve ALT TLD               December 2014
 
 
 
-Kumari & Sullivan         Expires July 4, 2015                  [Page 4]
+Kumari & Sullivan         Expires July 6, 2015                  [Page 4]
 
-Internet-Draft               Reserve ALT TLD               December 2014
+Internet-Draft               Reserve ALT TLD                January 2015
 
 
    These rules are intended to limit how far unintentional / non-global
@@ -278,9 +278,9 @@ Internet-Draft               Reserve ALT TLD               December 2014
 
 
 
-Kumari & Sullivan         Expires July 4, 2015                  [Page 5]
+Kumari & Sullivan         Expires July 6, 2015                  [Page 5]
 
-Internet-Draft               Reserve ALT TLD               December 2014
+Internet-Draft               Reserve ALT TLD                January 2015
 
 
    There is a concern that if there were placed under .arpa, less
@@ -334,9 +334,9 @@ Internet-Draft               Reserve ALT TLD               December 2014
 
 
 
-Kumari & Sullivan         Expires July 4, 2015                  [Page 6]
+Kumari & Sullivan         Expires July 6, 2015                  [Page 6]
 
-Internet-Draft               Reserve ALT TLD               December 2014
+Internet-Draft               Reserve ALT TLD                January 2015
 
 
    For projects that are very latency sensitive, or which desire to
@@ -386,13 +386,13 @@ Internet-Draft               Reserve ALT TLD               December 2014
    The authors understand that there is much politics surrounding the
    delegation of a new TLD and thank the ICANN liaison in advance.
 
+   We would also like ot thank Paul Hoffman for feedback.
 
 
 
-
-Kumari & Sullivan         Expires July 4, 2015                  [Page 7]
+Kumari & Sullivan         Expires July 6, 2015                  [Page 7]
 
-Internet-Draft               Reserve ALT TLD               December 2014
+Internet-Draft               Reserve ALT TLD                January 2015
 
 
 8.  References
@@ -433,6 +433,10 @@ Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
 
+   From -03 to -04
+
+   o  Incorporated some comments from Paul Hoffman
+
    From -02 to -03
 
    o  After discussions with chairs, made this much more generic (not
@@ -440,16 +444,16 @@ Appendix A.  Changes / Author Notes.
 
    From -01 to -02
 
+
+
+Kumari & Sullivan         Expires July 6, 2015                  [Page 8]
+
+Internet-Draft               Reserve ALT TLD                January 2015
+
+
    o  Removed some fluffy wording, tightened up the language some.
 
    From -00 to -01.
-
-
-
-Kumari & Sullivan         Expires July 4, 2015                  [Page 8]
-
-Internet-Draft               Reserve ALT TLD               December 2014
-
 
    o  Fixed the abstract.
 
@@ -498,9 +502,5 @@ Authors' Addresses
 
 
 
-
-
-
-
-Kumari & Sullivan         Expires July 4, 2015                  [Page 9]
+Kumari & Sullivan         Expires July 6, 2015                  [Page 9]
 ```
