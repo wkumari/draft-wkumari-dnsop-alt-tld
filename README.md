@@ -7,12 +7,12 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: July 6, 2015                                                Dyn
-                                                         January 2, 2015
+Expires: July 7, 2015                                                Dyn
+                                                         January 3, 2015
 
 
                   The ALT Special Use Top Level Domain
-                     draft-wkumari-dnsop-alt-tld-04
+                     draft-wkumari-dnsop-alt-tld-05
 
 Abstract
 
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 6, 2015.
+   This Internet-Draft will expire on July 7, 2015.
 
 Copyright Notice
 
@@ -55,7 +55,7 @@ Copyright Notice
 
 
 
-Kumari & Sullivan         Expires July 6, 2015                  [Page 1]
+Kumari & Sullivan         Expires July 7, 2015                  [Page 1]
 
 Internet-Draft               Reserve ALT TLD                January 2015
 
@@ -111,7 +111,7 @@ Table of Contents
 
 
 
-Kumari & Sullivan         Expires July 6, 2015                  [Page 2]
+Kumari & Sullivan         Expires July 7, 2015                  [Page 2]
 
 Internet-Draft               Reserve ALT TLD                January 2015
 
@@ -167,7 +167,7 @@ Internet-Draft               Reserve ALT TLD                January 2015
 
 
 
-Kumari & Sullivan         Expires July 6, 2015                  [Page 3]
+Kumari & Sullivan         Expires July 7, 2015                  [Page 3]
 
 Internet-Draft               Reserve ALT TLD                January 2015
 
@@ -223,7 +223,7 @@ Internet-Draft               Reserve ALT TLD                January 2015
 
 
 
-Kumari & Sullivan         Expires July 6, 2015                  [Page 4]
+Kumari & Sullivan         Expires July 7, 2015                  [Page 4]
 
 Internet-Draft               Reserve ALT TLD                January 2015
 
@@ -279,7 +279,7 @@ Internet-Draft               Reserve ALT TLD                January 2015
 
 
 
-Kumari & Sullivan         Expires July 6, 2015                  [Page 5]
+Kumari & Sullivan         Expires July 7, 2015                  [Page 5]
 
 Internet-Draft               Reserve ALT TLD                January 2015
 
@@ -335,7 +335,7 @@ Internet-Draft               Reserve ALT TLD                January 2015
 
 
 
-Kumari & Sullivan         Expires July 6, 2015                  [Page 6]
+Kumari & Sullivan         Expires July 7, 2015                  [Page 6]
 
 Internet-Draft               Reserve ALT TLD                January 2015
 
@@ -387,14 +387,19 @@ Internet-Draft               Reserve ALT TLD                January 2015
    The authors understand that there is much politics surrounding the
    delegation of a new TLD and thank the ICANN liaison in advance.
 
-   We would also like ot thank Paul Hoffman for feedback.
 
 
 
-Kumari & Sullivan         Expires July 6, 2015                  [Page 7]
+
+Kumari & Sullivan         Expires July 7, 2015                  [Page 7]
 
 Internet-Draft               Reserve ALT TLD                January 2015
 
+
+   We would also like to thank Joe Abley, Mark Andrews, Marc Blanchet,
+   John Bond, Stephane Bortzmeyer, David Conrad, Patrik Faltstrom,
+   Olafur GuTHmundsson, Paul Hoffman, Joel Jaeggli, Ted Lemon, George
+   Michaelson, Arturo Servin, for feedback.
 
 8.  References
 
@@ -434,6 +439,19 @@ Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
 
+   From -04 to -5
+
+   o  Went through and made sure that I'd captured the feedback
+      recieved.
+
+
+
+
+Kumari & Sullivan         Expires July 7, 2015                  [Page 8]
+
+Internet-Draft               Reserve ALT TLD                January 2015
+
+
    From -03 to -04
 
    o  Incorporated some comments from Paul Hoffman
@@ -444,13 +462,6 @@ Appendix A.  Changes / Author Notes.
       purely non-DNS), and some cleanup.
 
    From -01 to -02
-
-
-
-Kumari & Sullivan         Expires July 6, 2015                  [Page 8]
-
-Internet-Draft               Reserve ALT TLD                January 2015
-
 
    o  Removed some fluffy wording, tightened up the language some.
 
@@ -492,16 +503,5 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-Kumari & Sullivan         Expires July 6, 2015                  [Page 9]
+Kumari & Sullivan         Expires July 7, 2015                  [Page 9]
 ```

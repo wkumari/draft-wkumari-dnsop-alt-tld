@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-wkumari-dnsop-alt-tld-04"
+<rfc category="info" docName="draft-wkumari-dnsop-alt-tld-05"
      ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
@@ -61,7 +61,7 @@
       </address>
     </author>
 
-    <date day="2" month="January" year="2015"/>
+    <date day="3" month="January" year="2015"/>
 
     <area>template</area>
 
@@ -355,7 +355,10 @@
       <t>The authors understand that there is much politics surrounding the
       delegation of a new TLD and thank the ICANN liaison in advance.</t>
 
-      <t>We would also like ot thank Paul Hoffman for feedback.</t>
+      <t>We would also like to thank Joe Abley, Mark Andrews, Marc Blanchet,
+      John Bond, Stephane Bortzmeyer, David Conrad, Patrik Faltstrom, Olafur
+      GuTHmundsson, Paul Hoffman, Joel Jaeggli, Ted Lemon, George Michaelson,
+      Arturo Servin, for feedback.</t>
     </section>
   </middle>
 
@@ -381,6 +384,13 @@
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+      <t>From -04 to -5</t>
+
+      <t><list style="symbols">
+          <t>Went through and made sure that I'd captured the feedback
+          recieved. </t>
+        </list></t>
 
       <t>From -03 to -04</t>
 
