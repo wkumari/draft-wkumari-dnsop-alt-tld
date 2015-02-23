@@ -61,7 +61,7 @@
       </address>
     </author>
 
-    <date day="3" month="January" year="2015"/>
+    <date day="23" month="February" year="2015"/>
 
     <area>template</area>
 
@@ -72,6 +72,10 @@
       non-DNS contexts or for names that have no meaning in a global context.
       It also provides advice and guidance to developers developing alternate
       namespaces.</t>
+
+      <t>[ This document (and issues) lives in GitHub at:
+      https://github.com/wkumari/draft-wkumari-dnsop-alt-tld . RFC Editor:
+      Please remove this note before publication.]</t>
     </abstract>
   </front>
 
@@ -81,9 +85,9 @@
       like DNS names (a series of labels separated with dots) have become
       common, even in systems that are not part of the global DNS.</t>
 
-      <t>This document provides a solution which should be used in most cases
-      instead of <xref target="RFC6761"/>. RFC6761 specifies Special Use TLDs
-      which should only be used in exceptional circumstances.</t>
+      <t>This document provides a solution that may be more appropriate than
+      <xref target="RFC6761"/> in many cases. RFC6761 specifies Special Use
+      TLDs which should only be used in exceptional circumstances.</t>
 
       <t>This document reserves the label "ALT" (short for "Alternate") as a
       Special Use Domain (<xref target="RFC6761"/>). This label is intended to
@@ -225,12 +229,10 @@
       guaranteed.</t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
-      (for example, the ".onion" pseudo-TLD (and other labels in <xref
-      target="I-D.grothoff-iesg-special-use-p2p-names"/>) are encouraged but
-      not required to move under the ALT TLD. Rather, the ALT TLD is being
-      reserved so that future projects of a similar nature have a designated
-      place to create alternate resolution namespaces that will not conflict
-      with the regular DNS context.</t>
+      are encouraged but not required to move under the ALT TLD. Rather, the
+      ALT TLD is being reserved so that future projects of a similar nature
+      have a designated place to create alternate resolution namespaces that
+      will not conflict with the regular DNS context.</t>
 
       <t>A number of names other than .ALT were considered and discarded. In
       order for this technique to be effective the names need to continue to
@@ -278,34 +280,17 @@
       rare instance in which it is NOT desirable to have the name in the DNS,
       the .ALT namespace may be used.</t>
 
-      <t>An option would be for name resolution systems that operate outside
-      to DNS to "root" themselves under a DNS name that the project or
-      organization controls. So, for example if the Tor project controls
-      tor.example.com it could "root" their namespace under
-      onion.tor.example.com. The concept of "rooting" a non-DNS context in a
-      DNS context requires some explanation. This document tries to mitigate
-      collisions in the DNS context. This means that if a name from the
-      alternate naming system gets resolved in the DNS, it should not conflict
-      or cause unexpected behavior. By "rooting a non-DNS context namespace in
-      the DNS context, under a name controlled by the project" we mean that
-      the rightmost set of labels should, if resolved in the DNS context be in
-      a domain controlled by the developers / project. This means that, in the
-      above example the software implementing the alternate namespace (browser
-      plugins, custom stub resolvers, etc) would then match on names that end
-      in the string "onion.example.com" and provide the alternate name
-      resolution (instead of matching on the strings ending in ".onion".)</t>
-
       <t>In a number of cases the purpose of the alternate name resolution
       system is to provide confidentiality. For these systems the above advice
       is problematic. If the a query for one of these names (for example
-      dissident.onion.example.com (this is not a real .onion address)) were to
-      leak into the DNS the query would hit the recursive resolver, and
-      (assuming empty caches) would then hit the root, the .com name servers,
-      the example.com name servers and then the onion.example.com nameservers.
-      This means that the fact that a user is resolving
-      disident.onion.example.com would be visible to a large number of people.
-      Furthermore, the onion.example.com nameservers become a good oracle to
-      determine what names exist, and who is trying to reach them.</t>
+      harry.foo.example.com were to leak into the DNS the query would hit the
+      recursive resolver, and (assuming empty caches) would then hit the root,
+      the .com name servers, the example.com name servers and then the
+      foo.example.com nameservers. This means that the fact that a user is
+      resolving harry.foo.example.com would be visible to a large number of
+      people. Furthermore, the harry.foo.example.com nameservers become a good
+      oracle to determine what names exist, and who is trying to reach
+      them.</t>
 
       <t>For projects that are very latency sensitive, or which desire to
       provide confidentiality we recommend rooting the alternate namespace
@@ -333,10 +318,59 @@
       <t>Reference: A link to a stable reference, such as an RFC, or contact
       information for a person responsible for the reservation.</t>
 
-      <t>[ Ed: This section needs much cleanup - looking for something similar
-      to
-      http://www.iana.org/assignments/address-family-numbers/address-family-numbers.xhtml
-      (with people for things that don't have RFC references) ]</t>
+      <t/>
+
+      <section title="Domain Name Reservation Considerations">
+        <t>This section is to satisfy the requirement in Section 5 of
+        RFC6761.</t>
+
+        <t>The domain "alt.", and any names falling within ".alt.", are
+        special in the following ways:<list style="numbers">
+            <t>Human users are expected to know that strings that end in .alt
+            behave differntly to normal DNS names. Users are expected to have
+            applications running on their machines that intercept stings of
+            the form &lt;namespace&gt;.alt and perform special handing of
+            them. If the user tries to resolve a name of the form
+            &lt;namespace&gt;.alt without the &lt;namespace&gt; plugin
+            installed the request will leak into the DNS, and receive a
+            negative response.</t>
+
+            <t>Writers of application software the implement a non-DNS
+            namespace are expected to intercept names of the form
+            &lt;namespace&gt;.alt and perform application specific handing
+            with them. Other applications are not intened to perform any
+            special handing. </t>
+
+            <t>In general writers of name resolution APIs and libraries do not
+            need to perform special handing of these names. If developers of
+            other namespaces implement thier namespace through a "shim" or
+            library they will need to intercept and perform thier own
+            handing.</t>
+
+            <t>Caching DNS servers SHOULD recognize these names as special and
+            SHOULD NOT, by default, attempt to look up NS records for them, or
+            otherwise query authoritative DNS servers in an attempt to resolve
+            these names. Instead, caching DNS servers SHOULD generate
+            immediate negative responses for all such queries. </t>
+
+            <t>Authoritative DNS servers SHOULD recognize these names as
+            special and SHOULD, by default, generate immediate negative
+            responses for all such queries, unless explicitly configured by
+            the administrator to give positive answers for private-address
+            reverse-mapping names.</t>
+
+            <t>DNS server operators SHOULD be aware that queries for names
+            ending in .alt are not DNS names, and were leaked into the DNS
+            context (for example, by a missing browser plugin). This
+            information may be useful for support or debuggung purposes.</t>
+
+            <t>DNS Registries/Registrars MUST NOT grant requests to register
+            "alt" names in the normal way to any person or entity. These "alt"
+            names are defined by protocol specification to be nonexistent, and
+            they fall outside the set of names available for allocation by
+            registries/registrars.</t>
+          </list></t>
+      </section>
     </section>
 
     <section anchor="security" title="Security Considerations">
@@ -357,7 +391,7 @@
 
       <t>We would also like to thank Joe Abley, Mark Andrews, Marc Blanchet,
       John Bond, Stephane Bortzmeyer, David Conrad, Patrik Faltstrom, Olafur
-      GuTHmundsson, Paul Hoffman, Joel Jaeggli, Ted Lemon, George Michaelson,
+      Gudmundsson, Paul Hoffman, Joel Jaeggli, Ted Lemon, George Michaelson,
       Arturo Servin, for feedback.</t>
     </section>
   </middle>
@@ -376,20 +410,22 @@
     </references>
 
     <references title="Informative References">
-      <?rfc include='reference.I-D.draft-ietf-sidr-iana-objects-03.xml'
-?>
-
       <?rfc include='reference.I-D.ietf-dnsop-as112-dname.xml'?>
     </references>
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
-      <t>From -04 to -5</t>
+      <t>From -04 to -05</t>
 
       <t><list style="symbols">
           <t>Went through and made sure that I'd captured the feedback
-          recieved. </t>
+          recieved.</t>
+
+          <t>Filled in the "Domain Name Reservation Considerations" section of
+          RFC6761. </t>
+
+          <t>Removed examples from .onion.</t>
         </list></t>
 
       <t>From -03 to -04</t>
