@@ -78,7 +78,7 @@ Table of Contents
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
    7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   8
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   9
      8.2.  Informative References  . . . . . . . . . . . . . . . . .   9
    Appendix A.  Changes / Author Notes.  . . . . . . . . . . . . . .   9
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  10
@@ -145,18 +145,18 @@ Internet-Draft               Reserve ALT TLD               February 2015
 
    Domain names are terminated by a zero-length label, so the root label
    is normally invisible.  Truly fully-qualified names indicate the root
-   label explicitly, thus: "an.example.tld.".  Most of the time, to save
-   typing, names are written implicitly relative to the root, thus:
-   "an.example.tld".  In both of these cases, the TLD is the last label
-   that is visible in presentation format -- in this example, the string
-   "tld".  (This little bit of pedantry is here because in different
-   contexts people can use the term "fully-qualified domain name" to
-   refer to either of these uses.)
+   label explicitly, thus: "an.example.tld.".  Most of the time, names
+   are written implicitly relative to the root, thus: "an.example.tld".
+   In both of these cases, the TLD is the last label that is visible in
+   presentation format -- in this example, the string "tld".  (This
+   little bit of pedantry is here because, in different contexts, people
+   can use the term "fully-qualified domain name" to refer to either of
+   these uses.)
 
    The success of the DNS makes it a natural starting point for systems
    that need to name entities in a non-DNS context, or that have no
-   unique meaning in a global context.  These name resolutions can
-   therefore occur in a namespace distinct from the DNS.
+   unique meaning in a global context.  These name resolutions,
+   therefore, occur in a namespace distinct from the DNS.
 
    In many cases, these systems build a DNS-style tree parallel to the
    global DNS administered by IANA.  They often use a pseudo-TLD to
@@ -172,7 +172,7 @@ Kumari & Sullivan        Expires August 27, 2015                [Page 3]
 Internet-Draft               Reserve ALT TLD               February 2015
 
 
-   In many cases the creators of these alternate namespaces have simply
+   In many cases, the creators of these alternate namespaces have simply
    chosen a convenient or descriptive string and started using it.
    These new strings are "alternate" strings and are not registered
    anywhere or part of the DNS.  However they appear to be TLDs.  Issues
@@ -200,7 +200,7 @@ Internet-Draft               Reserve ALT TLD               February 2015
 
 3.  The ALT namespace
 
-   In order to avoid the above issues we reserve the ALT label.  Unless
+   In order to avoid the above issues, we reserve the ALT label.  Unless
    the name desired is globally unique, has meaning on the global
    context and is delegated in the DNS, it should be considered an
    alternate namespace, and follow the ALT label scheme outlined below.
@@ -229,9 +229,9 @@ Internet-Draft               Reserve ALT TLD               February 2015
 
 
    happen" doesn't actually stop it from happening, so we need some
-   rules to deal with these.  The ALT TLD is delegated to "new style"
-   AS112 servers, and so recursive and stub resolvers will get NXDOMAIN
-   for all queries.
+   rules to deal.  The ALT TLD is delegated to "new style" AS112
+   servers, and so recursive and stub resolvers will get NXDOMAIN for
+   all queries.
 
    1.  Iterative resolvers SHOULD follow the advice in [RFC6303],
        Section 3.
@@ -313,8 +313,8 @@ Internet-Draft               Reserve ALT TLD               February 2015
 
    In a number of cases the purpose of the alternate name resolution
    system is to provide confidentiality.  For these systems the above
-   advice is problematic.  If the a query for one of these names (for
-   example harry.foo.example.com were to leak into the DNS the query
+   advice is problematic.  If the query for one of these names (for
+   example harry.foo.example.com were to leak into the DNS, the query
    would hit the recursive resolver, and (assuming empty caches) would
    then hit the root, the .com name servers, the example.com name
    servers and then the foo.example.com nameservers.  This means that
@@ -323,8 +323,8 @@ Internet-Draft               Reserve ALT TLD               February 2015
    harry.foo.example.com nameservers become a good oracle to determine
    what names exist, and who is trying to reach them.
 
-   For projects that are very latency sensitive, or which desire to
-   provide confidentiality we recommend rooting the alternate namespace
+   For projects that are very latency sensitive, or that desire to
+   provide confidentiality, we recommend rooting the alternate namespace
    under the .ALT TLD.
 
 5.  IANA Considerations
@@ -365,29 +365,29 @@ Internet-Draft               Reserve ALT TLD               February 2015
    in the following ways:
 
    1.  Human users are expected to know that strings that end in .alt
-       behave differntly to normal DNS names.  Users are expected to
+       behave differently to normal DNS names.  Users are expected to
        have applications running on their machines that intercept stings
        of the form <namespace>.alt and perform special handing of them.
        If the user tries to resolve a name of the form <namespace>.alt
-       without the <namespace> plugin installed the request will leak
+       without the <namespace> plugin installed, the request will leak
        into the DNS, and receive a negative response.
 
-   2.  Writers of application software the implement a non-DNS namespace
-       are expected to intercept names of the form <namespace>.alt and
-       perform application specific handing with them.  Other
-       applications are not intened to perform any special handing.
-
-   3.  In general writers of name resolution APIs and libraries do not
-       need to perform special handing of these names.  If developers of
-       other namespaces implement thier namespace through a "shim" or
-       library they will need to intercept and perform thier own
+   2.  Writers of application software that implement a non-DNS
+       namespace are expected to intercept names of the form
+       <namespace>.alt and perform application specific handing with
+       them.  Other applications are not intended to perform any special
        handing.
+
+   3.  In general, writers of name resolution APIs and libraries do not
+       need to perform special handing of these names.  If developers of
+       other namespaces implement their namespace through a "shim" or
+       library, they will need to intercept and perform their own
+       handling.
 
    4.  Caching DNS servers SHOULD recognize these names as special and
        SHOULD NOT, by default, attempt to look up NS records for them,
        or otherwise query authoritative DNS servers in an attempt to
-       resolve these names.  Instead, caching DNS servers SHOULD
-       generate immediate negative responses for all such queries.
+
 
 
 
@@ -395,6 +395,9 @@ Kumari & Sullivan        Expires August 27, 2015                [Page 7]
 
 Internet-Draft               Reserve ALT TLD               February 2015
 
+
+       resolve these names.  Instead, caching DNS servers SHOULD
+       generate immediate negative responses for all such queries.
 
    5.  Authoritative DNS servers SHOULD recognize these names as special
        and SHOULD, by default, generate immediate negative responses for
@@ -437,13 +440,10 @@ Internet-Draft               Reserve ALT TLD               February 2015
 
 8.  References
 
-8.1.  Normative References
 
-   [I-D.grothoff-iesg-special-use-p2p-names]
-              Grothoff, C., Wachs, M., hellekin, h., and J. Appelbaum,
-              "Special-Use Domain Names of Peer-to-Peer Systems", draft-
-              grothoff-iesg-special-use-p2p-names-02 (work in progress),
-              March 2014.
+
+
+
 
 
 
@@ -451,6 +451,14 @@ Kumari & Sullivan        Expires August 27, 2015                [Page 8]
 
 Internet-Draft               Reserve ALT TLD               February 2015
 
+
+8.1.  Normative References
+
+   [I-D.grothoff-iesg-special-use-p2p-names]
+              Grothoff, C., Wachs, M., hellekin, h., and J. Appelbaum,
+              "Special-Use Domain Names of Peer-to-Peer Systems", draft-
+              grothoff-iesg-special-use-p2p-names-02 (work in progress),
+              March 2014.
 
    [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",
               STD 13, RFC 1034, November 1987.
@@ -491,14 +499,6 @@ Appendix A.  Changes / Author Notes.
 
    From -02 to -03
 
-   o  After discussions with chairs, made this much more generic (not
-      purely non-DNS), and some cleanup.
-
-   From -01 to -02
-
-   o  Removed some fluffy wording, tightened up the language some.
-
-   From -00 to -01.
 
 
 
@@ -507,6 +507,15 @@ Kumari & Sullivan        Expires August 27, 2015                [Page 9]
 
 Internet-Draft               Reserve ALT TLD               February 2015
 
+
+   o  After discussions with chairs, made this much more generic (not
+      purely non-DNS), and some cleanup.
+
+   From -01 to -02
+
+   o  Removed some fluffy wording, tightened up the language some.
+
+   From -00 to -01.
 
    o  Fixed the abstract.
 
@@ -531,15 +540,6 @@ Authors' Addresses
    US
 
    Email: asullivan@dyn.com
-
-
-
-
-
-
-
-
-
 
 
 
