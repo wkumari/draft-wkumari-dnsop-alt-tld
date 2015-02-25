@@ -420,12 +420,12 @@
 
       <t><list style="symbols">
           <t>Went through and made sure that I'd captured the feedback
-          recieved.</t>
+          received.</t>
 
           <t>Filled in the "Domain Name Reservation Considerations" section of
           RFC6761. </t>
 
-          <t>Removed examples from .onion.</t>
+          <t>Removed examples from .Onion.</t>
         </list></t>
 
       <t>From -03 to -04</t>

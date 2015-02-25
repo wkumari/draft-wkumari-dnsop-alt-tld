@@ -486,12 +486,12 @@ Appendix A.  Changes / Author Notes.
    From -04 to -05
 
    o  Went through and made sure that I'd captured the feedback
-      recieved.
+      received.
 
    o  Filled in the "Domain Name Reservation Considerations" section of
       RFC6761.
 
-   o  Removed examples from .onion.
+   o  Removed examples from .Onion.
 
    From -03 to -04
 
