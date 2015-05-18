@@ -61,7 +61,7 @@
       </address>
     </author>
 
-    <date day="03" month="March" year="2015"/>
+    <date day="18" month="May" year="2015"/>
 
     <area>template</area>
 
@@ -73,9 +73,9 @@
       It also provides advice and guidance to developers developing alternate
       namespaces.</t>
 
-      <t>[ This document (and issues) lives in GitHub at:
-      https://github.com/wkumari/draft-wkumari-dnsop-alt-tld . RFC Editor:
-      Please remove this note before publication.]</t>
+      <t>[ Ed note: This document lives in GitHub at:
+      https://github.com/wkumari/draft-wkumari-dnsop-alt-tld . Issues and pull
+      requests happily accpeted. ]</t>
     </abstract>
   </front>
 
@@ -124,7 +124,7 @@
     </section>
 
     <section anchor="background" title="Background">
-      <t>The DNS data model is based on a tree structure, and so has a single
+      <t>The DNS data model is based on a tree structure, and has a single
       root. Conventionally, a name immediately beneath the root is called a
       "Top Level Domain" or "TLD". TLDs usually delegate portions of their
       namespace to others, who may then delegate further. The hierarchical,
@@ -151,14 +151,14 @@
       <t>In many cases, these systems build a DNS-style tree parallel to the
       global DNS administered by IANA. They often use a pseudo-TLD to cause
       resolution in the alternate namespace, using browser plugins, shims in
-      the name resolution process, or simply applications that only use this
-      alternate namespace.</t>
+      the name resolution process, or simply applications that perform special
+      handling of this alternate namespace.</t>
 
-      <t>In many cases, the creators of these alternate namespaces have simply
-      chosen a convenient or descriptive string and started using it. These
-      new strings are "alternate" strings and are not registered anywhere or
-      part of the DNS. However they appear to be TLDs. Issues may arise if
-      they are looked up in the DNS. These include:</t>
+      <t>In many cases, the creators of these alternate namespaces have chosen
+      a convenient or descriptive string and started using it. These new
+      strings are "alternate" strings and are not registered anywhere or part
+      of the DNS. However they appear to be TLDs. Issues may arise if they are
+      looked up in the DNS. These include:</t>
 
       <t><list style="symbols">
           <t>User confusion: If someone emails a link of the form
@@ -196,17 +196,15 @@
       alternate namespaces by choosing a name and using it in the label
       position just before the pseudo-TLD (ALT). For example, a group wishing
       to create a namespace for Friends Of Olaf might choose the string "foo"
-      and use any set of labels under foo.alt. It is RECOMMENDED that users
-      register their usage of this string with the IANA in Registry TBD, but
-      users are not required to do so. This is intended to help prevent
-      collisions, but uniqueness is NOT guaranteed.</t>
+      and use any set of labels under foo.alt. </t>
 
       <t>As they are in an alternate namespace, they have no significance in
       the regular DNS context and so should not be looked up in the DNS
       context. Unfortunately simply saying that "something should not happen"
-      doesn't actually stop it from happening, so we need some rules to deal.
-      The ALT TLD is delegated to "new style" AS112 servers, and so recursive
-      and stub resolvers will get NXDOMAIN for all queries.</t>
+      doesn't actually stop it from happening, so we need some rules to guide
+      implementors and operators. The ALT TLD is delegated to "new style"
+      AS112 servers, and so recursive and stub resolvers will get NXDOMAIN for
+      all queries.</t>
 
       <t><list style="numbers">
           <t>Iterative resolvers SHOULD follow the advice in <xref
@@ -220,21 +218,16 @@
       <t>These rules are intended to limit how far unintentional queries (i.e.
       those not intended for the global DNS) flow.</t>
 
-      <t>Groups wishing to create alternate namespaces SHOULD create their
+      <t>Groups wishing to create new alternate namespaces SHOULD create their
       alternate namespace under a label that names their namespace, and under
       the ALT label. They SHOULD choose a label that they expect to be unique
-      and, ideally, descriptive. They SHOULD consult the TBD registry to see
-      if anyone has published that they are already using this string, and if
-      so, would be wise to choose another string or risk the possibility of
-      collisions with some other application. As there is no requirement to
-      register the use of a label in the ALT namespace, uniqueness is not
-      guaranteed.</t>
+      and, ideally, descriptive. </t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
-      are encouraged but not required to move under the ALT TLD. Rather, the
-      ALT TLD is being reserved so that future projects of a similar nature
-      have a designated place to create alternate resolution namespaces that
-      will not conflict with the regular DNS context.</t>
+      may decide to move under the ALT TLD, but this is not a requirement.
+      Rather, the ALT TLD is being reserved so that future projects of a
+      similar nature have a designated place to create alternate resolution
+      namespaces that will not conflict with the regular DNS context.</t>
 
       <t>A number of names other than .ALT were considered and discarded. In
       order for this technique to be effective the names need to continue to
@@ -243,7 +236,7 @@
       normally take DNS context names); this rules out using suffixes that do
       not follow the usual letter, digit, and hyphen label convention. Another
       proposal was that the ALT TLD instead be a reservation under .arpa. This
-      was considered, but rejected for several reasons.</t>
+      was considered, but rejected for several reasons, including:</t>
 
       <t><list style="numbers">
           <t>We wished this to make it clear that this is not in the DNS
@@ -305,22 +298,6 @@
       document. In addition, the "Locally Served DNS Zones" (<xref
       target="RFC6303"/>) registry should be updated to reference this
       document.</t>
-
-      <t>The IANA is requested to create and administer a new, first come,
-      first served registry named "ALT pseudo-TLD labels".</t>
-
-      <t>The fields in the registry should be:</t>
-
-      <t>Label: An ASCII string containing a maximum of 63 characters, using
-      only letters (a-z), digits (0-9), and hyphen (-).<cref source="ajs">Why
-      does this need to be LDH? It's not going to get looked up. It seems to
-      me we need an i18n considerations section for this.</cref></t>
-
-      <t>Description: A short, textual description explaining what the label
-      is used for.</t>
-
-      <t>Reference: A link to a stable reference, such as an RFC, or contact
-      information for a person responsible for the reservation.</t>
 
       <section title="Domain Name Reservation Considerations">
         <t>This section is to satisfy the requirement in Section 5 of
@@ -416,6 +393,16 @@
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+      <t>From -05 to -06<list style="symbols">
+          <t>Incorporated comments from a number of people, including a number
+          of suggestion heard at the IETF meeting in Dallas, and the DNSOP
+          Interim meeting in May, 2015.</t>
+
+          <t>Removed the "Let's have an (optional) IANA registry for people to
+          (opportinistically) register their string, if they want that option"
+          stuff. It was, um, optional....</t>
+        </list></t>
 
       <t>From -04 to -05</t>
 
