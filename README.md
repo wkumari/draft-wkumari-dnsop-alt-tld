@@ -69,19 +69,17 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
      1.1.  Requirements notation . . . . . . . . . . . . . . . . . .   2
-     1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
+     1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  Background  . . . . . . . . . . . . . . . . . . . . . . . . .   3
    3.  The ALT namespace . . . . . . . . . . . . . . . . . . . . . .   4
    4.  Advice to developers  . . . . . . . . . . . . . . . . . . . .   6
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
-     5.1.  Domain Name Reservation Considerations  . . . . . . . . .   7
-   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
+     5.1.  Domain Name Reservation Considerations  . . . . . . . . .   6
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
    7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   8
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .   8
-   Appendix A.  Changes / Author Notes.  . . . . . . . . . . . . . .   9
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  10
+   8.  Normative References  . . . . . . . . . . . . . . . . . . . .   8
+   Appendix A.  Changes / Author Notes.  . . . . . . . . . . . . . .   8
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
 
 1.  Introduction
 
@@ -105,8 +103,10 @@ Table of Contents
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
    document are to be interpreted as described in [RFC2119].
 
+1.2.  Terminology
 
-
+   This document assumes familiarity with DNS terms and concepts.
+   Please see [RFC1034] for background and concepts.
 
 
 
@@ -115,11 +115,6 @@ Kumari & Sullivan       Expires November 19, 2015               [Page 2]
 
 Internet-Draft               Reserve ALT TLD                    May 2015
 
-
-1.2.  Terminology
-
-   This document assumes familiarity with DNS terms and concepts.
-   Please see [RFC1034] for background and concepts.
 
    o  DNS context: The namespace anchored at the globally-unique DNS
       root.  This is the namespace or context that "normal" DNS uses.
@@ -163,7 +158,12 @@ Internet-Draft               Reserve ALT TLD                    May 2015
    In many cases, these systems build a DNS-style tree parallel to the
    global DNS administered by IANA.  They often use a pseudo-TLD to
    cause resolution in the alternate namespace, using browser plugins,
+   shims in the name resolution process, or simply applications that
+   perform special handling of this alternate namespace.
 
+   In many cases, the creators of these alternate namespaces have chosen
+   a convenient or descriptive string and started using it.  These new
+   strings are "alternate" strings and are not registered anywhere or
 
 
 
@@ -172,12 +172,6 @@ Kumari & Sullivan       Expires November 19, 2015               [Page 3]
 Internet-Draft               Reserve ALT TLD                    May 2015
 
 
-   shims in the name resolution process, or simply applications that
-   perform special handling of this alternate namespace.
-
-   In many cases, the creators of these alternate namespaces have chosen
-   a convenient or descriptive string and started using it.  These new
-   strings are "alternate" strings and are not registered anywhere or
    part of the DNS.  However they appear to be TLDs.  Issues may arise
    if they are looked up in the DNS.  These include:
 
@@ -220,6 +214,12 @@ Internet-Draft               Reserve ALT TLD                    May 2015
    the regular DNS context and so should not be looked up in the DNS
    context.  Unfortunately simply saying that "something should not
    happen" doesn't actually stop it from happening, so we need some
+   rules to guide implementors and operators.  The ALT TLD is delegated
+   to "new style" AS112 servers, and so recursive and stub resolvers
+   will get NXDOMAIN for all queries.
+
+   1.  Iterative resolvers SHOULD follow the advice in [RFC6303],
+       Section 3.
 
 
 
@@ -228,16 +228,8 @@ Kumari & Sullivan       Expires November 19, 2015               [Page 4]
 Internet-Draft               Reserve ALT TLD                    May 2015
 
 
-   rules to guide implementors and operators.  The ALT TLD is delegated
-   to "new style" AS112 servers, and so recursive and stub resolvers
-   will get NXDOMAIN for all queries.
-
-   1.  Iterative resolvers SHOULD follow the advice in [RFC6303],
-       Section 3.
-
    2.  The ALT TLD is delegated to "new style" AS112 nameservers
-       ([I-D.ietf-dnsop-as112-dname] ), which will return NXDOMAIN for
-       all queries.
+       ([RFC7535] ), which will return NXDOMAIN for all queries.
 
    These rules are intended to limit how far unintentional queries (i.e.
    those not intended for the global DNS) flow.
@@ -276,14 +268,6 @@ Internet-Draft               Reserve ALT TLD                    May 2015
        could put pressure on applications that need long machine-
        generated names.
 
-
-
-
-Kumari & Sullivan       Expires November 19, 2015               [Page 5]
-
-Internet-Draft               Reserve ALT TLD                    May 2015
-
-
    5.  We are suggesting that the string .ALT get special treatment in
        resolvers, and shim software.  We are concerned that using
        subdomains of an existing TLD (like .arpa) might end up with bad
@@ -292,6 +276,14 @@ Internet-Draft               Reserve ALT TLD                    May 2015
 
    There is a concern that if there were placed under .arpa,
    inexperienced nameserver operators may inadvertently cover .arpa.  A
+
+
+
+Kumari & Sullivan       Expires November 19, 2015               [Page 5]
+
+Internet-Draft               Reserve ALT TLD                    May 2015
+
+
    more significant concern is that the scope of the issue if the query
    does leak, and the fact that this would then make the root of the
    alternate naming namespace a third level domain, and not a second
@@ -329,17 +321,6 @@ Internet-Draft               Reserve ALT TLD                    May 2015
    addition, the "Locally Served DNS Zones" ([RFC6303]) registry should
    be updated to reference this document.
 
-
-
-
-
-
-
-Kumari & Sullivan       Expires November 19, 2015               [Page 6]
-
-Internet-Draft               Reserve ALT TLD                    May 2015
-
-
 5.1.  Domain Name Reservation Considerations
 
    This section is to satisfy the requirement in Section 5 of RFC6761.
@@ -351,6 +332,14 @@ Internet-Draft               Reserve ALT TLD                    May 2015
        behave differently to normal DNS names.  Users are expected to
        have applications running on their machines that intercept stings
        of the form <namespace>.alt and perform special handing of them.
+
+
+
+Kumari & Sullivan       Expires November 19, 2015               [Page 6]
+
+Internet-Draft               Reserve ALT TLD                    May 2015
+
+
        If the user tries to resolve a name of the form <namespace>.alt
        without the <namespace> plugin installed, the request will leak
        into the DNS, and receive a negative response.
@@ -387,15 +376,6 @@ Internet-Draft               Reserve ALT TLD                    May 2015
    7.  DNS Registries/Registrars MUST NOT grant requests to register
        "alt" names in the normal way to any person or entity.  These
        "alt" names are defined by protocol specification to be
-
-
-
-
-Kumari & Sullivan       Expires November 19, 2015               [Page 7]
-
-Internet-Draft               Reserve ALT TLD                    May 2015
-
-
        nonexistent, and they fall outside the set of names available for
        allocation by registries/registrars.
 
@@ -408,6 +388,14 @@ Internet-Draft               Reserve ALT TLD                    May 2015
 
    The unmanaged and "registration not required" nature of labels
    beneath .ALT provides the opportunity for an attacker to re-use the
+
+
+
+Kumari & Sullivan       Expires November 19, 2015               [Page 7]
+
+Internet-Draft               Reserve ALT TLD                    May 2015
+
+
    chosen label and thereby possibly compromise applications dependent
    on the special host name.
 
@@ -422,9 +410,7 @@ Internet-Draft               Reserve ALT TLD                    May 2015
    Edward Lewis, George Michaelson, Ed Pascoe, Arturo Servin, and Paul
    Vixie for feedback.
 
-8.  References
-
-8.1.  Normative References
+8.  Normative References
 
    [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",
               STD 13, RFC 1034, November 1987.
@@ -438,19 +424,8 @@ Internet-Draft               Reserve ALT TLD                    May 2015
    [RFC6761]  Cheshire, S. and M. Krochmal, "Special-Use Domain Names",
               RFC 6761, February 2013.
 
-8.2.  Informative References
-
-   [I-D.ietf-dnsop-as112-dname]
-              Abley, J., Dickson, B., Kumari, W., and G. Michaelson,
-              "AS112 Redirection using DNAME", draft-ietf-dnsop-
-              as112-dname-06 (work in progress), November 2014.
-
-
-
-Kumari & Sullivan       Expires November 19, 2015               [Page 8]
-
-Internet-Draft               Reserve ALT TLD                    May 2015
-
+   [RFC7535]  Abley, J., Dickson, B., Kumari, W., and G. Michaelson,
+              "AS112 Redirection Using DNAME", RFC 7535, May 2015.
 
 Appendix A.  Changes / Author Notes.
 
@@ -467,6 +442,15 @@ Appendix A.  Changes / Author Notes.
       option" stuff.  It was, um, optional....
 
    From -04 to -05
+
+
+
+
+
+Kumari & Sullivan       Expires November 19, 2015               [Page 8]
+
+Internet-Draft               Reserve ALT TLD                    May 2015
+
 
    o  Went through and made sure that I'd captured the feedback
       received.
@@ -498,16 +482,6 @@ Appendix A.  Changes / Author Notes.
    o  Recommended that folk root their non-DNS namespace under a DNS
       namespace that they control (Joe Abley)
 
-
-
-
-
-
-Kumari & Sullivan       Expires November 19, 2015               [Page 9]
-
-Internet-Draft               Reserve ALT TLD                    May 2015
-
-
 Authors' Addresses
 
    Warren Kumari
@@ -529,35 +503,5 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Kumari & Sullivan       Expires November 19, 2015              [Page 10]
+Kumari & Sullivan       Expires November 19, 2015               [Page 9]
 ```

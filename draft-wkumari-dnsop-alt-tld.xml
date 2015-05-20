@@ -196,7 +196,7 @@
       alternate namespaces by choosing a name and using it in the label
       position just before the pseudo-TLD (ALT). For example, a group wishing
       to create a namespace for Friends Of Olaf might choose the string "foo"
-      and use any set of labels under foo.alt. </t>
+      and use any set of labels under foo.alt.</t>
 
       <t>As they are in an alternate namespace, they have no significance in
       the regular DNS context and so should not be looked up in the DNS
@@ -211,8 +211,8 @@
           target="RFC6303"/>, Section 3.</t>
 
           <t>The ALT TLD is delegated to "new style" AS112 nameservers (<xref
-          target="I-D.ietf-dnsop-as112-dname"/> ), which will return NXDOMAIN
-          for all queries.</t>
+          target="RFC7535"/> ), which will return NXDOMAIN for all
+          queries.</t>
         </list></t>
 
       <t>These rules are intended to limit how far unintentional queries (i.e.
@@ -221,7 +221,7 @@
       <t>Groups wishing to create new alternate namespaces SHOULD create their
       alternate namespace under a label that names their namespace, and under
       the ALT label. They SHOULD choose a label that they expect to be unique
-      and, ideally, descriptive. </t>
+      and, ideally, descriptive.</t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       may decide to move under the ALT TLD, but this is not a requirement.
@@ -385,10 +385,8 @@
       <?rfc include='reference.RFC.6303'?>
 
       <?rfc include='reference.RFC.1034'?>
-    </references>
 
-    <references title="Informative References">
-      <?rfc include='reference.I-D.ietf-dnsop-as112-dname.xml'?>
+      <?rfc include='reference.RFC.7535'?>
     </references>
 
     <section title="Changes / Author Notes.">
