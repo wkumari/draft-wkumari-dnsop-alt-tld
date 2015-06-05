@@ -3,8 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-wkumari-dnsop-alt-tld-06"
-     ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-00" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -61,7 +60,7 @@
       </address>
     </author>
 
-    <date day="18" month="May" year="2015"/>
+    <date day="5" month="June" year="2015"/>
 
     <area>template</area>
 
@@ -391,6 +390,13 @@
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+      <t>From Individual-06 to DNSOP-00<list style="symbols">
+          <t>Nothing changed, simply renamed draft-wkumari-dnsop-alt-tld to
+          draft-ietf-dnsop-alt-tld</t>
+        </list></t>
+
+      <t/>
 
       <t>From -05 to -06<list style="symbols">
           <t>Incorporated comments from a number of people, including a number

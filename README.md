@@ -7,12 +7,12 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: November 19, 2015                                           Dyn
-                                                            May 18, 2015
+Expires: December 7, 2015                                            Dyn
+                                                            June 5, 2015
 
 
                   The ALT Special Use Top Level Domain
-                     draft-wkumari-dnsop-alt-tld-06
+                      draft-ietf-dnsop-alt-tld-00
 
 Abstract
 
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 19, 2015.
+   This Internet-Draft will expire on December 7, 2015.
 
 Copyright Notice
 
@@ -55,9 +55,9 @@ Copyright Notice
 
 
 
-Kumari & Sullivan       Expires November 19, 2015               [Page 1]
+Kumari & Sullivan       Expires December 7, 2015                [Page 1]
 
-Internet-Draft               Reserve ALT TLD                    May 2015
+Internet-Draft               Reserve ALT TLD                   June 2015
 
 
    to this document.  Code Components extracted from this document must
@@ -111,9 +111,9 @@ Table of Contents
 
 
 
-Kumari & Sullivan       Expires November 19, 2015               [Page 2]
+Kumari & Sullivan       Expires December 7, 2015                [Page 2]
 
-Internet-Draft               Reserve ALT TLD                    May 2015
+Internet-Draft               Reserve ALT TLD                   June 2015
 
 
    o  DNS context: The namespace anchored at the globally-unique DNS
@@ -167,9 +167,9 @@ Internet-Draft               Reserve ALT TLD                    May 2015
 
 
 
-Kumari & Sullivan       Expires November 19, 2015               [Page 3]
+Kumari & Sullivan       Expires December 7, 2015                [Page 3]
 
-Internet-Draft               Reserve ALT TLD                    May 2015
+Internet-Draft               Reserve ALT TLD                   June 2015
 
 
    part of the DNS.  However they appear to be TLDs.  Issues may arise
@@ -223,9 +223,9 @@ Internet-Draft               Reserve ALT TLD                    May 2015
 
 
 
-Kumari & Sullivan       Expires November 19, 2015               [Page 4]
+Kumari & Sullivan       Expires December 7, 2015                [Page 4]
 
-Internet-Draft               Reserve ALT TLD                    May 2015
+Internet-Draft               Reserve ALT TLD                   June 2015
 
 
    2.  The ALT TLD is delegated to "new style" AS112 nameservers
@@ -279,9 +279,9 @@ Internet-Draft               Reserve ALT TLD                    May 2015
 
 
 
-Kumari & Sullivan       Expires November 19, 2015               [Page 5]
+Kumari & Sullivan       Expires December 7, 2015                [Page 5]
 
-Internet-Draft               Reserve ALT TLD                    May 2015
+Internet-Draft               Reserve ALT TLD                   June 2015
 
 
    more significant concern is that the scope of the issue if the query
@@ -335,9 +335,9 @@ Internet-Draft               Reserve ALT TLD                    May 2015
 
 
 
-Kumari & Sullivan       Expires November 19, 2015               [Page 6]
+Kumari & Sullivan       Expires December 7, 2015                [Page 6]
 
-Internet-Draft               Reserve ALT TLD                    May 2015
+Internet-Draft               Reserve ALT TLD                   June 2015
 
 
        If the user tries to resolve a name of the form <namespace>.alt
@@ -391,9 +391,9 @@ Internet-Draft               Reserve ALT TLD                    May 2015
 
 
 
-Kumari & Sullivan       Expires November 19, 2015               [Page 7]
+Kumari & Sullivan       Expires December 7, 2015                [Page 7]
 
-Internet-Draft               Reserve ALT TLD                    May 2015
+Internet-Draft               Reserve ALT TLD                   June 2015
 
 
    chosen label and thereby possibly compromise applications dependent
@@ -431,26 +431,32 @@ Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
 
+   From Individual-06 to DNSOP-00
+
+   o  Nothing changed, simply renamed draft-wkumari-dnsop-alt-tld to
+      draft-ietf-dnsop-alt-tld
+
    From -05 to -06
 
    o  Incorporated comments from a number of people, including a number
       of suggestion heard at the IETF meeting in Dallas, and the DNSOP
       Interim meeting in May, 2015.
 
+
+
+
+
+
+Kumari & Sullivan       Expires December 7, 2015                [Page 8]
+
+Internet-Draft               Reserve ALT TLD                   June 2015
+
+
    o  Removed the "Let's have an (optional) IANA registry for people to
       (opportinistically) register their string, if they want that
       option" stuff.  It was, um, optional....
 
    From -04 to -05
-
-
-
-
-
-Kumari & Sullivan       Expires November 19, 2015               [Page 8]
-
-Internet-Draft               Reserve ALT TLD                    May 2015
-
 
    o  Went through and made sure that I'd captured the feedback
       received.
@@ -493,6 +499,15 @@ Authors' Addresses
    Email: warren@kumari.net
 
 
+
+
+
+
+Kumari & Sullivan       Expires December 7, 2015                [Page 9]
+
+Internet-Draft               Reserve ALT TLD                   June 2015
+
+
    Andrew Sullivan
    Dyn
    150 Dow Street
@@ -503,5 +518,46 @@ Authors' Addresses
 
 
 
-Kumari & Sullivan       Expires November 19, 2015               [Page 9]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kumari & Sullivan       Expires December 7, 2015               [Page 10]
 ```
