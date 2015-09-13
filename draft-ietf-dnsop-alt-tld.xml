@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-01" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-02" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -60,7 +60,7 @@
       </address>
     </author>
 
-    <date day="3" month="July" year="2015"/>
+    <date day="13" month="September" year="2015"/>
 
     <area>template</area>
 
@@ -82,16 +82,18 @@
     <section title="Introduction">
       <t>Many protocols and systems need to name entities. Names that look
       like DNS names (a series of labels separated with dots) have become
-      common, even in systems that are not part of the global DNS administered by IANA.</t>
+      common, even in systems that are not part of the global DNS administered
+      by IANA.</t>
 
       <t>This document provides a solution that may be more appropriate than
       <xref target="RFC6761"/> in many cases.</t>
 
       <t>This document reserves the label "ALT" (short for "Alternate") as a
       Special Use Domain (<xref target="RFC6761"/>). This label is intended to
-      be used as the final label to signify that the name is not rooted in the DNS, and that
-      normal registration and lookup rules do not apply.</t>
-<!-- Paul Hoffman removed "(apart from the zero-length terminating label)" here because 
+      be used as the final label to signify that the name is not rooted in the
+      DNS, and that normal registration and lookup rules do not apply.</t>
+
+      <!-- Paul Hoffman removed "(apart from the zero-length terminating label)" here because 
      the rest of the sentence says that the domain is not rooted in the DNS. -->
 
       <section title="Requirements notation">
@@ -147,8 +149,8 @@
       meaning in a global context. These name resolutions, therefore, occur in
       a namespace distinct from the DNS.</t>
 
-      <t>In many cases, these systems build a DNS-style tree parallel to, but separate from, the
-      global DNS. They often use a pseudo-TLD to cause
+      <t>In many cases, these systems build a DNS-style tree parallel to, but
+      separate from, the global DNS. They often use a pseudo-TLD to cause
       resolution in the alternate namespace, using browser plugins, shims in
       the name resolution process, or simply applications that perform special
       handling of this particular alternate namespace.</t>
@@ -156,8 +158,9 @@
       <t>In many cases, the creators of these alternate namespaces have chosen
       a convenient or descriptive string and started using it. These new
       strings are "alternate" strings and are not registered anywhere or part
-      of the DNS. However they appear to users and to some applications to be TLDs. Issues may arise if they are
-      looked up in the DNS. These include:</t>
+      of the DNS. However they appear to users and to some applications to be
+      TLDs. Issues may arise if they are looked up in the DNS. These
+      include:</t>
 
       <t><list style="symbols">
           <t>User confusion: If someone emails a link of the form
@@ -170,7 +173,8 @@
           nameservers.</t>
 
           <t>Collisions: If the pseudo-TLD is eventually delegated from the
-          root zone, the lookup behavior will change in a non-deterministic fashion.</t>
+          root zone, the lookup behavior will change in a non-deterministic
+          fashion.</t>
 
           <t>Lack of success for the user's original goal.</t>
         </list></t>
@@ -180,7 +184,8 @@
       distributed and censorship-resistant namespace. This goal would
       necessarily be defeated if the queries leak into the DNS, because the
       attempt to look up the name would be visible at least to the operators
-      of root name servers and to any entity viewing the DNS lookups going to the root nameservers.</t>
+      of root name servers and to any entity viewing the DNS lookups going to
+      the root nameservers.</t>
     </section>
 
     <section title="The ALT namespace">
@@ -212,62 +217,65 @@
       and, ideally, descriptive. There is no IANA controlled registry for
       names under the ALT TLD - it is an unmanaged namespace, and developers
       are responsible for dealing with any collisions that may occur under
-      .alt. Informal lists of namespaces under .alt may appear to assist the developer community.</t>
+      .alt. Informal lists of namespaces under .alt may appear to assist the
+      developer community.</t>
 
       <t>[Editor note (to be removed before publication): There was
-      significant discussion on an IANA registry for the ALT namespace - please consult the
-      lists for full thread, but the consensus seems to be that it would be
-      better for the IETF / IANA to not administer a registry for this. It is
-      expected one or more unofficial lists will be created where people can
-      list the strings that they are using. ] </t>
+      significant discussion on an IANA registry for the ALT namespace -
+      please consult the lists for full thread, but the consensus seems to be
+      that it would be better for the IETF / IANA to not administer a registry
+      for this. It is expected one or more unofficial lists will be created
+      where people can list the strings that they are using. ]</t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       may decide to move under the ALT TLD, but this is not a requirement.
-      Rather, the ALT TLD is being reserved so that current and future projects of a
-      similar nature have a designated place to create alternate resolution
-      namespaces that will not conflict with the regular DNS context.</t>
+      Rather, the ALT TLD is being reserved so that current and future
+      projects of a similar nature have a designated place to create alternate
+      resolution namespaces that will not conflict with the regular DNS
+      context.</t>
 
-    <section title="Choice of the ALT Name">
-      <t>A number of names other than "ALT" were considered and discarded. In
-      order for this technique to be effective the names need to continue to
-      follow both the DNS format and conventions (a prime consideration for
-      alternate name formats is that they can be entered in places that
-      normally take DNS context names); this rules out using suffixes that do
-      not follow the usual letter, digit, and hyphen label convention.</t>
+      <section title="Choice of the ALT Name">
+        <t>A number of names other than "ALT" were considered and discarded.
+        In order for this technique to be effective the names need to continue
+        to follow both the DNS format and conventions (a prime consideration
+        for alternate name formats is that they can be entered in places that
+        normally take DNS context names); this rules out using suffixes that
+        do not follow the usual letter, digit, and hyphen label
+        convention.</t>
 
-      <t>Another
-      proposal was that the ALT TLD instead be a reservation under .arpa. This
-      was considered, but rejected for several reasons, including:</t>
+        <t>Another proposal was that the ALT TLD instead be a reservation
+        under .arpa. This was considered, but rejected for several reasons,
+        including:</t>
 
-      <t><list style="numbers">
-          <t>We wished this to make it clear that this is not in the DNS
-          context, and .arpa clearly is.</t>
+        <t><list style="numbers">
+            <t>We wished this to make it clear that this is not in the DNS
+            context, and .arpa clearly is.</t>
 
-          <t>The use of the string .alt is intended to evoke the alt.*
-          hierarchy in Usenet.</t>
+            <t>The use of the string .alt is intended to evoke the alt.*
+            hierarchy in Usenet.</t>
 
-          <t>We wanted the string to be short and easily used.</t>
+            <t>We wanted the string to be short and easily used.</t>
 
-          <t>A name underneath .arpa would consume at least five additional
-          octets of the total 255 octets available in domain names, which
-          could put pressure on applications that need long machine-generated
-          names.</t>
+            <t>A name underneath .arpa would consume at least five additional
+            octets of the total 255 octets available in domain names, which
+            could put pressure on applications that need long
+            machine-generated names.</t>
 
-          <t>We are suggesting that the string "ALT" get special treatment in
-          resolvers, and shim software. We are concerned that using subdomains
-          of an existing TLD (like .arpa) might end up with bad
-          implementations misconfiguring / overriding the TLD itself and
-          breaking .arpa.</t>
-        </list></t>
+            <t>We are suggesting that the string "ALT" get special treatment
+            in resolvers, and shim software. We are concerned that using
+            subdomains of an existing TLD (like .arpa) might end up with bad
+            implementations misconfiguring / overriding the TLD itself and
+            breaking .arpa.</t>
+          </list></t>
 
-      <t>There is a concern that if there were placed under .arpa,
-      inexperienced nameserver operators may inadvertently cover .arpa. A more
-      significant concern is that the scope of the issue if the query does
-      leak, and the fact that this would then make the root of the alternate
-      naming namespace a third level domain, and not a second one. A project
-      may be willing to have a name of the form example.alt, but
-      example.alt.arpa may be not look as good.</t>
-    </section>
+        <t>There is a concern that if there were placed under .arpa,
+        inexperienced nameserver operators may inadvertently cover .arpa. A
+        more significant concern is that the scope of the issue if the query
+        does leak, and the fact that this would then make the root of the
+        alternate naming namespace a third level domain, and not a second one.
+        A project may be willing to have a name of the form example.alt, but
+        example.alt.arpa may be not look as good.</t>
+      </section>
     </section>
 
     <section title="IANA Considerations">
@@ -367,6 +375,11 @@
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+      <t>From -01 to -02:<list style="symbols">
+          <t>Merged a bunch of changes from Paul Hoffman. Thanks for sending a
+          git pull.</t>
+        </list></t>
 
       <t>From -00 to 01:<list style="symbols">
           <t>Removed the "delegated to new style AS112 servers" text -this was
