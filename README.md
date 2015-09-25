@@ -7,12 +7,12 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: March 16, 2016                                              Dyn
-                                                      September 13, 2015
+Expires: March 28, 2016                                              Dyn
+                                                      September 25, 2015
 
 
                   The ALT Special Use Top Level Domain
-                      draft-ietf-dnsop-alt-tld-02
+                      draft-ietf-dnsop-alt-tld-03
 
 Abstract
 
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 16, 2016.
+   This Internet-Draft will expire on March 28, 2016.
 
 Copyright Notice
 
@@ -55,7 +55,7 @@ Copyright Notice
 
 
 
-Kumari & Sullivan        Expires March 16, 2016                 [Page 1]
+Kumari & Sullivan        Expires March 28, 2016                 [Page 1]
 
 Internet-Draft               Reserve ALT TLD              September 2015
 
@@ -105,16 +105,19 @@ Table of Contents
 1.2.  Terminology
 
    This document assumes familiarity with DNS terms and concepts.
-   Please see [RFC1034] for background and concepts.
+   Please see [RFC1034] for background and concepts, and
+   [I-D.ietf-dnsop-dns-terminology] for terminology.
 
 
 
 
-
-Kumari & Sullivan        Expires March 16, 2016                 [Page 2]
+Kumari & Sullivan        Expires March 28, 2016                 [Page 2]
 
 Internet-Draft               Reserve ALT TLD              September 2015
 
+
+   o  DNS name: Domain names that are intended to be used with DNS
+      resolution, either in the global DNS or in some other context
 
    o  DNS context: The namespace anchored at the globally-unique DNS
       root.  This is the namespace or context that "normal" DNS uses.
@@ -161,17 +164,17 @@ Internet-Draft               Reserve ALT TLD              September 2015
    in the name resolution process, or simply applications that perform
    special handling of this particular alternate namespace.
 
-   In many cases, the creators of these alternate namespaces have chosen
-   a convenient or descriptive string and started using it.  These new
-   strings are "alternate" strings and are not registered anywhere or
 
 
 
-Kumari & Sullivan        Expires March 16, 2016                 [Page 3]
+Kumari & Sullivan        Expires March 28, 2016                 [Page 3]
 
 Internet-Draft               Reserve ALT TLD              September 2015
 
 
+   In many cases, the creators of these alternate namespaces have chosen
+   a convenient or descriptive string and started using it.  These new
+   strings are "alternate" strings and are not registered anywhere or
    part of the DNS.  However they appear to users and to some
    applications to be TLDs.  Issues may arise if they are looked up in
    the DNS.  These include:
@@ -217,17 +220,16 @@ Internet-Draft               Reserve ALT TLD              September 2015
    the regular DNS context and so should not be looked up in the DNS
    context.  Some of these requests will inevitably leak into the DNS
    context (for example, because clicks on a link in a browser that does
-   not have a extension installed that implements the alternate
-   namespace resolution), and so the ALT TLD has been added to the
 
 
 
-
-Kumari & Sullivan        Expires March 16, 2016                 [Page 4]
+Kumari & Sullivan        Expires March 28, 2016                 [Page 4]
 
 Internet-Draft               Reserve ALT TLD              September 2015
 
 
+   not have a extension installed that implements the alternate
+   namespace resolution), and so the ALT TLD has been added to the
    "Locally Served DNS Zones" ( [RFC6303]) registry to limit how far
    these flow.
 
@@ -277,9 +279,7 @@ Internet-Draft               Reserve ALT TLD              September 2015
 
 
 
-
-
-Kumari & Sullivan        Expires March 16, 2016                 [Page 5]
+Kumari & Sullivan        Expires March 28, 2016                 [Page 5]
 
 Internet-Draft               Reserve ALT TLD              September 2015
 
@@ -335,7 +335,7 @@ Internet-Draft               Reserve ALT TLD              September 2015
 
 
 
-Kumari & Sullivan        Expires March 16, 2016                 [Page 6]
+Kumari & Sullivan        Expires March 28, 2016                 [Page 6]
 
 Internet-Draft               Reserve ALT TLD              September 2015
 
@@ -361,7 +361,7 @@ Internet-Draft               Reserve ALT TLD              September 2015
    6.  DNS server operators SHOULD be aware that queries for names
        ending in .alt are not DNS names, and were leaked into the DNS
        context (for example, by a missing browser plugin).  This
-       information may be useful for support or debuggung purposes.
+       information may be useful for support or debugging purposes.
 
    7.  DNS Registries/Registrars MUST NOT grant requests to register
        "alt" names in the normal way to any person or entity.  These
@@ -383,24 +383,25 @@ Internet-Draft               Reserve ALT TLD              September 2015
 
 6.  Acknowledgements
 
-   The authors understand that there is much politics surrounding the
-   delegation of a new TLD and thank the ICANN liaison in advance.
-
    We would also like to thank Joe Abley, Mark Andrews, Marc Blanchet,
    John Bond, Stephane Bortzmeyer, David Cake, David Conrad, Patrik
-
-
-
-Kumari & Sullivan        Expires March 16, 2016                 [Page 7]
-
-Internet-Draft               Reserve ALT TLD              September 2015
-
-
    Faltstrom, Olafur Gudmundsson, Paul Hoffman, Joel Jaeggli, Ted Lemon,
    Edward Lewis, George Michaelson, Ed Pascoe, Arturo Servin, and Paul
    Vixie for feedback.
 
+
+
+Kumari & Sullivan        Expires March 28, 2016                 [Page 7]
+
+Internet-Draft               Reserve ALT TLD              September 2015
+
+
 7.  Normative References
+
+   [I-D.ietf-dnsop-dns-terminology]
+              Hoffman, P., Sullivan, A., and K. Fujiwara, "DNS
+              Terminology", draft-ietf-dnsop-dns-terminology-05 (work in
+              progress), September 2015.
 
    [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",
               STD 13, RFC 1034, DOI 10.17487/RFC1034, November 1987,
@@ -423,6 +424,10 @@ Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
 
+   From -02 to -03:
+
+   o  Incorporate suggestions from Stephane and Paul Hoffman.
+
    From -01 to -02:
 
    o  Merged a bunch of changes from Paul Hoffman.  Thanks for sending a
@@ -438,19 +443,19 @@ Appendix A.  Changes / Author Notes.
       was pointed out that this breaks things badly if the domain
       expires.
 
+
+
+
+
+Kumari & Sullivan        Expires March 28, 2016                 [Page 8]
+
+Internet-Draft               Reserve ALT TLD              September 2015
+
+
    o  Added text about why we don't want to adminster a registry for
       ALT.
 
    From Individual-06 to DNSOP-00
-
-
-
-
-
-Kumari & Sullivan        Expires March 16, 2016                 [Page 8]
-
-Internet-Draft               Reserve ALT TLD              September 2015
-
 
    o  Nothing changed, simply renamed draft-wkumari-dnsop-alt-tld to
       draft-ietf-dnsop-alt-tld
@@ -494,19 +499,17 @@ Internet-Draft               Reserve ALT TLD              September 2015
 
    o  Fixed the abstract.
 
-   o  Recommended that folk root their non-DNS namespace under a DNS
-      namespace that they control (Joe Abley)
 
 
 
 
-
-
-
-Kumari & Sullivan        Expires March 16, 2016                 [Page 9]
+Kumari & Sullivan        Expires March 28, 2016                 [Page 9]
 
 Internet-Draft               Reserve ALT TLD              September 2015
 
+
+   o  Recommended that folk root their non-DNS namespace under a DNS
+      namespace that they control (Joe Abley)
 
 Authors' Addresses
 
@@ -556,8 +559,5 @@ Authors' Addresses
 
 
 
-
-
-
-Kumari & Sullivan        Expires March 16, 2016                [Page 10]
+Kumari & Sullivan        Expires March 28, 2016                [Page 10]
 ```

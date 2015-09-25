@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-02" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-03" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -60,7 +60,7 @@
       </address>
     </author>
 
-    <date day="13" month="September" year="2015"/>
+    <date day="25" month="September" year="2015"/>
 
     <area>template</area>
 
@@ -105,9 +105,13 @@
 
       <section title="Terminology">
         <t>This document assumes familiarity with DNS terms and concepts.
-        Please see <xref target="RFC1034"/> for background and concepts.</t>
+        Please see <xref target="RFC1034"/> for background and concepts, and
+        <xref target="I-D.ietf-dnsop-dns-terminology"/> for terminology.</t>
 
         <t><list style="symbols">
+            <t>DNS name: Domain names that are intended to be used with DNS
+            resolution, either in the global DNS or in some other context</t>
+
             <t>DNS context: The namespace anchored at the globally-unique DNS
             root. This is the namespace or context that "normal" DNS uses.</t>
 
@@ -327,7 +331,7 @@
             <t>DNS server operators SHOULD be aware that queries for names
             ending in .alt are not DNS names, and were leaked into the DNS
             context (for example, by a missing browser plugin). This
-            information may be useful for support or debuggung purposes.</t>
+            information may be useful for support or debugging purposes.</t>
 
             <t>DNS Registries/Registrars MUST NOT grant requests to register
             "alt" names in the normal way to any person or entity. These "alt"
@@ -351,9 +355,6 @@
     </section>
 
     <section title="Acknowledgements">
-      <t>The authors understand that there is much politics surrounding the
-      delegation of a new TLD and thank the ICANN liaison in advance.</t>
-
       <t>We would also like to thank Joe Abley, Mark Andrews, Marc Blanchet,
       John Bond, Stephane Bortzmeyer, David Cake, David Conrad, Patrik
       Faltstrom, Olafur Gudmundsson, Paul Hoffman, Joel Jaeggli, Ted Lemon,
@@ -371,10 +372,16 @@
       <?rfc include='reference.RFC.6303'?>
 
       <?rfc include='reference.RFC.1034'?>
+
+      <?rfc include='reference.I-D.ietf-dnsop-dns-terminology.xml'?>
     </references>
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+      <t>From -02 to -03:<list style="symbols">
+          <t>Incorporate suggestions from Stephane and Paul Hoffman.</t>
+        </list></t>
 
       <t>From -01 to -02:<list style="symbols">
           <t>Merged a bunch of changes from Paul Hoffman. Thanks for sending a
