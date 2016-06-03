@@ -75,6 +75,12 @@
       <t>[ Ed note: This document lives in GitHub at:
       https://github.com/wkumari/draft-wkumari-dnsop-alt-tld . Issues and pull
       requests happily accepted. ]</t>
+
+      <t>[ Question for Working Group. It has been proposed that the string
+      .ALT should be replaced with something else e.g. .NOT-DNS. As naming
+      discussions in the IETF are always short, simple, and not controversial,
+      we figured we should open these for discussion now. We would appreciate
+      clear feedback on preference and rationale. ]</t>
     </abstract>
   </front>
 
@@ -85,13 +91,14 @@
       common, even in systems that are not part of the global DNS administered
       by IANA.</t>
 
-      <t>This document provides a solution that may be more appropriate than
-      <xref target="RFC6761"/> in many cases.</t>
+      <t>This document provides a solution that may, in many cases, be more
+      appropriate than <xref target="RFC6761"/>.</t>
 
       <t>This document reserves the label "ALT" (short for "Alternate") as a
       Special Use Domain (<xref target="RFC6761"/>). This label is intended to
-      be used as the final label to signify that the name is not rooted in the
-      DNS, and that normal registration and lookup rules do not apply.</t>
+      be used as the final (rightmost) label to signify that the name is not
+      rooted in the DNS, and that normal registration and lookup rules do not
+      apply.</t>
 
       <!-- Paul Hoffman removed "(apart from the zero-length terminating label)" here because 
      the rest of the sentence says that the domain is not rooted in the DNS. -->
