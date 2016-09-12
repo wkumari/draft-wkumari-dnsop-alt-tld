@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-05" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-06" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -60,7 +60,7 @@
       </address>
     </author>
 
-    <date day="3" month="June" year="2016"/>
+    <date day="12" month="September" year="2016"/>
 
     <area>template</area>
 
@@ -385,6 +385,11 @@
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+      <t>From -04 to -06:<list style="symbols">
+          <t>Version bump - we are waiting in the queue for progress on SUN,
+          bumping this to keep it alive.</t>
+        </list></t>
 
       <t>From -03 to -04:<list style="symbols">
           <t>3 changes - the day, the month and the year (a bump to keep

@@ -7,12 +7,12 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: December 5, 2016                                            Dyn
-                                                            June 3, 2016
+Expires: March 16, 2017                                              Dyn
+                                                      September 12, 2016
 
 
                   The ALT Special Use Top Level Domain
-                      draft-ietf-dnsop-alt-tld-05
+                      draft-ietf-dnsop-alt-tld-06
 
 Abstract
 
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 5, 2016.
+   This Internet-Draft will expire on March 16, 2017.
 
 
 
@@ -55,9 +55,9 @@ Status of This Memo
 
 
 
-Kumari & Sullivan       Expires December 5, 2016                [Page 1]
+Kumari & Sullivan        Expires March 16, 2017                 [Page 1]
 
-Internet-Draft               Reserve ALT TLD                   June 2016
+Internet-Draft               Reserve ALT TLD              September 2016
 
 
 Copyright Notice
@@ -111,9 +111,9 @@ Table of Contents
 
 
 
-Kumari & Sullivan       Expires December 5, 2016                [Page 2]
+Kumari & Sullivan        Expires March 16, 2017                 [Page 2]
 
-Internet-Draft               Reserve ALT TLD                   June 2016
+Internet-Draft               Reserve ALT TLD              September 2016
 
 
 1.1.  Requirements notation
@@ -167,9 +167,9 @@ Internet-Draft               Reserve ALT TLD                   June 2016
 
 
 
-Kumari & Sullivan       Expires December 5, 2016                [Page 3]
+Kumari & Sullivan        Expires March 16, 2017                 [Page 3]
 
-Internet-Draft               Reserve ALT TLD                   June 2016
+Internet-Draft               Reserve ALT TLD              September 2016
 
 
    The success of the DNS makes it a natural starting point for systems
@@ -223,9 +223,9 @@ Internet-Draft               Reserve ALT TLD                   June 2016
 
 
 
-Kumari & Sullivan       Expires December 5, 2016                [Page 4]
+Kumari & Sullivan        Expires March 16, 2017                 [Page 4]
 
-Internet-Draft               Reserve ALT TLD                   June 2016
+Internet-Draft               Reserve ALT TLD              September 2016
 
 
    Alternate namespaces should differentiate themselves from other
@@ -279,9 +279,9 @@ Internet-Draft               Reserve ALT TLD                   June 2016
 
 
 
-Kumari & Sullivan       Expires December 5, 2016                [Page 5]
+Kumari & Sullivan        Expires March 16, 2017                 [Page 5]
 
-Internet-Draft               Reserve ALT TLD                   June 2016
+Internet-Draft               Reserve ALT TLD              September 2016
 
 
    Another proposal was that the ALT TLD instead be a reservation under
@@ -335,9 +335,9 @@ Internet-Draft               Reserve ALT TLD                   June 2016
 
 
 
-Kumari & Sullivan       Expires December 5, 2016                [Page 6]
+Kumari & Sullivan        Expires March 16, 2017                 [Page 6]
 
-Internet-Draft               Reserve ALT TLD                   June 2016
+Internet-Draft               Reserve ALT TLD              September 2016
 
 
        strings of the form <namespace>.alt and perform special handing
@@ -391,9 +391,9 @@ Internet-Draft               Reserve ALT TLD                   June 2016
 
 
 
-Kumari & Sullivan       Expires December 5, 2016                [Page 7]
+Kumari & Sullivan        Expires March 16, 2017                 [Page 7]
 
-Internet-Draft               Reserve ALT TLD                   June 2016
+Internet-Draft               Reserve ALT TLD              September 2016
 
 
    The unmanaged and "registration not required" nature of labels
@@ -437,20 +437,25 @@ Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
 
+   From -04 to -06:
+
+   o  Version bump - we are waiting in the queue for progress on SUN,
+      bumping this to keep it alive.
+
    From -03 to -04:
+
+
+
+
+Kumari & Sullivan        Expires March 16, 2017                 [Page 8]
+
+Internet-Draft               Reserve ALT TLD              September 2016
+
 
    o  3 changes - the day, the month and the year (a bump to keep
       alive).
 
    From -02 to -03:
-
-
-
-
-Kumari & Sullivan       Expires December 5, 2016                [Page 8]
-
-Internet-Draft               Reserve ALT TLD                   June 2016
-
 
    o  Incorporate suggestions from Stephane and Paul Hoffman.
 
@@ -494,19 +499,21 @@ Internet-Draft               Reserve ALT TLD                   June 2016
 
    o  Comments from Ed Lewis.
 
+
+
+
+
+Kumari & Sullivan        Expires March 16, 2017                 [Page 9]
+
+Internet-Draft               Reserve ALT TLD              September 2016
+
+
    o  Filled in the "Domain Name Reservation Considerations" section of
       RFC6761.
 
    o  Removed examples from .Onion.
 
    From -03 to -04
-
-
-
-Kumari & Sullivan       Expires December 5, 2016                [Page 9]
-
-Internet-Draft               Reserve ALT TLD                   June 2016
-
 
    o  Incorporated some comments from Paul Hoffman
 
@@ -552,12 +559,5 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-Kumari & Sullivan       Expires December 5, 2016               [Page 10]
+Kumari & Sullivan        Expires March 16, 2017                [Page 10]
 ```
