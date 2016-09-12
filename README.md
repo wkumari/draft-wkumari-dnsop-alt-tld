@@ -12,7 +12,7 @@ Expires: March 16, 2017                                              Dyn
 
 
                   The ALT Special Use Top Level Domain
-                      draft-ietf-dnsop-alt-tld-06
+                      draft-ietf-dnsop-alt-tld-05
 
 Abstract
 
@@ -437,7 +437,7 @@ Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
 
-   From -04 to -06:
+   From -04 to -05:
 
    o  Version bump - we are waiting in the queue for progress on SUN,
       bumping this to keep it alive.
