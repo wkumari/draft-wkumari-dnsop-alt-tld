@@ -68,19 +68,13 @@
 
     <abstract>
       <t>This document reserves a string (ALT) to be used as a TLD label in
-      non-DNS contexts or for names that have no meaning in a global context.
+      non-DNS contexts, or for names that have no meaning in a global context.
       It also provides advice and guidance to developers developing alternate
       namespaces.</t>
 
       <t>[ Ed note: This document lives in GitHub at:
       https://github.com/wkumari/draft-wkumari-dnsop-alt-tld . Issues and pull
       requests happily accepted. ]</t>
-
-      <t>[ Question for Working Group. It has been proposed that the string
-      .ALT should be replaced with something else e.g. .NOT-DNS. As naming
-      discussions in the IETF are always short, simple, and not controversial,
-      we figured we should open these for discussion now. We would appreciate
-      clear feedback on preference and rationale. ]</t>
     </abstract>
   </front>
 
@@ -91,17 +85,11 @@
       common, even in systems that are not part of the global DNS administered
       by IANA.</t>
 
-      <t>This document provides a solution that may, in many cases, be more
-      appropriate than <xref target="RFC6761"/>.</t>
-
       <t>This document reserves the label "ALT" (short for "Alternate") as a
       Special Use Domain (<xref target="RFC6761"/>). This label is intended to
       be used as the final (rightmost) label to signify that the name is not
       rooted in the DNS, and that normal registration and lookup rules do not
       apply.</t>
-
-      <!-- Paul Hoffman removed "(apart from the zero-length terminating label)" here because 
-     the rest of the sentence says that the domain is not rooted in the DNS. -->
 
       <section title="Requirements notation">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -113,7 +101,9 @@
       <section title="Terminology">
         <t>This document assumes familiarity with DNS terms and concepts.
         Please see <xref target="RFC1034"/> for background and concepts, and
-        <xref target="I-D.ietf-dnsop-dns-terminology"/> for terminology.</t>
+        <xref target="RFC7719"/> for terminology. Readers are also expected to
+        be familiar with the discussions in <xref
+        target="I-D.tldr-sutld-ps"/></t>
 
         <t><list style="symbols">
             <t>DNS name: Domain names that are intended to be used with DNS
@@ -126,7 +116,7 @@
 
             <t>pseudo-TLD: A label that appears in a fully-qualified domain
             name in the position of a TLD, but which is not registered in the
-            global DNS.</t>
+            global DNS. This term is in no way intended to be pejorative.</t>
 
             <t>TLD: The last visible label in either a fully-qualified domain
             name or a name that is qualified relative to the root. See the
@@ -143,52 +133,22 @@
       distributed and caching nature of the DNS has made it the primary
       resolution system on the Internet.</t>
 
-      <t>Domain names are terminated by a zero-length label, so the root label
-      is normally invisible. Truly fully-qualified names indicate the root
-      label explicitly, thus: "an.example.tld.". Most of the time, names are
-      written implicitly relative to the root, thus: "an.example.tld". In both
-      of these cases, the TLD is the last label that is visible in
-      presentation format -- in this example, the string "tld". (This little
-      bit of pedantry is here because, in different contexts, people can use
-      the term "fully-qualified domain name" to refer to either of these
-      uses.) It is worth noting that the root label is present in the on-wire
-      format of fully-qualified domain names, even if not displayed in the
-      presentation form.</t>
-
       <t>The success of the DNS makes it a natural starting point for systems
       that need to name entities in a non-DNS context, or that have no unique
-      meaning in a global context. These name resolutions, therefore, occur in
-      a namespace distinct from the DNS.</t>
+      meaning in a global context. These name resolutions occur in a namespace
+      distinct from the DNS.</t>
 
       <t>In many cases, these systems build a DNS-style tree parallel to, but
       separate from, the global DNS. They often use a pseudo-TLD to cause
       resolution in the alternate namespace, using browser plugins, shims in
       the name resolution process, or simply applications that perform special
-      handling of this particular alternate namespace.</t>
+      handling of this particular alternate namespace. </t>
 
       <t>In many cases, the creators of these alternate namespaces have chosen
-      a convenient or descriptive string and started using it. These new
-      strings are "alternate" strings and are not registered anywhere or part
-      of the DNS. However they appear to users and to some applications to be
-      TLDs. Issues may arise if they are looked up in the DNS. These
-      include:</t>
-
-      <t><list style="symbols">
-          <t>User confusion: If someone emails a link of the form
-          foo.bar.pseudo-TLD to someone who does not have the necessary
-          software to resolve names in the pseudo-TLD namespace, the name will
-          not resolve and the user may become confused.</t>
-
-          <t>Excess traffic hitting the DNS root: Lookups leak out of the
-          pseudo-TLD namespace and end up hitting the DNS root
-          nameservers.</t>
-
-          <t>Collisions: If the pseudo-TLD is eventually delegated from the
-          root zone, the lookup behavior will change in a non-deterministic
-          fashion.</t>
-
-          <t>Lack of success for the user's original goal.</t>
-        </list></t>
+      a convenient or descriptive string and started using it. These strings
+      are not registered anywhere nor are they part of the DNS. However they
+      appear to users and to some applications to be TLDs, and issues may
+      arise if they are looked up in the DNS. </t>
 
       <t>An alternate name resolution system might be specifically designed to
       provide confidentiality of the looked up name, and to provide a
@@ -200,12 +160,11 @@
     </section>
 
     <section title="The ALT namespace">
-      <t>In order to avoid the above issues, we reserve the ALT label. Unless
-      the name desired is globally unique, has meaning on the global context
-      and is delegated in the DNS, it should be considered an alternate
-      namespace, and follow the ALT label scheme outlined below. The ALT label
-      MAY be used in any domain name as a pseudo-TLD to signify that this is
-      an alternate (non-DNS) namespace.</t>
+      <t>This document reserves the ALT label, using the <xref
+      target="RFC6761"/> process, for use as a pseudo-TLD. This creates an
+      unmanaged sandbox namespace. The ALT label MAY be used in any domain
+      name as a pseudo-TLD to signify that this is an alternate (non-DNS)
+      namespace.</t>
 
       <t>Alternate namespaces should differentiate themselves from other
       alternate namespaces by choosing a name and using it in the label
@@ -216,19 +175,19 @@
       <t>As they are in an alternate namespace, they have no significance in
       the regular DNS context and so should not be looked up in the DNS
       context. Some of these requests will inevitably leak into the DNS
-      context (for example, because clicks on a link in a browser that does
+      context (for example, because of clicks on a link in a browser that does
       not have a extension installed that implements the alternate namespace
       resolution), and so the ALT TLD has been added to the "Locally Served
       DNS Zones" <xref target="RFC6303">(</xref>) registry to limit how far
       these flow.</t>
 
-      <t>Groups wishing to create new alternate namespaces SHOULD create their
-      alternate namespace under a label that names their namespace, and under
-      the ALT label. They SHOULD choose a label that they expect to be unique
-      and, ideally, descriptive. There is no IANA controlled registry for
-      names under the ALT TLD - it is an unmanaged namespace, and developers
-      are responsible for dealing with any collisions that may occur under
-      .alt. Informal lists of namespaces under .alt may appear to assist the
+      <t>Groups wishing to create new alternate namespaces MAY create their
+      alternate namespace under a label that names their namespace under the
+      ALT label. They SHOULD choose a label that they expect to be unique and,
+      ideally, descriptive. There is no IANA controlled registry for names
+      under the ALT TLD - it is an unmanaged namespace, and developers are
+      responsible for dealing with any collisions that may occur under .alt.
+      Informal lists of namespaces under .alt may appear to assist the
       developer community.</t>
 
       <t>[Editor note (to be removed before publication): There was
@@ -253,39 +212,6 @@
         normally take DNS context names); this rules out using suffixes that
         do not follow the usual letter, digit, and hyphen label
         convention.</t>
-
-        <t>Another proposal was that the ALT TLD instead be a reservation
-        under .arpa. This was considered, but rejected for several reasons,
-        including:</t>
-
-        <t><list style="numbers">
-            <t>We wished this to make it clear that this is not in the DNS
-            context, and .arpa clearly is.</t>
-
-            <t>The use of the string .alt is intended to evoke the alt.*
-            hierarchy in Usenet.</t>
-
-            <t>We wanted the string to be short and easily used.</t>
-
-            <t>A name underneath .arpa would consume at least five additional
-            octets of the total 255 octets available in domain names, which
-            could put pressure on applications that need long
-            machine-generated names.</t>
-
-            <t>We are suggesting that the string "ALT" get special treatment
-            in resolvers, and shim software. We are concerned that using
-            subdomains of an existing TLD (like .arpa) might end up with bad
-            implementations misconfiguring / overriding the TLD itself and
-            breaking .arpa.</t>
-          </list></t>
-
-        <t>There is a concern that if there were placed under .arpa,
-        inexperienced nameserver operators may inadvertently cover .arpa. A
-        more significant concern is that the scope of the issue if the query
-        does leak, and the fact that this would then make the root of the
-        alternate naming namespace a third level domain, and not a second one.
-        A project may be willing to have a name of the form example.alt, but
-        example.alt.arpa may be not look as good.</t>
       </section>
     </section>
 
@@ -353,7 +279,10 @@
       <t>One of the motivations for the creation of the alt pseudo-TLD is that
       unmanaged labels in the managed root name space are subject to
       unexpected takeover if the manager of the root name space decides to
-      delegate the unmanaged label.</t>
+      delegate the unmanaged label. Another motivation to to increase use
+      privacy for those users who do use alternate name resolution systems, by
+      limiting how far these queries leak if used on a system which does not
+      implement the alternate resolution system.</t>
 
       <t>The unmanaged and "registration not required" nature of labels
       beneath .alt provides the opportunity for an attacker to re-use the
@@ -367,6 +296,8 @@
       Faltstrom, Olafur Gudmundsson, Paul Hoffman, Joel Jaeggli, Ted Lemon,
       Edward Lewis, George Michaelson, Ed Pascoe, Arturo Servin, and Paul
       Vixie for feedback.</t>
+
+      <t>Christian Grothoff was also very helpful.</t>
     </section>
   </middle>
 
@@ -380,7 +311,9 @@
 
       <?rfc include='reference.RFC.1034'?>
 
-      <?rfc include='reference.I-D.ietf-dnsop-dns-terminology.xml'?>
+      <?rfc include='reference.RFC.7719'?>
+
+      <?rfc include='reference.I-D.draft-tldr-sutld-ps-04.xml'?>
     </references>
 
     <section title="Changes / Author Notes.">
