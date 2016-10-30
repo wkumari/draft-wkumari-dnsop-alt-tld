@@ -7,12 +7,12 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: March 16, 2017                                              Dyn
-                                                      September 12, 2016
+Expires: May 3, 2017                                                 Dyn
+                                                        October 30, 2016
 
 
                   The ALT Special Use Top Level Domain
-                      draft-ietf-dnsop-alt-tld-05
+                      draft-ietf-dnsop-alt-tld-06
 
 Abstract
 
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 16, 2017.
+   This Internet-Draft will expire on May 3, 2017.
 
 Copyright Notice
 
@@ -55,9 +55,9 @@ Copyright Notice
 
 
 
-Kumari & Sullivan        Expires March 16, 2017                 [Page 1]
+Kumari & Sullivan          Expires May 3, 2017                  [Page 1]
 
-Internet-Draft               Reserve ALT TLD              September 2016
+Internet-Draft               Reserve ALT TLD                October 2016
 
 
    to this document.  Code Components extracted from this document must
@@ -111,9 +111,9 @@ Table of Contents
 
 
 
-Kumari & Sullivan        Expires March 16, 2017                 [Page 2]
+Kumari & Sullivan          Expires May 3, 2017                  [Page 2]
 
-Internet-Draft               Reserve ALT TLD              September 2016
+Internet-Draft               Reserve ALT TLD                October 2016
 
 
    o  DNS context: The namespace anchored at the globally-unique DNS
@@ -167,9 +167,9 @@ Internet-Draft               Reserve ALT TLD              September 2016
 
 
 
-Kumari & Sullivan        Expires March 16, 2017                 [Page 3]
+Kumari & Sullivan          Expires May 3, 2017                  [Page 3]
 
-Internet-Draft               Reserve ALT TLD              September 2016
+Internet-Draft               Reserve ALT TLD                October 2016
 
 
 3.  The ALT namespace
@@ -223,9 +223,9 @@ Internet-Draft               Reserve ALT TLD              September 2016
 
 
 
-Kumari & Sullivan        Expires March 16, 2017                 [Page 4]
+Kumari & Sullivan          Expires May 3, 2017                  [Page 4]
 
-Internet-Draft               Reserve ALT TLD              September 2016
+Internet-Draft               Reserve ALT TLD                October 2016
 
 
 3.1.  Choice of the ALT Name
@@ -279,9 +279,9 @@ Internet-Draft               Reserve ALT TLD              September 2016
 
 
 
-Kumari & Sullivan        Expires March 16, 2017                 [Page 5]
+Kumari & Sullivan          Expires May 3, 2017                  [Page 5]
 
-Internet-Draft               Reserve ALT TLD              September 2016
+Internet-Draft               Reserve ALT TLD                October 2016
 
 
    5.  Authoritative DNS servers SHOULD recognize these names as special
@@ -335,9 +335,9 @@ Internet-Draft               Reserve ALT TLD              September 2016
 
 
 
-Kumari & Sullivan        Expires March 16, 2017                 [Page 6]
+Kumari & Sullivan          Expires May 3, 2017                  [Page 6]
 
-Internet-Draft               Reserve ALT TLD              September 2016
+Internet-Draft               Reserve ALT TLD                October 2016
 
 
    [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",
@@ -365,6 +365,16 @@ Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
 
+   From -05 to -06:
+
+   o  Removed a large amount of background - we now have the (adopted)
+      tldr document for that.
+
+   o  Made it clear that pseudo-TLD is not intended to be pejorative.
+
+   o  Tried to make it cleat that this is something people can choose to
+      use - or not.
+
    From -04 to -05:
 
    o  Version bump - we are waiting in the queue for progress on SUN,
@@ -379,6 +389,13 @@ Appendix A.  Changes / Author Notes.
 
    o  Incorporate suggestions from Stephane and Paul Hoffman.
 
+
+
+Kumari & Sullivan          Expires May 3, 2017                  [Page 7]
+
+Internet-Draft               Reserve ALT TLD                October 2016
+
+
    From -01 to -02:
 
    o  Merged a bunch of changes from Paul Hoffman.  Thanks for sending a
@@ -388,13 +405,6 @@ Appendix A.  Changes / Author Notes.
 
    o  Removed the "delegated to new style AS112 servers" text -this was
       legacy from the omnicient AS112 days.  (Joe Abley)
-
-
-
-Kumari & Sullivan        Expires March 16, 2017                 [Page 7]
-
-Internet-Draft               Reserve ALT TLD              September 2016
-
 
    o  Removed the "Advice to implemntors" section.  This used to
       recommend that people used a subdomain of a domain in the DNS.  It
@@ -435,6 +445,13 @@ Internet-Draft               Reserve ALT TLD              September 2016
 
    o  Incorporated some comments from Paul Hoffman
 
+
+
+Kumari & Sullivan          Expires May 3, 2017                  [Page 8]
+
+Internet-Draft               Reserve ALT TLD                October 2016
+
+
    From -02 to -03
 
    o  After discussions with chairs, made this much more generic (not
@@ -443,14 +460,6 @@ Internet-Draft               Reserve ALT TLD              September 2016
    From -01 to -02
 
    o  Removed some fluffy wording, tightened up the language some.
-
-
-
-
-Kumari & Sullivan        Expires March 16, 2017                 [Page 8]
-
-Internet-Draft               Reserve ALT TLD              September 2016
-
 
    From -00 to -01.
 
@@ -494,14 +503,5 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-Kumari & Sullivan        Expires March 16, 2017                 [Page 9]
+Kumari & Sullivan          Expires May 3, 2017                  [Page 9]
 ```

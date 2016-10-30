@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-05" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-06" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -60,7 +60,7 @@
       </address>
     </author>
 
-    <date day="12" month="September" year="2016"/>
+    <date day="30" month="October" year="2016"/>
 
     <area>template</area>
 
@@ -318,6 +318,17 @@
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+      <t>From -05 to -06:<list style="symbols">
+          <t>Removed a large amount of background - we now have the (adopted)
+          tldr document for that.</t>
+
+          <t>Made it clear that pseudo-TLD is not intended to be pejorative.
+          </t>
+
+          <t>Tried to make it cleat that this is something people can choose
+          to use - or not.</t>
+        </list></t>
 
       <t>From -04 to -05:<list style="symbols">
           <t>Version bump - we are waiting in the queue for progress on SUN,
