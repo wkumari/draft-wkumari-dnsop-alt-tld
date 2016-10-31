@@ -7,23 +7,35 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: May 3, 2017                                                 Dyn
-                                                        October 30, 2016
+Expires: May 4, 2017                                                 Dyn
+                                                        October 31, 2016
 
 
-                  The ALT Special Use Top Level Domain
-                      draft-ietf-dnsop-alt-tld-06
+                 The <TBD> Special Use Top Level Domain
+                      draft-ietf-dnsop-alt-tld-07
 
 Abstract
 
-   This document reserves a string (ALT) to be used as a TLD label in
+   This document reserves a string (<TBD>) to be used as a TLD label in
    non-DNS contexts, or for names that have no meaning in a global
    context.  It also provides advice and guidance to developers
    developing alternate namespaces.
 
-   [ Ed note: This document lives in GitHub at:
-   https://github.com/wkumari/draft-wkumari-dnsop-alt-tld . Issues and
-   pull requests happily accepted. ]
+   [ Ed note: Text inside square brackets ([]) is additional background
+   information, answers to frequently asked questions, general musings,
+   etc.  They will be removed before publication.This document is being
+   collaborated on in Github at: https://github.com/wkumari/draft-
+   wkumari-dnsop-alt-tld.  The most recent version of the document, open
+   issues, etc should all be available here.  The authors (gratefully)
+   accept pull requests.]
+
+   [ Ed note: This document is called dnsop-alt-tld.  The draft has gone
+   through 12 revisions with the suggested string being .ALT.  The
+   actual string used is not important, but it does need to be human
+   readable / typable, short, and not give the impression that systems
+   which use it are somehow second class citizens.  This version has
+   replaced the string in the body with <TBD> to make it clear that the
+   string itself is not important.]
 
 Status of This Memo
 
@@ -40,7 +52,15 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 3, 2017.
+
+
+
+Kumari & Sullivan          Expires May 4, 2017                  [Page 1]
+
+Internet-Draft              Reserve <TBD> TLD               October 2016
+
+
+   This Internet-Draft will expire on May 4, 2017.
 
 Copyright Notice
 
@@ -52,14 +72,6 @@ Copyright Notice
    (http://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
-
-
-
-Kumari & Sullivan          Expires May 3, 2017                  [Page 1]
-
-Internet-Draft               Reserve ALT TLD                October 2016
-
-
    to this document.  Code Components extracted from this document must
    include Simplified BSD License text as described in Section 4.e of
    the Trust Legal Provisions and are provided without warranty as
@@ -68,16 +80,16 @@ Internet-Draft               Reserve ALT TLD                October 2016
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-     1.1.  Requirements notation . . . . . . . . . . . . . . . . . .   2
-     1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   2
+     1.1.  Requirements notation . . . . . . . . . . . . . . . . . .   3
+     1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
    2.  Background  . . . . . . . . . . . . . . . . . . . . . . . . .   3
    3.  The ALT namespace . . . . . . . . . . . . . . . . . . . . . .   4
-     3.1.  Choice of the ALT Name  . . . . . . . . . . . . . . . . .   5
+     3.1.  Choice of the string  . . . . . . . . . . . . . . . . . .   5
    4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
      4.1.  Domain Name Reservation Considerations  . . . . . . . . .   5
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
-   6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   6
-   7.  Normative References  . . . . . . . . . . . . . . . . . . . .   6
+   6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   7
+   7.  Normative References  . . . . . . . . . . . . . . . . . . . .   7
    Appendix A.  Changes / Author Notes.  . . . . . . . . . . . . . .   7
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
 
@@ -88,10 +100,21 @@ Table of Contents
    common, even in systems that are not part of the global DNS
    administered by IANA.
 
-   This document reserves the label "ALT" (short for "Alternate") as a
+   This document reserves the label "<TBD>" (short for "Alternate") as a
    Special Use Domain ([RFC6761]).  This label is intended to be used as
    the final (rightmost) label to signify that the name is not rooted in
    the DNS, and that normal registration and lookup rules do not apply.
+
+
+
+
+
+
+
+Kumari & Sullivan          Expires May 4, 2017                  [Page 2]
+
+Internet-Draft              Reserve <TBD> TLD               October 2016
+
 
 1.1.  Requirements notation
 
@@ -108,13 +131,6 @@ Table of Contents
 
    o  DNS name: Domain names that are intended to be used with DNS
       resolution, either in the global DNS or in some other context
-
-
-
-Kumari & Sullivan          Expires May 3, 2017                  [Page 2]
-
-Internet-Draft               Reserve ALT TLD                October 2016
-
 
    o  DNS context: The namespace anchored at the globally-unique DNS
       root.  This is the namespace or context that "normal" DNS uses.
@@ -149,6 +165,13 @@ Internet-Draft               Reserve ALT TLD                October 2016
    in the name resolution process, or simply applications that perform
    special handling of this particular alternate namespace.
 
+
+
+Kumari & Sullivan          Expires May 4, 2017                  [Page 3]
+
+Internet-Draft              Reserve <TBD> TLD               October 2016
+
+
    In many cases, the creators of these alternate namespaces have chosen
    a convenient or descriptive string and started using it.  These
    strings are not registered anywhere nor are they part of the DNS.
@@ -163,83 +186,76 @@ Internet-Draft               Reserve ALT TLD                October 2016
    operators of root name servers and to any entity viewing the DNS
    lookups going to the root nameservers.
 
-
-
-
-
-Kumari & Sullivan          Expires May 3, 2017                  [Page 3]
-
-Internet-Draft               Reserve ALT TLD                October 2016
-
-
 3.  The ALT namespace
 
-   This document reserves the ALT label, using the [RFC6761] process,
+   This document reserves the <TBD> label, using the [RFC6761] process,
    for use as a pseudo-TLD.  This creates an unmanaged sandbox
-   namespace.  The ALT label MAY be used in any domain name as a pseudo-
-   TLD to signify that this is an alternate (non-DNS) namespace.
+   namespace.  The <TBD> label MAY be used in any domain name as a
+   pseudo-TLD to signify that this is an alternate (non-DNS) namespace.
 
    Alternate namespaces should differentiate themselves from other
    alternate namespaces by choosing a name and using it in the label
-   position just before the pseudo-TLD (ALT).  For example, a group
+   position just before the pseudo-TLD (<TBD>).  For example, a group
    wishing to create a namespace for Friends Of Olaf might choose the
-   string "foo" and use any set of labels under foo.alt.
+   string "foo" and use any set of labels under foo.<TBD>.
 
    As they are in an alternate namespace, they have no significance in
    the regular DNS context and so should not be looked up in the DNS
    context.  Some of these requests will inevitably leak into the DNS
    context (for example, because of clicks on a link in a browser that
    does not have a extension installed that implements the alternate
-   namespace resolution), and so the ALT TLD has been added to the
+   namespace resolution), and so the <TBD> TLD has been added to the
    "Locally Served DNS Zones" ( [RFC6303]) registry to limit how far
    these flow.
 
    Groups wishing to create new alternate namespaces MAY create their
    alternate namespace under a label that names their namespace under
-   the ALT label.  They SHOULD choose a label that they expect to be
+   the <TBD> label.  They SHOULD choose a label that they expect to be
    unique and, ideally, descriptive.  There is no IANA controlled
-   registry for names under the ALT TLD - it is an unmanaged namespace,
-   and developers are responsible for dealing with any collisions that
-   may occur under .alt.  Informal lists of namespaces under .alt may
-   appear to assist the developer community.
+   registry for names under the <TBD> TLD - it is an unmanaged
+   namespace, and developers are responsible for dealing with any
+   collisions that may occur under .<TBD>.  Informal lists of namespaces
+   under .<TBD> may appear to assist the developer community.
 
    [Editor note (to be removed before publication): There was
-   significant discussion on an IANA registry for the ALT namespace -
+   significant discussion on an IANA registry for the <TBD> namespace -
    please consult the lists for full thread, but the consensus seems to
+
+
+
+Kumari & Sullivan          Expires May 4, 2017                  [Page 4]
+
+Internet-Draft              Reserve <TBD> TLD               October 2016
+
+
    be that it would be better for the IETF / IANA to not administer a
    registry for this.  It is expected one or more unofficial lists will
    be created where people can list the strings that they are using. ]
 
    Currently deployed projects and protocols that are using pseudo-TLDs
-   may decide to move under the ALT TLD, but this is not a requirement.
-   Rather, the ALT TLD is being reserved so that current and future
-   projects of a similar nature have a designated place to create
-   alternate resolution namespaces that will not conflict with the
-   regular DNS context.
+   may decide to move under the <TBD> TLD, but this is not a
+   requirement.  Rather, the <TBD> TLD is being reserved so that current
+   and future projects of a similar nature have a designated place to
+   create alternate resolution namespaces that will not conflict with
+   the regular DNS context.
 
+3.1.  Choice of the string
 
-
-
-
-
-
-Kumari & Sullivan          Expires May 3, 2017                  [Page 4]
-
-Internet-Draft               Reserve ALT TLD                October 2016
-
-
-3.1.  Choice of the ALT Name
-
-   A number of names other than "ALT" were considered and discarded.  In
+   The first 12 versions of this document suggested the use of the
+   stirng .ALT.  The authors still think that this is a short, clear
+   string, clealy expressing that this is an ALTernate resolution
+   context, but any clear, consise, human-readable term will work.  In
    order for this technique to be effective the names need to continue
    to follow both the DNS format and conventions (a prime consideration
    for alternate name formats is that they can be entered in places that
    normally take DNS context names); this rules out using suffixes that
    do not follow the usual letter, digit, and hyphen label convention.
+   The WG will need to select a name, and the authors will replace the
+   string <TBD> with the selected name.
 
 4.  IANA Considerations
 
-   The IANA is requested to add the ALT string to the "Special-Use
+   The IANA is requested to add the <TBD> string to the "Special-Use
    Domain Name" registry ([RFC6761], and reference this document.  In
    addition, the "Locally Served DNS Zones" ([RFC6303]) registry should
    be updated to reference this document.
@@ -248,20 +264,29 @@ Internet-Draft               Reserve ALT TLD                October 2016
 
    This section is to satisfy the requirement in Section 5 of RFC6761.
 
-   The domain "alt.", and any names falling within ".alt.", are special
-   in the following ways:
+   The domain "<TBD>.", and any names falling within ".<TBD>.", are
+   special in the following ways:
 
-   1.  Human users are expected to know that strings that end in .alt
+   1.  Human users are expected to know that strings that end in .<TBD>
        behave differently to normal DNS names.  Users are expected to
        have applications running on their machines that intercept
-       strings of the form <namespace>.alt and perform special handing
+       strings of the form <namespace>.<TBD> and perform special handing
        of them.  If the user tries to resolve a name of the form
-       <namespace>.alt without the <namespace> plugin installed, the
+       <namespace>.<TBD> without the <namespace> plugin installed, the
        request will leak into the DNS, and receive a negative response.
+
+
+
+
+
+Kumari & Sullivan          Expires May 4, 2017                  [Page 5]
+
+Internet-Draft              Reserve <TBD> TLD               October 2016
+
 
    2.  Writers of application software that implement a non-DNS
        namespace are expected to intercept names of the form
-       <namespace>.alt and perform application specific handing with
+       <namespace>.<TBD> and perform application specific handing with
        them.  Other applications are not intended to perform any special
        handing.
 
@@ -277,13 +302,6 @@ Internet-Draft               Reserve ALT TLD                October 2016
        resolve these names.  Instead, caching DNS servers SHOULD
        generate immediate negative responses for all such queries.
 
-
-
-Kumari & Sullivan          Expires May 3, 2017                  [Page 5]
-
-Internet-Draft               Reserve ALT TLD                October 2016
-
-
    5.  Authoritative DNS servers SHOULD recognize these names as special
        and SHOULD, by default, generate immediate negative responses for
        all such queries, unless explicitly configured by the
@@ -291,20 +309,20 @@ Internet-Draft               Reserve ALT TLD                October 2016
        reverse-mapping names.
 
    6.  DNS server operators SHOULD be aware that queries for names
-       ending in .alt are not DNS names, and were leaked into the DNS
+       ending in .<TBD> are not DNS names, and were leaked into the DNS
        context (for example, by a missing browser plugin).  This
        information may be useful for support or debugging purposes.
 
    7.  DNS Registries/Registrars MUST NOT grant requests to register
-       "alt" names in the normal way to any person or entity.  These
-       "alt" names are defined by protocol specification to be
+       "<TBD>" names in the normal way to any person or entity.  These
+       "<TBD>" names are defined by protocol specification to be
        nonexistent, and they fall outside the set of names available for
        allocation by registries/registrars.
 
 5.  Security Considerations
 
-   One of the motivations for the creation of the alt pseudo-TLD is that
-   unmanaged labels in the managed root name space are subject to
+   One of the motivations for the creation of the <TBD> pseudo-TLD is
+   that unmanaged labels in the managed root name space are subject to
    unexpected takeover if the manager of the root name space decides to
    delegate the unmanaged label.  Another motivation to to increase use
    privacy for those users who do use alternate name resolution systems,
@@ -312,7 +330,16 @@ Internet-Draft               Reserve ALT TLD                October 2016
    not implement the alternate resolution system.
 
    The unmanaged and "registration not required" nature of labels
-   beneath .alt provides the opportunity for an attacker to re-use the
+   beneath .<TBD> provides the opportunity for an attacker to re-use the
+
+
+
+
+Kumari & Sullivan          Expires May 4, 2017                  [Page 6]
+
+Internet-Draft              Reserve <TBD> TLD               October 2016
+
+
    chosen label and thereby possibly compromise applications dependent
    on the special host name.
 
@@ -332,13 +359,6 @@ Internet-Draft               Reserve ALT TLD                October 2016
               Lemon, T., Droms, R., and W. Kumari, "Special-Use Names
               Problem Statement", draft-tldr-sutld-ps-04 (work in
               progress), September 2016.
-
-
-
-Kumari & Sullivan          Expires May 3, 2017                  [Page 6]
-
-Internet-Draft               Reserve ALT TLD                October 2016
-
 
    [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",
               STD 13, RFC 1034, DOI 10.17487/RFC1034, November 1987,
@@ -365,6 +385,17 @@ Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
 
+   From -06 to -07:
+
+   o  Replaced .ALT with <TBD> - at the insistance by George Michaelson.
+
+
+
+Kumari & Sullivan          Expires May 4, 2017                  [Page 7]
+
+Internet-Draft              Reserve <TBD> TLD               October 2016
+
+
    From -05 to -06:
 
    o  Removed a large amount of background - we now have the (adopted)
@@ -388,13 +419,6 @@ Appendix A.  Changes / Author Notes.
    From -02 to -03:
 
    o  Incorporate suggestions from Stephane and Paul Hoffman.
-
-
-
-Kumari & Sullivan          Expires May 3, 2017                  [Page 7]
-
-Internet-Draft               Reserve ALT TLD                October 2016
-
 
    From -01 to -02:
 
@@ -421,6 +445,13 @@ Internet-Draft               Reserve ALT TLD                October 2016
 
    From -05 to -06
 
+
+
+Kumari & Sullivan          Expires May 4, 2017                  [Page 8]
+
+Internet-Draft              Reserve <TBD> TLD               October 2016
+
+
    o  Incorporated comments from a number of people, including a number
       of suggestion heard at the IETF meeting in Dallas, and the DNSOP
       Interim meeting in May, 2015.
@@ -445,13 +476,6 @@ Internet-Draft               Reserve ALT TLD                October 2016
 
    o  Incorporated some comments from Paul Hoffman
 
-
-
-Kumari & Sullivan          Expires May 3, 2017                  [Page 8]
-
-Internet-Draft               Reserve ALT TLD                October 2016
-
-
    From -02 to -03
 
    o  After discussions with chairs, made this much more generic (not
@@ -469,6 +493,20 @@ Internet-Draft               Reserve ALT TLD                October 2016
       namespace that they control (Joe Abley)
 
 Authors' Addresses
+
+
+
+
+
+
+
+
+
+
+Kumari & Sullivan          Expires May 4, 2017                  [Page 9]
+
+Internet-Draft              Reserve <TBD> TLD               October 2016
+
 
    Warren Kumari
    Google
@@ -503,5 +541,23 @@ Authors' Addresses
 
 
 
-Kumari & Sullivan          Expires May 3, 2017                  [Page 9]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kumari & Sullivan          Expires May 4, 2017                 [Page 10]
 ```
