@@ -171,7 +171,7 @@
       the root nameservers.</t>
     </section>
 
-    <section title="The ALT namespace">
+    <section title="The &lt;TBD&gt; namespace">
       <t>This document reserves the &lt;TBD&gt; label, using the <xref
       target="RFC6761"/> process, for use as a pseudo-TLD. This creates an
       unmanaged sandbox namespace. The &lt;TBD&gt; label MAY be used in any

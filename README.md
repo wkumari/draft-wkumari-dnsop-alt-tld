@@ -83,7 +83,7 @@ Table of Contents
      1.1.  Requirements notation . . . . . . . . . . . . . . . . . .   3
      1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
    2.  Background  . . . . . . . . . . . . . . . . . . . . . . . . .   3
-   3.  The ALT namespace . . . . . . . . . . . . . . . . . . . . . .   4
+   3.  The <TBD> namespace . . . . . . . . . . . . . . . . . . . . .   4
      3.1.  Choice of the string  . . . . . . . . . . . . . . . . . .   5
    4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
      4.1.  Domain Name Reservation Considerations  . . . . . . . . .   5
@@ -186,7 +186,7 @@ Internet-Draft              Reserve <TBD> TLD               October 2016
    operators of root name servers and to any entity viewing the DNS
    lookups going to the root nameservers.
 
-3.  The ALT namespace
+3.  The <TBD> namespace
 
    This document reserves the <TBD> label, using the [RFC6761] process,
    for use as a pseudo-TLD.  This creates an unmanaged sandbox
