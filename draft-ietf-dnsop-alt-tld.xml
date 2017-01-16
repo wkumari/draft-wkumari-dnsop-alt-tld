@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-06" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-07.2" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -60,7 +60,7 @@
       </address>
     </author>
 
-    <date day="30" month="October" year="2016"/>
+    <date day="16" month="January" year="2017"/>
 
     <area>template</area>
 
@@ -72,9 +72,31 @@
       It also provides advice and guidance to developers developing alternate
       namespaces.</t>
 
-      <t>[ Ed note: This document lives in GitHub at:
-      https://github.com/wkumari/draft-wkumari-dnsop-alt-tld . Issues and pull
-      requests happily accepted. ]</t>
+      <t>[Ed note: Text inside square brackets ([]) is additional background
+      information, answers to frequently asked questions, general musings,
+      etc. They will be removed before publication.This document is being
+      collaborated on in Github at: https://github.com/wkumari/draft-
+      wkumari-dnsop-alt-tld. The most recent version of the document, open
+      issues, etc should all be available here. The authors (gratefully)
+      accept pull requests. NOTE: This document is currently a parked WG
+      document -- as such, all changes are being handled in GitHub and a new
+      version will be posted once unparked.</t>
+
+      <t>It had been suggested (off-list) that the draft should contain
+      &lt;TBD&gt; instead of .ALT, and then make the WG choose a string before
+      publication. A version of the draft like this was published on GitHub
+      (https://github.com/wkumari/draft-wkumari-dnsop-alt-tld/tree/7988fcf06100f7a17f21e6993b781690b5774472)
+      and generated no feedback. This version reverts to .ALT at the chairs'
+      request -- they stated that the document was adopted with the string
+      .alt, it has been discussed as .alt, and is more readable as .alt; it
+      would also be a difficult consensus call, boiling down to beauty
+      contests. If the WG selects a different string ("not-dns" had been
+      suggested in the past), the editors will, of course, replace it. ]</t>
+
+      <t>[Ed note: Open question - it is possible that we would need an
+      unsecured "delegation" in the root to deal with DNSSEC-- see the
+      discussions from .homenet, etc. Is this a good idea / needed? It seems
+      like part of the larger Special Use Names discussions. ]</t>
     </abstract>
   </front>
 
@@ -103,7 +125,7 @@
         Please see <xref target="RFC1034"/> for background and concepts, and
         <xref target="RFC7719"/> for terminology. Readers are also expected to
         be familiar with the discussions in <xref
-        target="I-D.tldr-sutld-ps"/></t>
+        target="I-D.ietf-dnsop-sutld-ps"/></t>
 
         <t><list style="symbols">
             <t>DNS name: Domain names that are intended to be used with DNS
@@ -126,37 +148,31 @@
     </section>
 
     <section anchor="background" title="Background">
-      <t>The DNS data model is based on a tree structure, and has a single
-      root. Conventionally, a name immediately beneath the root is called a
-      "Top Level Domain" or "TLD". TLDs usually delegate portions of their
-      namespace to others, who may then delegate further. The hierarchical,
-      distributed and caching nature of the DNS has made it the primary
-      resolution system on the Internet.</t>
-
       <t>The success of the DNS makes it a natural starting point for systems
-      that need to name entities in a non-DNS context, or that have no unique
-      meaning in a global context. These name resolutions occur in a namespace
-      distinct from the DNS.</t>
+      that need to name entities in a non-DNS context.</t>
 
       <t>In many cases, these systems build a DNS-style tree parallel to, but
       separate from, the global DNS. They often use a pseudo-TLD to cause
       resolution in the alternate namespace, using browser plugins, shims in
       the name resolution process, or simply applications that perform special
-      handling of this particular alternate namespace. </t>
+      handling of this particular alternate namespace. An example of such a
+      system is the Tor network's <xref target="Dingledine2004"/> use of the
+      ".onion" Special-Use Top-Level Domain Name (see <xref
+      target="RFC7686"/>).</t>
 
       <t>In many cases, the creators of these alternate namespaces have chosen
       a convenient or descriptive string and started using it. These strings
-      are not registered anywhere nor are they part of the DNS. However they
-      appear to users and to some applications to be TLDs, and issues may
-      arise if they are looked up in the DNS. </t>
+      are not registered anywhere nor are they part of the DNS. However, to
+      users and to some applications they appear to be TLDs; and issues may
+      arise if they are looked up in the DNS.</t>
 
       <t>An alternate name resolution system might be specifically designed to
       provide confidentiality of the looked up name, and to provide a
       distributed and censorship-resistant namespace. This goal would
       necessarily be defeated if the queries leak into the DNS, because the
-      attempt to look up the name would be visible at least to the operators
-      of root name servers and to any entity viewing the DNS lookups going to
-      the root nameservers.</t>
+      attempt to look up the name would be visible to the operators of root
+      name servers at a minimum as well as to any entity viewing the DNS
+      lookups going to the root nameservers.</t>
     </section>
 
     <section title="The ALT namespace">
@@ -164,7 +180,7 @@
       target="RFC6761"/> process, for use as a pseudo-TLD. This creates an
       unmanaged sandbox namespace. The ALT label MAY be used in any domain
       name as a pseudo-TLD to signify that this is an alternate (non-DNS)
-      namespace.</t>
+      namespace, and should not be looked up in a DNS context.</t>
 
       <t>Alternate namespaces should differentiate themselves from other
       alternate namespaces by choosing a name and using it in the label
@@ -192,13 +208,13 @@
 
       <t>[Editor note (to be removed before publication): There was
       significant discussion on an IANA registry for the ALT namespace -
-      please consult the lists for full thread, but the consensus seems to be
-      that it would be better for the IETF / IANA to not administer a registry
-      for this. It is expected one or more unofficial lists will be created
-      where people can list the strings that they are using. ]</t>
+      please consult the lists for full thread, but the consensus was that it
+      would be better for the IETF / IANA to not administer a registry for
+      this. It is expected one or more unofficial lists will be created where
+      people can list the strings that they are using. ]</t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
-      may decide to move under the ALT TLD, but this is not a requirement.
+      may choose to move under the ALT TLD, but this is not a requirement.
       Rather, the ALT TLD is being reserved so that current and future
       projects of a similar nature have a designated place to create alternate
       resolution namespaces that will not conflict with the regular DNS
@@ -276,18 +292,19 @@
     </section>
 
     <section anchor="security" title="Security Considerations">
-      <t>One of the motivations for the creation of the alt pseudo-TLD is that
-      unmanaged labels in the managed root name space are subject to
-      unexpected takeover if the manager of the root name space decides to
-      delegate the unmanaged label. Another motivation to to increase use
-      privacy for those users who do use alternate name resolution systems, by
-      limiting how far these queries leak if used on a system which does not
-      implement the alternate resolution system.</t>
+      <t>One of the motivations for the creation of the .alt pseudo-TLD is
+      that unmanaged labels in the managed root name space are subject to
+      unexpected takeover. This could occur if the manager of the root name
+      space decides to delegate the unmanaged label. Another motivation for
+      implementing the .alt namespace to increase user privacy for those who
+      do use alternate name resolution systems; it would limit how far these
+      queries leak (e.g if used on a system which does not implement the
+      alternate resolution system).</t>
 
       <t>The unmanaged and "registration not required" nature of labels
       beneath .alt provides the opportunity for an attacker to re-use the
       chosen label and thereby possibly compromise applications dependent on
-      the special host name.</t>
+      the special host name. </t>
     </section>
 
     <section title="Acknowledgements">
@@ -313,18 +330,59 @@
 
       <?rfc include='reference.RFC.7719'?>
 
-      <?rfc include='reference.I-D.draft-tldr-sutld-ps-04.xml'?>
+      <?rfc include='reference.RFC.7686'?>
+    </references>
+
+    <references title="Informative References">
+      <?rfc include='reference.I-D.draft-ietf-dnsop-sutld-ps-00.xml'?>
+
+      <reference anchor="Dingledine2004"
+                 target="&lt;https://svn.torproject.org/svn/projects/design-paper/tor-design.html&gt;">
+        <front>
+          <title>Tor: The Second-Generation Onion Router</title>
+
+          <author fullname="R" initials="R" surname="Dingledine">
+            <organization/>
+          </author>
+
+          <author fullname="N" initials="N" surname="Mathewson">
+            <organization/>
+          </author>
+
+          <author fullname="P" initials="P" surname="Syverson">
+            <organization/>
+          </author>
+
+          <date month="8" year="2004"/>
+        </front>
+
+        <seriesInfo name="" value=""/>
+      </reference>
     </references>
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
+      <t>From -07.1 to -07.2:<list style="symbols">
+          <t>Reverted the &lt;TBD&gt; string (at request of chairs).</t>
+
+          <t>Added an editors note explaining the above.</t>
+
+          <t>Removed some more background, editorializing, etc.</t>
+        </list></t>
+
+      <t>From -06 to -07.1
+      (https://github.com/wkumari/draft-wkumari-dnsop-alt-tld/tree/7988fcf06100f7a17f21e6993b781690b5774472):<list
+          style="symbols">
+          <t>Replaced ALT with &lt;TBD&gt; at the insistence of George.</t>
+        </list></t>
+
       <t>From -05 to -06:<list style="symbols">
           <t>Removed a large amount of background - we now have the (adopted)
           tldr document for that.</t>
 
-          <t>Made it clear that pseudo-TLD is not intended to be pejorative.
-          </t>
+          <t>Made it clear that pseudo-TLD is not intended to be
+          pejorative.</t>
 
           <t>Tried to make it cleat that this is something people can choose
           to use - or not.</t>
