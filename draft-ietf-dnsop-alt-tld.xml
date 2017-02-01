@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-07.3" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-07" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -60,7 +60,7 @@
       </address>
     </author>
 
-    <date day="26" month="January" year="2017"/>
+    <date day="1" month="February" year="2017"/>
 
     <area>template</area>
 
@@ -86,17 +86,12 @@
       &lt;TBD&gt; instead of .ALT, and then make the WG choose a string before
       publication. A version of the draft like this was published on GitHub
       (https://github.com/wkumari/draft-wkumari-dnsop-alt-tld/tree/7988fcf06100f7a17f21e6993b781690b5774472)
-      and generated no feedback. This version reverts to .ALT at the chairs'
-      request -- they stated that the document was adopted with the string
-      .alt, it has been discussed as .alt, and is more readable as .alt; it
-      would also be a difficult consensus call, boiling down to beauty
-      contests. If the WG selects a different string ("not-dns" had been
-      suggested in the past), the editors will, of course, replace it. ]</t>
-
-      <t>[Ed note: Open question - it is possible that we would need an
-      unsecured "delegation" in the root to deal with DNSSEC-- see the
-      discussions from .homenet, etc. Is this a good idea / needed? It seems
-      like part of the larger Special Use Names discussions. ]</t>
+      (and generated no feedback). This version reverts to .ALT -- the chairs
+      stated that the document was adopted with the string .alt, it has been
+      discussed as .alt. IMO, it is more readable as .alt; it would also be a
+      difficult consensus call, boiling down to beauty contests. If the WG
+      selects a different string ("not-dns" had been suggested in the past),
+      the editors will, of course, replace it. ]</t>
     </abstract>
   </front>
 
@@ -368,7 +363,11 @@
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
-      <t>From -07.2 to -07.3:<list>
+      <t>From -06 to -07:<list style="symbols">
+          <t>Rolled up the GItHub releases in to a full release.</t>
+        </list></t>
+
+      <t>From -07.2 to -07.3 (GitHub point release):<list>
           <t>Removed 'sandbox' at Stephane's suggestion -
           https://www.ietf.org/mail-archive/web/dnsop/current/msg18495.html</t>
 
@@ -379,7 +378,7 @@
           <t>Added some pointers to the SUTLD document.</t>
         </list></t>
 
-      <t>From -07.1 to -07.2:<list style="symbols">
+      <t>From -07.1 to -07.2 (Github point release):<list style="symbols">
           <t>Reverted the &lt;TBD&gt; string (at request of chairs).</t>
 
           <t>Added an editors note explaining the above.</t>
@@ -390,7 +389,7 @@
       <t>From -06 to -07.1
       (https://github.com/wkumari/draft-wkumari-dnsop-alt-tld/tree/7988fcf06100f7a17f21e6993b781690b5774472):<list
           style="symbols">
-          <t>Replaced ALT with &lt;TBD&gt; at the insistence of George.</t>
+          <t>Replaced ALT with &lt;TBD&gt; at the suggestions of George.</t>
         </list></t>
 
       <t>From -05 to -06:<list style="symbols">
