@@ -7,8 +7,8 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: August 25, 2017                                             Dyn
-                                                       February 21, 2017
+Expires: September 4, 2017                                           Dyn
+                                                           March 3, 2017
 
 
                   The ALT Special Use Top Level Domain
@@ -18,12 +18,12 @@ Abstract
 
    This document reserves a string (ALT) to be used as a TLD label in
    non-DNS contexts.  It also provides advice and guidance to developers
-   developing alternate namespaces.
+   developing alternative namespaces.
 
    [Ed note: Text inside square brackets ([]) is additional background
    information, answers to frequently asked questions, general musings,
-   etc.  They will be removed before publication.This document is being
-   collaborated on in Github at: https://github.com/wkumari/draft-
+   etc.  They will be removed before publication.  This document is
+   being collaborated on in Github at: https://github.com/wkumari/draft-
    wkumari-dnsop-alt-tld.  The most recent version of the document, open
    issues, etc should all be available here.  The authors (gratefully)
    accept pull requests. ]
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 25, 2017.
+   This Internet-Draft will expire on September 4, 2017.
 
 Copyright Notice
 
@@ -55,9 +55,9 @@ Copyright Notice
 
 
 
-Kumari & Sullivan        Expires August 25, 2017                [Page 1]
+Kumari & Sullivan       Expires September 4, 2017               [Page 1]
 
-Internet-Draft               Reserve ALT TLD               February 2017
+Internet-Draft               Reserve ALT TLD                  March 2017
 
 
    (http://trustee.ietf.org/license-info) in effect on the date of
@@ -93,8 +93,8 @@ Table of Contents
    like DNS names (a series of labels separated with dots) have become
    common, even in systems that are not part of the global DNS
    administered by IANA.  This document reserves the label "ALT" (short
-   for "Alternate") as a Special Use Domain ([RFC6761]).  This label is
-   intended to be used as the final (rightmost) label to signify that
+   for "Alternative") as a Special Use Domain ([RFC6761]).  This label
+   is intended to be used as the final (rightmost) label to signify that
    the name is not rooted in the DNS, and that should not be resolved
    using the DNS protocol.
 
@@ -111,9 +111,9 @@ Table of Contents
 
 
 
-Kumari & Sullivan        Expires August 25, 2017                [Page 2]
+Kumari & Sullivan       Expires September 4, 2017               [Page 2]
 
-Internet-Draft               Reserve ALT TLD               February 2017
+Internet-Draft               Reserve ALT TLD                  March 2017
 
 
 1.2.  Terminology
@@ -129,7 +129,7 @@ Internet-Draft               Reserve ALT TLD               February 2017
    o  DNS context: The namespace anchored at the globally-unique DNS
       root.  This is the namespace or context that "normal" DNS uses.
 
-   o  non-DNS context: Any other (alternate) namespace.
+   o  non-DNS context: Any other (alternative) namespace.
 
    o  pseudo-TLD: A label that appears in a fully-qualified domain name
       in the position of a TLD, but which is not registered in the
@@ -146,11 +146,11 @@ Internet-Draft               Reserve ALT TLD               February 2017
 
    In many cases, these systems build a DNS-style tree parallel to, but
    separate from, the global DNS.  They often use a pseudo-TLD to cause
-   resolution in the alternate namespace, using browser plugins, shims
+   resolution in the alternative namespace, using browser plugins, shims
    in the name resolution process, or simply applications that perform
-   special handling of this particular alternate namespace.  An example
-   of such a system is the Tor network's [Dingledine2004] use of the
-   ".onion" Special-Use Top-Level Domain Name (see [RFC7686]).
+   special handling of this particular alternative namespace.  An
+   example of such a system is the Tor network's [Dingledine2004] use of
+   the ".onion" Special-Use Top-Level Domain Name (see [RFC7686]).
 
    In many cases, the creators of these alternative namespaces have
    chosen a convenient or descriptive string and started using it.
@@ -167,9 +167,9 @@ Internet-Draft               Reserve ALT TLD               February 2017
 
 
 
-Kumari & Sullivan        Expires August 25, 2017                [Page 3]
+Kumari & Sullivan       Expires September 4, 2017               [Page 3]
 
-Internet-Draft               Reserve ALT TLD               February 2017
+Internet-Draft               Reserve ALT TLD                  March 2017
 
 
    Collisions" issues discussed in [I-D.ietf-dnsop-sutld-ps] (which
@@ -180,27 +180,27 @@ Internet-Draft               Reserve ALT TLD               February 2017
    This document reserves the ALT label, using the [RFC6761] process,
    for use as an unmanaged pseudo-TLD namespace.  The ALT label MAY be
    used in any domain name as a pseudo-TLD to signify that this is an
-   alternate (non-DNS) namespace, and should not be looked up in a DNS
+   alternative (non-DNS) namespace, and should not be looked up in a DNS
    context.
 
    Alternative namespaces should differentiate themselves from other
-   alternate namespaces by choosing a name and using it in the label
+   alternative namespaces by choosing a name and using it in the label
    position just before the pseudo-TLD (ALT).  For example, a group
    wishing to create a namespace for Friends Of Olaf might choose the
    string "foo" and use any set of labels under foo.alt.
 
-   As they are in an alternative namespace, they have no significance in
-   the regular DNS context and so should not be looked up in the DNS
-   context.
+   As names beneath ALT are in an alternative namespace, they have no
+   significance in the regular DNS context and so should not be looked
+   up in the DNS context.
 
-   Groups wishing to create new alternate namespaces may create their
-   alternate namespace under a label that names their namespace under
+   Groups wishing to create new alternative namespaces may create their
+   alternative namespace under a label that names their namespace under
    the ALT label.  They should attempt to choose a label that they
    expect to be unique and, ideally, descriptive.  There is no IANA
-   controlled registry for names under the ALT TLD - it is an unmanaged
-   namespace, and developers are responsible for dealing with any
-   collisions that may occur under .alt.  Informal lists of namespaces
-   under .alt may appear to assist the developer community.
+   registry for names under the ALT TLD - it is an unmanaged namespace,
+   and developers are responsible for dealing with any collisions that
+   may occur under .alt.  Informal lists of namespaces under .alt may
+   appear to assist the developer community.
 
    [Editor note (to be removed before publication): There was
    significant discussion on an IANA registry for the ALT namespace -
@@ -223,9 +223,9 @@ Internet-Draft               Reserve ALT TLD               February 2017
 
 
 
-Kumari & Sullivan        Expires August 25, 2017                [Page 4]
+Kumari & Sullivan       Expires September 4, 2017               [Page 4]
 
-Internet-Draft               Reserve ALT TLD               February 2017
+Internet-Draft               Reserve ALT TLD                  March 2017
 
 
 3.1.  Choice of the ALT Name
@@ -272,19 +272,19 @@ Internet-Draft               Reserve ALT TLD               February 2017
        through a "shim" or library, they will need to intercept and
        perform their own handling.
 
-   4.  Caching DNS servers should not recognize these names as special
+   4.  Caching DNS servers SHOULD NOT recognize these names as special
        and should not perform any special handling with them.
 
 
 
 
 
-Kumari & Sullivan        Expires August 25, 2017                [Page 5]
+Kumari & Sullivan       Expires September 4, 2017               [Page 5]
 
-Internet-Draft               Reserve ALT TLD               February 2017
+Internet-Draft               Reserve ALT TLD                  March 2017
 
 
-   5.  Authoritative DNS servers should not recognize these names as
+   5.  Authoritative DNS servers SHOULD NOT recognize these names as
        special and should not perform any special handling with them.
 
    6.  DNS server operators SHOULD be aware that queries for names
@@ -310,7 +310,7 @@ Internet-Draft               Reserve ALT TLD               February 2017
    added to "Locally Served".  The consensus was that it is better to
    not request adding this to Locally Served (and so avoiding having to
    ask ICANN to create a process to create a "TLD" for the purposes of
-   insecure delegation. ]
+   insecure delegation). ]
 
 5.  Privacy Considerations
 
@@ -330,14 +330,14 @@ Internet-Draft               Reserve ALT TLD               February 2017
    will likely be sent to the DNS root servers.  This exposes the
    (leaked) query name to the operator of the resolver, the operator of
    the queried DNS root server, and anyone watching queries along the
-   path.
+   path.  This is a general problem with alternative name spaces and not
+   confined to names ending in .alt.
 
 
 
-
-Kumari & Sullivan        Expires August 25, 2017                [Page 6]
+Kumari & Sullivan       Expires September 4, 2017               [Page 6]
 
-Internet-Draft               Reserve ALT TLD               February 2017
+Internet-Draft               Reserve ALT TLD                  March 2017
 
 
 6.  Security Considerations
@@ -354,10 +354,11 @@ Internet-Draft               Reserve ALT TLD               February 2017
 
 7.  Acknowledgements
 
-   We would also like to thank Joe Abley, Mark Andrews, Marc Blanchet,
-   John Bond, Stephane Bortzmeyer, David Cake, David Conrad, Patrik
-   Faltstrom, Olafur Gudmundsson, Bob Harold, Paul Hoffman, Joel
-   Jaeggli, Ted Lemon, Edward Lewis, George Michaelson, Ed Pascoe,
+   We would like to thank Joe Abley, Mark Andrews, Marc Blanchet, John
+   Bond, Stephane Bortzmeyer, David Cake, David Conrad, Steve Crocker,
+   Brian Dickson, Ralph Droms, Robert Edmonds, Patrik Faltstrom, Olafur
+   Gudmundsson, Bob Harold, Paul Hoffman, Joel Jaeggli, Ted Lemon,
+   Edward Lewis, John Levine, George Michaelson, Ed Pascoe, Jim Reid,
    Arturo Servin, Paul Vixie, Suzanne Woolf for feedback.
 
    Christian Grothoff was also very helpful.
@@ -390,10 +391,9 @@ Internet-Draft               Reserve ALT TLD               February 2017
 
 
 
-
-Kumari & Sullivan        Expires August 25, 2017                [Page 7]
+Kumari & Sullivan       Expires September 4, 2017               [Page 7]
 
-Internet-Draft               Reserve ALT TLD               February 2017
+Internet-Draft               Reserve ALT TLD                  March 2017
 
 
    [RFC7719]  Hoffman, P., Sullivan, A., and K. Fujiwara, "DNS
@@ -431,7 +431,8 @@ Appendix A.  Changes / Author Notes.
 
    o  Added a Privacy Considerations section
 
-   o
+   o  Grammar fix -- "alternative" is more correct than "alternate",
+      replaced.
 
    From -06 to -07:
 
@@ -446,10 +447,9 @@ Appendix A.  Changes / Author Notes.
 
 
 
-
-Kumari & Sullivan        Expires August 25, 2017                [Page 8]
+Kumari & Sullivan       Expires September 4, 2017               [Page 8]
 
-Internet-Draft               Reserve ALT TLD               February 2017
+Internet-Draft               Reserve ALT TLD                  March 2017
 
 
       Suggested (in 4.1 bullet 3) that DNS libraries ignore these -- Bob
@@ -503,9 +503,9 @@ Internet-Draft               Reserve ALT TLD               February 2017
 
 
 
-Kumari & Sullivan        Expires August 25, 2017                [Page 9]
+Kumari & Sullivan       Expires September 4, 2017               [Page 9]
 
-Internet-Draft               Reserve ALT TLD               February 2017
+Internet-Draft               Reserve ALT TLD                  March 2017
 
 
    From -00 to 01:
@@ -559,9 +559,9 @@ Internet-Draft               Reserve ALT TLD               February 2017
 
 
 
-Kumari & Sullivan        Expires August 25, 2017               [Page 10]
+Kumari & Sullivan       Expires September 4, 2017              [Page 10]
 
-Internet-Draft               Reserve ALT TLD               February 2017
+Internet-Draft               Reserve ALT TLD                  March 2017
 
 
    From -01 to -02
@@ -615,5 +615,5 @@ Authors' Addresses
 
 
 
-Kumari & Sullivan        Expires August 25, 2017               [Page 11]
+Kumari & Sullivan       Expires September 4, 2017              [Page 11]
 ```
