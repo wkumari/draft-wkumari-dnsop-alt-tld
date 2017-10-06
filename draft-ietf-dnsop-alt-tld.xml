@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-08" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-09" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -60,7 +60,7 @@
       </address>
     </author>
 
-    <date day="3" month="March" year="2017"/>
+    <date day="6" month="October" year="2017"/>
 
     <area>template</area>
 
@@ -181,13 +181,6 @@
       Informal lists of namespaces under .alt may appear to assist the
       developer community.</t>
 
-      <t>[Editor note (to be removed before publication): There was
-      significant discussion on an IANA registry for the ALT namespace -
-      please consult the lists for full thread, but the consensus was that it
-      would be better for the IETF / IANA to not administer a registry for
-      this. It is expected one or more unofficial lists will be created where
-      people can list the strings that they are using. ]</t>
-
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       may choose to move under the ALT TLD, but this is not a requirement.
       Rather, the ALT TLD is being reserved so that current and future
@@ -197,12 +190,28 @@
 
       <section title="Choice of the ALT Name">
         <t>A number of names other than "ALT" were considered and discarded.
-        In order for this technique to be effective the names need to continue
-        to follow both the DNS format and conventions (a prime consideration
-        for alternative name formats is that they can be entered in places
-        that normally take DNS context names); this rules out using suffixes
-        that do not follow the usual letter, digit, and hyphen label
-        convention.</t>
+        While these are not DNS names, in order for this technique to be
+        effective the names need to continue to follow both the DNS format and
+        conventions (a prime consideration for alternative name formats is
+        that they can be entered in places that normally take DNS context
+        names); this rules out using suffixes that do not follow the usual
+        letter, digit, and hyphen label convention. </t>
+
+        <t>A short label was deemed desirable for a number of reasons,
+        including: </t>
+
+        <t><list style="symbols">
+            <t>this is a switch to other resolution contexts, some which may
+            have long labels (for example derived from public keys).</t>
+
+            <t>some queries will undoubtedly leak into the DNS. As many of
+            these alternate resolution systems are specifically designed for
+            privacy, limiting how far they leak is desirable.</t>
+
+            <t>as there are not protocol police, the label needs to be
+            attractive to implementors of alternate resolution contexts so
+            that they are willing to use this.</t>
+          </list></t>
       </section>
     </section>
 
@@ -221,10 +230,12 @@
             differently to normal DNS names. Users are expected to have
             applications running on their machines that intercept strings of
             the form &lt;namespace&gt;.alt and perform special handing of
-            them. If the user tries to resolve a name of the form
-            &lt;namespace&gt;.alt without the &lt;namespace&gt; plugin
-            installed, the request will leak into the DNS, receive a negative
-            response, and the resolution will fail.</t>
+            them, or that applications themselves will recognize the strings
+            as special, and perform special handling. If the user tries to
+            resolve a name of the form &lt;namespace&gt;.alt without the
+            &lt;namespace&gt; plugin installed (or in the wrong application),
+            the request will leak into the DNS, receive a negative response,
+            and the resolution will fail.</t>
 
             <t>Writers of application software that implement a non-DNS
             namespace are expected to intercept names of the form
@@ -257,19 +268,15 @@
             allocation by registries/registrars.</t>
           </list></t>
 
-        <t>[ Ed note: The above list (esp. 4 and 5) was changed between
-        version -07 and -08, and instruction to add .ALT to the "Locally
-        Served Zones" registry was removed. This was in response to
-        discussions in the DNSOP Interim Meeting (2017-02) and discussions on
-        the DNSOP list on "correct" behavior of leaking .alt queries and the
-        interaction with DNSSEC. This topic generated in excess of 160 dense
-        emails, but the summary was that that A: these are not DNS names
-        (similar to .onion), and B: a delegation would need to be inserted in
-        the ICANN/IANA root zone in order to avoid SERVFAIL responses if this
-        were added to "Locally Served". The consensus was that it is better to
-        not request adding this to Locally Served (and so avoiding having to
-        ask ICANN to create a process to create a "TLD" for the purposes of
-        insecure delegation). ]</t>
+        <t>Earlier versions of this document requested that .ALT be added to
+        the "Locally Served Zones" registry, and that a DNSSEC insecure
+        delegation (a delegation with no DS record) be created at the root.
+        Significant discussion on the DNSOP list (and an interim meeting)
+        generated the consensus that these names are specifically not DNS
+        names, and that them leaking into the DNS is an error. This means that
+        the current (non-delegated) response of NXDOMAIN is correct as there
+        is no DNS domain .alt, and so the document was updated to remove these
+        requests. </t>
       </section>
     </section>
 
