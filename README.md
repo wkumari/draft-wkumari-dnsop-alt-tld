@@ -95,7 +95,7 @@ Table of Contents
    administered by IANA.  This document reserves the label "ALT" (short
    for "Alternative") as a Special Use Domain ([RFC6761]).  This label
    is intended to be used as the final (rightmost) label to signify that
-   the name is not rooted in the DNS, and that should not be resolved
+   the name is not rooted in the DNS, and that it should not be resolved
    using the DNS protocol.
 
 1.1.  Requirements notation
@@ -155,7 +155,7 @@ Internet-Draft               Reserve ALT TLD                October 2017
    In many cases, the creators of these alternative namespaces have
    chosen a convenient or descriptive string and started using it.
    These strings are not registered anywhere nor are they part of the
-   DNS.  However, to users and to some applications they appear to be
+   DNS.  However, to users and to some applications, they appear to be
    TLDs; and issues may arise if they are looked up in the DNS.  This
    document suggests that name resolution libraries (stub resolvers)
    recognize names ending in ".alt" as special, and not attempt to look
@@ -199,8 +199,8 @@ Internet-Draft               Reserve ALT TLD                October 2017
    expect to be unique and, ideally, descriptive.  There is no IANA
    registry for names under the ALT TLD - it is an unmanaged namespace,
    and developers are responsible for dealing with any collisions that
-   may occur under .alt.  Informal lists of namespaces under .alt may
-   appear to assist the developer community.
+   may occur under .alt.  Informal lists of namespaces under .alt may be
+   created to assist the developer community.
 
    Currently deployed projects and protocols that are using pseudo-TLDs
    may choose to move under the ALT TLD, but this is not a requirement.

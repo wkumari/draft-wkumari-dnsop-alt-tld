@@ -89,8 +89,8 @@
       by IANA. This document reserves the label "ALT" (short for
       "Alternative") as a Special Use Domain (<xref target="RFC6761"/>). This
       label is intended to be used as the final (rightmost) label to signify
-      that the name is not rooted in the DNS, and that should not be resolved
-      using the DNS protocol.</t>
+      that the name is not rooted in the DNS, and that it should not be
+      resolved using the DNS protocol.</t>
 
       <section title="Requirements notation">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -142,7 +142,7 @@
       <t>In many cases, the creators of these alternative namespaces have
       chosen a convenient or descriptive string and started using it. These
       strings are not registered anywhere nor are they part of the DNS.
-      However, to users and to some applications they appear to be TLDs; and
+      However, to users and to some applications, they appear to be TLDs; and
       issues may arise if they are looked up in the DNS. This document
       suggests that name resolution libraries (stub resolvers) recognize names
       ending in ".alt" as special, and not attempt to look them up using the
@@ -178,7 +178,7 @@
       unique and, ideally, descriptive. There is no IANA registry for names
       under the ALT TLD - it is an unmanaged namespace, and developers are
       responsible for dealing with any collisions that may occur under .alt.
-      Informal lists of namespaces under .alt may appear to assist the
+      Informal lists of namespaces under .alt may be created to assist the
       developer community.</t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
@@ -195,10 +195,10 @@
         conventions (a prime consideration for alternative name formats is
         that they can be entered in places that normally take DNS context
         names); this rules out using suffixes that do not follow the usual
-        letter, digit, and hyphen label convention. </t>
+        letter, digit, and hyphen label convention.</t>
 
         <t>A short label was deemed desirable for a number of reasons,
-        including: </t>
+        including:</t>
 
         <t><list style="symbols">
             <t>this is a switch to other resolution contexts, some which may
@@ -276,7 +276,7 @@
         names, and that them leaking into the DNS is an error. This means that
         the current (non-delegated) response of NXDOMAIN is correct as there
         is no DNS domain .alt, and so the document was updated to remove these
-        requests. </t>
+        requests.</t>
       </section>
     </section>
 
