@@ -7,8 +7,8 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: April 9, 2018                                               Dyn
-                                                         October 6, 2017
+Expires: July 22, 2018                                            Oracle
+                                                        January 18, 2018
 
 
                   The ALT Special Use Top Level Domain
@@ -43,11 +43,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 9, 2018.
+   This Internet-Draft will expire on July 22, 2018.
 
 Copyright Notice
 
-   Copyright (c) 2017 IETF Trust and the persons identified as the
+   Copyright (c) 2018 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -55,9 +55,9 @@ Copyright Notice
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                 [Page 1]
+Kumari & Sullivan         Expires July 22, 2018                 [Page 1]
 
-Internet-Draft               Reserve ALT TLD                October 2017
+Internet-Draft               Reserve ALT TLD                January 2018
 
 
    (http://trustee.ietf.org/license-info) in effect on the date of
@@ -111,9 +111,9 @@ Table of Contents
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                 [Page 2]
+Kumari & Sullivan         Expires July 22, 2018                 [Page 2]
 
-Internet-Draft               Reserve ALT TLD                October 2017
+Internet-Draft               Reserve ALT TLD                January 2018
 
 
 1.2.  Terminology
@@ -167,9 +167,9 @@ Internet-Draft               Reserve ALT TLD                October 2017
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                 [Page 3]
+Kumari & Sullivan         Expires July 22, 2018                 [Page 3]
 
-Internet-Draft               Reserve ALT TLD                October 2017
+Internet-Draft               Reserve ALT TLD                January 2018
 
 
    Collisions" issues discussed in [I-D.ietf-dnsop-sutld-ps] (which
@@ -223,9 +223,9 @@ Internet-Draft               Reserve ALT TLD                October 2017
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                 [Page 4]
+Kumari & Sullivan         Expires July 22, 2018                 [Page 4]
 
-Internet-Draft               Reserve ALT TLD                October 2017
+Internet-Draft               Reserve ALT TLD                January 2018
 
 
    A short label was deemed desirable for a number of reasons,
@@ -279,9 +279,9 @@ Internet-Draft               Reserve ALT TLD                October 2017
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                 [Page 5]
+Kumari & Sullivan         Expires July 22, 2018                 [Page 5]
 
-Internet-Draft               Reserve ALT TLD                October 2017
+Internet-Draft               Reserve ALT TLD                January 2018
 
 
        through a "shim" or library, they will need to intercept and
@@ -335,9 +335,9 @@ Internet-Draft               Reserve ALT TLD                October 2017
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                 [Page 6]
+Kumari & Sullivan         Expires July 22, 2018                 [Page 6]
 
-Internet-Draft               Reserve ALT TLD                October 2017
+Internet-Draft               Reserve ALT TLD                January 2018
 
 
    path.  This is a general problem with alternative name spaces and not
@@ -391,9 +391,9 @@ Internet-Draft               Reserve ALT TLD                October 2017
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                 [Page 7]
+Kumari & Sullivan         Expires July 22, 2018                 [Page 7]
 
-Internet-Draft               Reserve ALT TLD                October 2017
+Internet-Draft               Reserve ALT TLD                January 2018
 
 
    [RFC7686]  Appelbaum, J. and A. Muffett, "The ".onion" Special-Use
@@ -447,9 +447,9 @@ Appendix A.  Changes / Author Notes.
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                 [Page 8]
+Kumari & Sullivan         Expires July 22, 2018                 [Page 8]
 
-Internet-Draft               Reserve ALT TLD                October 2017
+Internet-Draft               Reserve ALT TLD                January 2018
 
 
       Removed 'sandbox' at Stephane's suggestion - https://www.ietf.org/
@@ -503,9 +503,9 @@ Internet-Draft               Reserve ALT TLD                October 2017
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                 [Page 9]
+Kumari & Sullivan         Expires July 22, 2018                 [Page 9]
 
-Internet-Draft               Reserve ALT TLD                October 2017
+Internet-Draft               Reserve ALT TLD                January 2018
 
 
    o  Merged a bunch of changes from Paul Hoffman.  Thanks for sending a
@@ -559,9 +559,9 @@ Internet-Draft               Reserve ALT TLD                October 2017
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                [Page 10]
+Kumari & Sullivan         Expires July 22, 2018                [Page 10]
 
-Internet-Draft               Reserve ALT TLD                October 2017
+Internet-Draft               Reserve ALT TLD                January 2018
 
 
    o  After discussions with chairs, made this much more generic (not
@@ -590,7 +590,7 @@ Authors' Addresses
 
 
    Andrew Sullivan
-   Dyn
+   Oracle
    150 Dow Street
    Manchester, NH  03101
    US
@@ -615,5 +615,5 @@ Authors' Addresses
 
 
 
-Kumari & Sullivan         Expires April 9, 2018                [Page 11]
+Kumari & Sullivan         Expires July 22, 2018                [Page 11]
 ```
