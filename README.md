@@ -7,12 +7,12 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Sullivan
-Expires: July 22, 2018                                            Oracle
-                                                        January 18, 2018
+Expires: January 17, 2019                                         Oracle
+                                                           July 16, 2018
 
 
                   The ALT Special Use Top Level Domain
-                      draft-ietf-dnsop-alt-tld-09
+                      draft-ietf-dnsop-alt-tld-10
 
 Abstract
 
@@ -36,14 +36,14 @@ Status of This Memo
    Internet-Drafts are working documents of the Internet Engineering
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at http://datatracker.ietf.org/drafts/current/.
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 22, 2018.
+   This Internet-Draft will expire on January 17, 2019.
 
 Copyright Notice
 
@@ -55,12 +55,12 @@ Copyright Notice
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                 [Page 1]
+Kumari & Sullivan       Expires January 17, 2019                [Page 1]
 
-Internet-Draft               Reserve ALT TLD                January 2018
+Internet-Draft               Reserve ALT TLD                   July 2018
 
 
-   (http://trustee.ietf.org/license-info) in effect on the date of
+   (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
@@ -111,9 +111,9 @@ Table of Contents
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                 [Page 2]
+Kumari & Sullivan       Expires January 17, 2019                [Page 2]
 
-Internet-Draft               Reserve ALT TLD                January 2018
+Internet-Draft               Reserve ALT TLD                   July 2018
 
 
 1.2.  Terminology
@@ -167,9 +167,9 @@ Internet-Draft               Reserve ALT TLD                January 2018
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                 [Page 3]
+Kumari & Sullivan       Expires January 17, 2019                [Page 3]
 
-Internet-Draft               Reserve ALT TLD                January 2018
+Internet-Draft               Reserve ALT TLD                   July 2018
 
 
    Collisions" issues discussed in [I-D.ietf-dnsop-sutld-ps] (which
@@ -223,9 +223,9 @@ Internet-Draft               Reserve ALT TLD                January 2018
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                 [Page 4]
+Kumari & Sullivan       Expires January 17, 2019                [Page 4]
 
-Internet-Draft               Reserve ALT TLD                January 2018
+Internet-Draft               Reserve ALT TLD                   July 2018
 
 
    A short label was deemed desirable for a number of reasons,
@@ -279,9 +279,9 @@ Internet-Draft               Reserve ALT TLD                January 2018
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                 [Page 5]
+Kumari & Sullivan       Expires January 17, 2019                [Page 5]
 
-Internet-Draft               Reserve ALT TLD                January 2018
+Internet-Draft               Reserve ALT TLD                   July 2018
 
 
        through a "shim" or library, they will need to intercept and
@@ -335,9 +335,9 @@ Internet-Draft               Reserve ALT TLD                January 2018
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                 [Page 6]
+Kumari & Sullivan       Expires January 17, 2019                [Page 6]
 
-Internet-Draft               Reserve ALT TLD                January 2018
+Internet-Draft               Reserve ALT TLD                   July 2018
 
 
    path.  This is a general problem with alternative name spaces and not
@@ -375,13 +375,13 @@ Internet-Draft               Reserve ALT TLD                January 2018
               <https://www.rfc-editor.org/info/rfc1034>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/
-              RFC2119, March 1997, <https://www.rfc-editor.org/info/
-              rfc2119>.
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
 
-   [RFC6303]  Andrews, M., "Locally Served DNS Zones", BCP 163, RFC
-              6303, DOI 10.17487/RFC6303, July 2011, <https://www.rfc-
-              editor.org/info/rfc6303>.
+   [RFC6303]  Andrews, M., "Locally Served DNS Zones", BCP 163,
+              RFC 6303, DOI 10.17487/RFC6303, July 2011,
+              <https://www.rfc-editor.org/info/rfc6303>.
 
    [RFC6761]  Cheshire, S. and M. Krochmal, "Special-Use Domain Names",
               RFC 6761, DOI 10.17487/RFC6761, February 2013,
@@ -391,9 +391,9 @@ Internet-Draft               Reserve ALT TLD                January 2018
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                 [Page 7]
+Kumari & Sullivan       Expires January 17, 2019                [Page 7]
 
-Internet-Draft               Reserve ALT TLD                January 2018
+Internet-Draft               Reserve ALT TLD                   July 2018
 
 
    [RFC7686]  Appelbaum, J. and A. Muffett, "The ".onion" Special-Use
@@ -408,7 +408,7 @@ Internet-Draft               Reserve ALT TLD                January 2018
 
    [Dingledine2004]
               Dingledine, R., Mathewson, N., and P. Syverson, "Tor: The
-              Second-Generation Onion Router", , 8 2004,
+              Second-Generation Onion Router",  , 8 2004,
               <<https://svn.torproject.org/svn/projects/design-paper/
               tor-design.html>>.
 
@@ -447,9 +447,9 @@ Appendix A.  Changes / Author Notes.
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                 [Page 8]
+Kumari & Sullivan       Expires January 17, 2019                [Page 8]
 
-Internet-Draft               Reserve ALT TLD                January 2018
+Internet-Draft               Reserve ALT TLD                   July 2018
 
 
       Removed 'sandbox' at Stephane's suggestion - https://www.ietf.org/
@@ -503,9 +503,9 @@ Internet-Draft               Reserve ALT TLD                January 2018
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                 [Page 9]
+Kumari & Sullivan       Expires January 17, 2019                [Page 9]
 
-Internet-Draft               Reserve ALT TLD                January 2018
+Internet-Draft               Reserve ALT TLD                   July 2018
 
 
    o  Merged a bunch of changes from Paul Hoffman.  Thanks for sending a
@@ -559,9 +559,9 @@ Internet-Draft               Reserve ALT TLD                January 2018
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                [Page 10]
+Kumari & Sullivan       Expires January 17, 2019               [Page 10]
 
-Internet-Draft               Reserve ALT TLD                January 2018
+Internet-Draft               Reserve ALT TLD                   July 2018
 
 
    o  After discussions with chairs, made this much more generic (not
@@ -615,5 +615,5 @@ Authors' Addresses
 
 
 
-Kumari & Sullivan         Expires July 22, 2018                [Page 11]
+Kumari & Sullivan       Expires January 17, 2019               [Page 11]
 ```
