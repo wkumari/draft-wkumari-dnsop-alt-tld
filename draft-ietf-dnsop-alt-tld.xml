@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" ".//reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-11" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-12" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -60,7 +60,7 @@
       </address>
     </author>
 
-    <date day="9" month="January" year="2019"/>
+    <date day="23" month="August" year="2019"/>
 
     <area>template</area>
 
@@ -103,8 +103,7 @@
         <t>This document assumes familiarity with DNS terms and concepts.
         Please see <xref target="RFC1034"/> for background and concepts, and
         <xref target="RFC7719"/> for terminology. Readers are also expected to
-        be familiar with the discussions in <xref
-        target="I-D.ietf-dnsop-sutld-ps"/></t>
+        be familiar with the discussions in <xref target="RFC8244"/></t>
 
         <t><list style="symbols">
             <t>DNS name: Domain names that are intended to be used with DNS
@@ -151,8 +150,8 @@
 
       <t>The techniques in this document are primarily intended to address the
       "Experimental Squatting Problem", the "Land Rush Problem" and "Name
-      Collisions" issues discussed in <xref target="I-D.ietf-dnsop-sutld-ps"/>
-      (which contains much additional background, etc).</t>
+      Collisions" issues discussed in <xref target="RFC8244"/> (which contains
+      much additional background, etc).</t>
     </section>
 
     <section title="The ALT namespace">
@@ -292,12 +291,12 @@
       likely that this will instead be resolved using the DNS. This DNS query
       will likely be sent to the configured iterative resolver. If this
       resolver does not have a cache entry for this name (or, if the resolver
-      implements <xref target="I-D.ietf-dnsop-nsec-aggressiveuse"/>, a entry
-      for .alt) this query will likely be sent to the DNS root servers. This
-      exposes the (leaked) query name to the operator of the resolver, the
-      operator of the queried DNS root server, and anyone watching queries
-      along the path. This is a general problem with alternative name spaces
-      and not confined to names ending in .alt.</t>
+      implements <xref target="RFC8198"/>, a entry for .alt) this query will
+      likely be sent to the DNS root servers. This exposes the (leaked) query
+      name to the operator of the resolver, the operator of the queried DNS
+      root server, and anyone watching queries along the path. This is a
+      general problem with alternative name spaces and not confined to names
+      ending in .alt.</t>
     </section>
 
     <section anchor="security" title="Security Considerations">
@@ -330,8 +329,6 @@
 
       <?rfc include='reference.RFC.6761'?>
 
-      <?rfc include='reference.RFC.6303'?>
-
       <?rfc include='reference.RFC.1034'?>
 
       <?rfc include='reference.RFC.7719'?>
@@ -340,9 +337,9 @@
     </references>
 
     <references title="Informative References">
-      <?rfc include='reference.I-D.ietf-dnsop-sutld-ps.xml'?>
+      <?rfc include='reference.RFC.8244.xml'?>
 
-      <?rfc include='reference.I-D.ietf-dnsop-nsec-aggressiveuse.xml'?>
+      <?rfc include='reference.RFC.8198.xml'?>
 
       <reference anchor="Dingledine2004"
                  target="&lt;https://svn.torproject.org/svn/projects/design-paper/tor-design.html&gt;">
@@ -370,6 +367,13 @@
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+      <t>From -08 to -12:<list style="symbols">
+          <t>Just bumping versions to prevent expiration. </t>
+
+          <t>Updated references (aggressive-nsec is now RFC 8198,
+          draft-ietf-dnsop-sutld-ps is now 8244).</t>
+        </list></t>
 
       <t>From -07 to -08:<list style="symbols">
           <t>Made it clear that this is only for non-DNS.</t>
