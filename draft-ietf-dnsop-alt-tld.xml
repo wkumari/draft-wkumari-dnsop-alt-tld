@@ -207,9 +207,9 @@
             these alternate resolution systems are specifically designed for
             privacy, limiting how far they leak is desirable.</t>
 
-            <t>as there are not protocol police, the label needs to be
+            <t>to encourage voluntary usage of the label, it needs to be
             attractive to implementors of alternate resolution contexts so
-            that they are willing to use this.</t>
+            that they are willing to use it.</t>
           </list></t>
       </section>
     </section>
@@ -228,7 +228,7 @@
             <t>Users are expected to know that strings that end in .alt behave
             differently to normal DNS names. Users are expected to have
             applications running on their machines that intercept strings of
-            the form &lt;namespace&gt;.alt and perform special handing of
+            the form &lt;namespace&gt;.alt and perform special handling of
             them, or that applications themselves will recognize the strings
             as special, and perform special handling. If the user tries to
             resolve a name of the form &lt;namespace&gt;.alt without the
@@ -238,9 +238,9 @@
 
             <t>Writers of application software that implement a non-DNS
             namespace are expected to intercept names of the form
-            &lt;namespace&gt;.alt and perform application specific handing
+            &lt;namespace&gt;.alt and perform application specific handling
             with them. Other applications are not required to perform any
-            special handing (but may choose to provide helpful informational
+            special handling (but may choose to provide helpful informational
             messages if able).</t>
 
             <t>Writers of name resolution APIs and libraries which operate in
