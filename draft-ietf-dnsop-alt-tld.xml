@@ -92,7 +92,7 @@
       that the name is not rooted in the DNS, and that it should not be
       resolved using the DNS protocol.</t>
 
-      <section title="Requirements notation">
+      <section title="Requirements Notation">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
         "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
         document are to be interpreted as described in <xref
@@ -149,12 +149,12 @@
       leaking into the DNS.</t>
 
       <t>The techniques in this document are primarily intended to address the
-      "Experimental Squatting Problem", the "Land Rush Problem" and "Name
+      "Experimental Squatting Problem", the "Land Rush Problem", and "Name
       Collisions" issues discussed in <xref target="RFC8244"/> (which contains
       much additional background, etc).</t>
     </section>
 
-    <section title="The ALT namespace">
+    <section title="The ALT Namespace">
       <t>This document reserves the ALT label, using the <xref
       target="RFC6761"/> process, for use as an unmanaged pseudo-TLD
       namespace. The ALT label MAY be used in any domain name as a pseudo-TLD
@@ -200,7 +200,7 @@
         including:</t>
 
         <t><list style="symbols">
-            <t>this is a switch to other resolution contexts, some which may
+            <t>this is a switch to other resolution contexts, some of which may
             have long labels (for example derived from public keys).</t>
 
             <t>some queries will undoubtedly leak into the DNS. As many of
@@ -291,7 +291,7 @@
       likely that this will instead be resolved using the DNS. This DNS query
       will likely be sent to the configured iterative resolver. If this
       resolver does not have a cache entry for this name (or, if the resolver
-      implements <xref target="RFC8198"/>, a entry for .alt) this query will
+      implements <xref target="RFC8198"/>, an entry for .alt) this query will
       likely be sent to the DNS root servers. This exposes the (leaked) query
       name to the operator of the resolver, the operator of the queried DNS
       root server, and anyone watching queries along the path. This is a
