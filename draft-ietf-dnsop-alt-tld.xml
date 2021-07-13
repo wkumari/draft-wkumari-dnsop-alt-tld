@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-13" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-14" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -42,25 +42,7 @@
       </address>
     </author>
 
-    <author fullname="Andrew Sullivan" initials="A." surname="Sullivan">
-      <organization>Oracle</organization>
-
-      <address>
-        <postal>
-          <street>150 Dow Street</street>
-
-          <city>Manchester, NH</city>
-
-          <code>03101</code>
-
-          <country>US</country>
-        </postal>
-
-        <email>asullivan@dyn.com</email>
-      </address>
-    </author>
-
-    <date day="21" month="June" year="2021"/>
+    <date day="13" month="July" year="2021"/>
 
     <area>template</area>
 
@@ -312,14 +294,18 @@
     </section>
 
     <section title="Acknowledgements">
-      <t>We would like to thank Joe Abley, Mark Andrews, Marc Blanchet, John
-      Bond, Stephane Bortzmeyer, David Cake, David Conrad, Steve Crocker,
-      Brian Dickson, Ralph Droms, Robert Edmonds, Patrik Faltstrom, Olafur
-      Gudmundsson, Bob Harold, Paul Hoffman, Joel Jaeggli, Ted Lemon, Edward
-      Lewis, John Levine, George Michaelson, Ed Pascoe, Jim Reid, Arturo
-      Servin, Paul Vixie, Suzanne Woolf for feedback.</t>
+      <t>We would like to thank Joe Abley, Mark Andrews, Erik Auerswald,
+      Marc Blanchet, John Bond, Stephane Bortzmeyer, David Cake, David Conrad,
+      Steve Crocker, Brian Dickson, Ralph Droms, Robert Edmonds,
+      Patrik Faltstrom, Olafur Gudmundsson, Bob Harold, Paul Hoffman,
+      Joel Jaeggli, Ted Lemon, Edward Lewis, John Levine, George Michaelson,
+      Ed Pascoe, Jim Reid, Arturo Servin, Paul Vixie
+      and Suzanne Woolf for feedback.</t>
 
-      <t>Christian Grothoff was also very helpful.</t>
+      <t>Christian Grothoff was also very helpful and deserves special
+      recognition.</t>
+      <t>In addition, Andrew Sullivan was an author from adoption (2015)
+      through version 15 (2021).</t>
     </section>
   </middle>
 
@@ -342,7 +328,7 @@
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8198.xml'?>
 
       <reference anchor="Dingledine2004"
-                 target="&lt;https://svn.torproject.org/svn/projects/design-paper/tor-design.html&gt;">
+                 target="https://svn.torproject.org/svn/projects/design-paper/tor-design.html">
         <front>
           <title>Tor: The Second-Generation Onion Router</title>
 
@@ -360,13 +346,17 @@
 
           <date month="8" year="2004"/>
         </front>
-
-        <seriesInfo name="" value=""/>
+        <!-- <seriesInfo name="" value=""/> -->
       </reference>
     </references>
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+        <t>From -13 to -14:<list style="symbols">
+          <t>Andrew asked to be removed as co-author, due to potential perception of CoI.</t>
+          <t>Erik Auerswald provided Github issues and comments re: references and grammar.</t>
+        </list></t>
 
         <t>From -12 to -13:<list style="symbols">
           <t>Just bumping versions to prevent expiration. </t>
