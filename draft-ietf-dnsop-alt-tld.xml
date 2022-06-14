@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-14" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-15" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -42,7 +42,7 @@
       </address>
     </author>
 
-    <date day="15" month="December" year="2021"/>
+    <date day="14" month="June" year="2022"/>
 
     <area>template</area>
 
@@ -352,6 +352,12 @@
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+        <t>From -14 to -15:<list style="symbols">
+          <t>[Pinky]: Gee, Brain. What are we going to do tonight?</t>
+          <t>[The Brain]: The same thing we do every 6 months, Pinky. Post a
+          new version of this document, with only the version number changed.</t>
+        </list></t>
 
         <t>From -13 to -14:<list style="symbols">
           <t>Andrew asked to be removed as co-author, due to potential perception of CoI.</t>
