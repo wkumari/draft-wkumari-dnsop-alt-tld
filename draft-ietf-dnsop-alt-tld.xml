@@ -42,7 +42,7 @@
       </address>
     </author>
 
-    <date day="14" month="June" year="2022"/>
+    <date day="15" month="July" year="2022"/>
 
     <area>template</area>
 
@@ -65,11 +65,11 @@
 
   <middle>
     <section title="Introduction">
-      <t>Many protocols and systems need to name entities. Names that look
+      <t>Many Internet protocols need to name entities. Names that look
       like DNS names (a series of labels separated with dots) have become
       common, even in systems that are not part of the global DNS administered
-      by IANA. This document reserves the label "ALT" (short for
-      "Alternative") as a Special Use Domain (<xref target="RFC6761"/>). This
+      by IANA. This document reserves the label ".ALT" (short for
+      "Alternative") as a Special Use Domain Name(<xref target="RFC6761"/>). This
       label is intended to be used as the final (rightmost) label to signify
       that the name is not rooted in the DNS, and that it should not be
       resolved using the DNS protocol.</t>
@@ -85,14 +85,15 @@
         <t>This document assumes familiarity with DNS terms and concepts.
         Please see <xref target="RFC1034"/> for background and concepts, and
         <xref target="RFC7719"/> for terminology. Readers are also expected to
-        be familiar with the discussions in <xref target="RFC8244"/></t>
+        be familiar with the discussions in <xref target="RFC8244"/>.</t>
 
         <t><list style="symbols">
             <t>DNS name: Domain names that are intended to be used with DNS
-            resolution, either in the global DNS or in some other context</t>
+            resolution, either in the global DNS or in some other context.</t>
 
             <t>DNS context: The namespace anchored at the globally-unique DNS
-            root. This is the namespace or context that "normal" DNS uses.</t>
+            root, administered by IANA. This is the namespace or context that
+            "normal" DNS uses.</t>
 
             <t>non-DNS context: Any other (alternative) namespace.</t>
 
@@ -198,7 +199,7 @@
 
     <section title="IANA Considerations">
       <t>The IANA is requested to add the ALT string to the "Special-Use
-      Domain Name" registry (<xref target="RFC6761"/>, and reference this
+      Domain Name" registry (<xref target="RFC6761"/>), and reference this
       document.</t>
 
       <section title="Domain Name Reservation Considerations">
@@ -328,7 +329,7 @@
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8198.xml'?>
 
       <reference anchor="Dingledine2004"
-                 target="https://svn.torproject.org/svn/projects/design-paper/tor-design.html">
+            target="https://svn.torproject.org/svn/projects/design-paper/tor-design.html">
         <front>
           <title>Tor: The Second-Generation Onion Router</title>
 
