@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-15" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-16" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -42,22 +42,28 @@
       </address>
     </author>
 
-    <date day="15" month="July" year="2022"/>
+    <author fullname="Paul Hoffman" initials="P." surname="Hoffman">
+      <organization>ICANN</organization>
+
+      <address>
+        <email>paul.hoffman@icann.org</email>
+      </address>
+    </author>
+
+    <date />
 
     <area>template</area>
 
     <workgroup>dnsop</workgroup>
 
     <abstract>
-      <t>This document reserves a string (ALT) to be used as a TLD label in
+      <t>This document reserves a TLD label, "alt" to be used in
       non-DNS contexts. It also provides advice and guidance to developers
       developing alternative namespaces.</t>
 
-      <t>[Ed note: Text inside square brackets ([]) is additional background
-      information, answers to frequently asked questions, general musings,
-      etc. They will be removed before publication. This document is being
-      collaborated on in Github at: https://github.com/wkumari/draft-
-      wkumari-dnsop-alt-tld. The most recent version of the document, open
+      <t>[ This document is being
+      collaborated on in Github at: https://github.com/wkumari/draft-wkumari-dnsop-alt-tld.
+      The most recent version of the document, open
       issues, etc should all be available here. The authors (gratefully)
       accept pull requests. ]</t>
     </abstract>
@@ -68,11 +74,19 @@
       <t>Many Internet protocols need to name entities. Names that look
       like DNS names (a series of labels separated with dots) have become
       common, even in systems that are not part of the global DNS administered
-      by IANA. This document reserves the label ".ALT" (short for
-      "Alternative") as a Special Use Domain Name(<xref target="RFC6761"/>). This
-      label is intended to be used as the final (rightmost) label to signify
+      by IANA. This document reserves the root-level label "alt" (short for
+      "alternative") as a special-use domain name (<xref target="RFC6761"/>). This
+      root-level label can be used as the final (rightmost) label to signify
       that the name is not rooted in the DNS, and that it should not be
       resolved using the DNS protocol.</t>
+      
+      <t>Throughout the rest of this document, the root-level "alt" label is shown
+      as ".alt" to match the common presentation form of DNS names.</t>
+
+      <t>The techniques in this document are primarily intended to address the
+      "Experimental Squatting Problem", the "Land Rush Problem", and "Name
+      Collisions" issues discussed in <xref target="RFC8244"/>, which contains
+      additional background on the issues with special use domain names.</t>
 
       <section title="Requirements Notation">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -82,10 +96,8 @@
       </section>
 
       <section title="Terminology">
-        <t>This document assumes familiarity with DNS terms and concepts.
-        Please see <xref target="RFC1034"/> for background and concepts, and
-        <xref target="RFC7719"/> for terminology. Readers are also expected to
-        be familiar with the discussions in <xref target="RFC8244"/>.</t>
+        <t>This document assumes familiarity with DNS terms; please see
+        <xref target="RFC8849"/>. Terminology that is specific to this document is:</t>
 
         <t><list style="symbols">
             <t>DNS name: Domain names that are intended to be used with DNS
@@ -102,192 +114,103 @@
             global DNS. This term is not intended to be pejorative.</t>
 
             <t>TLD: The last visible label in either a fully-qualified domain
-            name or a name that is qualified relative to the root. See the
-            discussion in <xref target="background"/>.</t>
+            name or a name that is qualified relative to the root.</t>
           </list></t>
       </section>
     </section>
 
-    <section anchor="background" title="Background">
-      <t>The success of the DNS makes it a natural starting point for systems
-      that need to name entities in a non-DNS context.</t>
-
-      <t>In many cases, these systems build a DNS-style tree parallel to, but
-      separate from, the global DNS. They often use a pseudo-TLD to cause
-      resolution in the alternative namespace, using browser plugins, shims in
-      the name resolution process, or simply applications that perform special
-      handling of this particular alternative namespace. An example of such a
-      system is the Tor network's <xref target="Dingledine2004"/> use of the
-      ".onion" Special-Use Top-Level Domain Name (see <xref
-      target="RFC7686"/>).</t>
-
-      <t>In many cases, the creators of these alternative namespaces have
-      chosen a convenient or descriptive string and started using it. These
-      strings are not registered anywhere nor are they part of the DNS.
-      However, to users and to some applications, they appear to be TLDs; and
-      issues may arise if they are looked up in the DNS. This document
-      suggests that name resolution libraries (stub resolvers) recognize names
-      ending in ".alt" as special, and not attempt to look them up using the
-      DNS protocol in order to limit the effects of queries accidentally
-      leaking into the DNS.</t>
-
-      <t>The techniques in this document are primarily intended to address the
-      "Experimental Squatting Problem", the "Land Rush Problem", and "Name
-      Collisions" issues discussed in <xref target="RFC8244"/> (which contains
-      much additional background, etc).</t>
-    </section>
-
-    <section title="The ALT Namespace">
-      <t>This document reserves the ALT label, using the <xref
-      target="RFC6761"/> process, for use as an unmanaged pseudo-TLD
-      namespace. The ALT label MAY be used in any domain name as a pseudo-TLD
+    <section title="The alt Namespace">
+      <t>This document reserves the .alt label
+      for use as an unmanaged pseudo-TLD
+      namespace. The .alt label can be used in any domain name as a pseudo-TLD
       to signify that this is an alternative (non-DNS) namespace, and should
       not be looked up in a DNS context.</t>
 
       <t>Alternative namespaces should differentiate themselves from other
       alternative namespaces by choosing a name and using it in the label
-      position just before the pseudo-TLD (ALT). For example, a group wishing
+      position just before the .alt pseudo-TLD. For example, a group wishing
       to create a namespace for Friends Of Olaf might choose the string "foo"
       and use any set of labels under foo.alt.</t>
-
-      <t>As names beneath ALT are in an alternative namespace, they have no
-      significance in the regular DNS context and so should not be looked up
-      in the DNS context.</t>
+      
+      <t>Because names beneath .alt are in an alternative namespace, they have no
+      significance in the regular DNS context. DNS stub and recursive resolvers
+      do not need to look them up in the DNS context.</t>
+      
+      <t>DNS resolvers that serve the DNS protocol and non-DNS protocols at the same time might consider
+      .alt like an entry in the "Transport-Independent Locally-Served DNS Zone Registry"
+      that is part of IANA's "Locally-Served DNS Zones" registry, except that .alt
+      is always used to denote names that are to be resolved by non-DNS protocols.</t>
+      
+      <t>Note that using .alt as a pseudo-TLD does not mandate how the non-DNS protocol
+      will handle the name. If the non-DNS protocol has a wire format like the DNS
+      wire format, it might append the null label at the end of the name, but it also
+      might not. This document does not make any suggestion for how non-DNS protocols
+      deal with the wire format of their names.</t>
 
       <t>Groups wishing to create new alternative namespaces may create their
       alternative namespace under a label that names their namespace under the
-      ALT label. They should attempt to choose a label that they expect to be
-      unique and, ideally, descriptive. There is no IANA registry for names
-      under the ALT TLD - it is an unmanaged namespace, and developers are
-      responsible for dealing with any collisions that may occur under .alt.
-      Informal lists of namespaces under .alt may be created to assist the
-      developer community.</t>
+      .alt pseudo-TLD. They should attempt to choose a label that they expect to be
+      unique among similar groups and, ideally, descriptive.
+      Developers are wholly
+      responsible for dealing with any collisions that may occur under .alt.</t>
+      
+      <t>This document creates an IANA registry for specification documents that
+      use the .alt pseudo-TLD. The intention of the registry it to let developers
+      of non-DNS protocols using the .alt pseudo-TLD know which other developers
+      are using names under .alt. It is possible for multiple different protocols
+      to use the same names as each other. Because there is no requirement or expectation
+      that developers of non-DNS protocols will use the registry, there is no
+      priority given to names that appear in the directory. </t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
-      may choose to move under the ALT TLD, but this is not a requirement.
-      Rather, the ALT TLD is being reserved so that current and future
+      may choose to move under the .alt pseudo-TLD, but this is not a requirement.
+      Rather, the .alt pseudo-TLD is being reserved so that current and future
       projects of a similar nature have a designated place to create
       alternative resolution namespaces that will not conflict with the
       regular DNS context.</t>
 
-      <section title="Choice of the ALT Name">
-        <t>A number of names other than "ALT" were considered and discarded.
-        While these are not DNS names, in order for this technique to be
-        effective the names need to continue to follow both the DNS format and
-        conventions (a prime consideration for alternative name formats is
-        that they can be entered in places that normally take DNS context
-        names); this rules out using suffixes that do not follow the usual
-        letter, digit, and hyphen label convention.</t>
-
-        <t>A short label was deemed desirable for a number of reasons,
-        including:</t>
-
-        <t><list style="symbols">
-            <t>this is a switch to other resolution contexts, some of which may
-            have long labels (for example derived from public keys).</t>
-
-            <t>some queries will undoubtedly leak into the DNS. As many of
-            these alternate resolution systems are specifically designed for
-            privacy, limiting how far they leak is desirable.</t>
-
-            <t>to encourage voluntary usage of the label, it needs to be
-            attractive to implementors of alternate resolution contexts so
-            that they are willing to use it.</t>
-          </list></t>
-      </section>
     </section>
 
     <section title="IANA Considerations">
-      <t>The IANA is requested to add the ALT string to the "Special-Use
+    
+      <section title="Special-Use Domain Name Registry">
+      
+      <t>The IANA is requested to add the .alt name to the "Special-Use
       Domain Name" registry (<xref target="RFC6761"/>), and reference this
       document.</t>
-
-      <section title="Domain Name Reservation Considerations">
-        <t>This section is to satisfy the requirement in Section 5 of
-        RFC6761.</t>
-
-        <t>The string ".alt." (and names ending with the string .alt) are
-        special in the following ways:<list style="numbers">
-            <t>Users are expected to know that strings that end in .alt behave
-            differently to normal DNS names. Users are expected to have
-            applications running on their machines that intercept strings of
-            the form &lt;namespace&gt;.alt and perform special handling of
-            them, or that applications themselves will recognize the strings
-            as special, and perform special handling. If the user tries to
-            resolve a name of the form &lt;namespace&gt;.alt without the
-            &lt;namespace&gt; plugin installed (or in the wrong application),
-            the request will leak into the DNS, receive a negative response,
-            and the resolution will fail.</t>
-
-            <t>Writers of application software that implement a non-DNS
-            namespace are expected to intercept names of the form
-            &lt;namespace&gt;.alt and perform application specific handling
-            with them. Other applications are not required to perform any
-            special handling (but may choose to provide helpful informational
-            messages if able).</t>
-
-            <t>Writers of name resolution APIs and libraries which operate in
-            the DNS context should not attempt to look these names up in the
-            DNS. If developers of other namespaces implement their namespace
-            through a "shim" or library, they will need to intercept and
-            perform their own handling.</t>
-
-            <t>Caching DNS servers SHOULD NOT recognize these names as special
-            and should not perform any special handling with them.</t>
-
-            <t>Authoritative DNS servers SHOULD NOT recognize these names as
-            special and should not perform any special handling with them.</t>
-
-            <t>DNS server operators SHOULD be aware that queries for names
-            ending in .alt are not DNS names, and were leaked into the DNS
-            context (for example, by a missing browser plugin). This
-            information may be useful for support or debugging purposes.</t>
-
-            <t>DNS Registries/Registrars MUST NOT grant requests to register
-            ".alt" names in the normal way to any person or entity. These
-            ".alt" names are defined by protocol specification to be
-            nonexistent, and they fall outside the set of names available for
-            allocation by registries/registrars.</t>
-          </list></t>
-
-        <t>Earlier versions of this document requested that .ALT be added to
-        the "Locally Served Zones" registry, and that a DNSSEC insecure
-        delegation (a delegation with no DS record) be created at the root.
-        Significant discussion on the DNSOP list (and an interim meeting)
-        generated the consensus that these names are specifically not DNS
-        names, and that them leaking into the DNS is an error. This means that
-        the current (non-delegated) response of NXDOMAIN is correct as there
-        is no DNS domain .alt, and so the document was updated to remove these
-        requests.</t>
+      
       </section>
+
+      <section title="Non-DNS Protocols Using the .alt Pseudo-TLD Registry">
+
+      <t>IANA is requested to create a new registry titled "Non-DNS Protocols
+      Using the .alt Pseudo-TLD". That registry description should point to
+      this document.</t>
+      
+      <t>Entry to the registry is a combination of "Specification Required" and
+      either "Expert Review" or "IESG Approval". See <xref target="RFC8126"/> for the
+      definition of these three terms,</t>
+      
+      <t>The registry will have two columns: "Reference" and "Name".
+      The "Reference" column gives a brief title and linked URL of the
+      reference for the non-DNS protocol. The "Name" column lists each name
+      in the non-DNS protocol that would appear immediately to the left of the
+      .alt pseudo-TLD.</t>
+      
+      </section>
+
     </section>
 
     <section title="Privacy Considerations">
-      <t>This document reserves ALT to be used to indicate that a name is not
-      a DNS name, and so should not attempt to be resolved using the DNS.
-      Unfortunately, these queries will undoubtedly leak into the DNS - for
-      example, a user may receive an email containing a hostname which should
-      be resolved using a specific resolution context (implemented by a
-      specific application or resolution mechanism). If the user does not have
-      that particular application installed (and their stub resolver library
-      has not been updated to ignore queries for names ending in .alt), it is
-      likely that this will instead be resolved using the DNS. This DNS query
-      will likely be sent to the configured iterative resolver. If this
-      resolver does not have a cache entry for this name (or, if the resolver
-      implements <xref target="RFC8198"/>, an entry for .alt) this query will
-      likely be sent to the DNS root servers. This exposes the (leaked) query
-      name to the operator of the resolver, the operator of the queried DNS
-      root server, and anyone watching queries along the path. This is a
+      <t>This document reserves .alt to be used to indicate that a name is not
+      a DNS name, and so should not attempt to be resolved using the global DNS.
+      Unfortunately, these queries will undoubtedly leak into the global DNS.
+      This is a
       general problem with alternative name spaces and not confined to names
       ending in .alt.</t>
     </section>
 
     <section anchor="security" title="Security Considerations">
-      <t>One of the motivations for the creation of the .alt pseudo-TLD is
-      that unmanaged labels in the managed root name space are subject to
-      unexpected takeover. This could occur if the manager of the root name
-      space decides to delegate the unmanaged label.</t>
-
       <t>The unmanaged and "registration not required" nature of labels
       beneath .alt provides the opportunity for an attacker to re-use the
       chosen label and thereby possibly compromise applications dependent on
@@ -298,7 +221,7 @@
       <t>We would like to thank Joe Abley, Mark Andrews, Erik Auerswald,
       Marc Blanchet, John Bond, Stephane Bortzmeyer, David Cake, David Conrad,
       Steve Crocker, Brian Dickson, Ralph Droms, Robert Edmonds,
-      Patrik Faltstrom, Olafur Gudmundsson, Bob Harold, Paul Hoffman,
+      Patrik Faltstrom, Olafur Gudmundsson, Bob Harold,
       Joel Jaeggli, Ted Lemon, Edward Lewis, John Levine, George Michaelson,
       Ed Pascoe, Jim Reid, Arturo Servin, Paul Vixie
       and Suzanne Woolf for feedback.</t>
@@ -316,43 +239,27 @@
 
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6761.xml'?>
 
-      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.1034.xml'?>
-
-      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7719.xml'?>
-
-      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7686.xml'?>
+      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8126.xml'?>
     </references>
 
     <references title="Informative References">
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8244.xml'?>
 
-      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8198.xml'?>
+      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8849.xml'?>
 
-      <reference anchor="Dingledine2004"
-            target="https://svn.torproject.org/svn/projects/design-paper/tor-design.html">
-        <front>
-          <title>Tor: The Second-Generation Onion Router</title>
-
-          <author fullname="R" initials="R" surname="Dingledine">
-            <organization/>
-          </author>
-
-          <author fullname="N" initials="N" surname="Mathewson">
-            <organization/>
-          </author>
-
-          <author fullname="P" initials="P" surname="Syverson">
-            <organization/>
-          </author>
-
-          <date month="8" year="2004"/>
-        </front>
-        <!-- <seriesInfo name="" value=""/> -->
-      </reference>
     </references>
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+        <t>From -15 to -16:<list style="symbols">
+          <t>Many simplifications to focus the document on the technical bits
+          as much as possible, based on mailing list feedback.</t>
+          <t>Removed unused references.</t>
+          <t>Removed the RFC 2119 language because it is no longer used in the document.</t>
+          <t>Added a non-normative IANA registry.</t>
+          <t>Added Paul Hoffman as second author to help get the draft moving in the DNSOP WG again.</t>
+        </list></t>
 
         <t>From -14 to -15:<list style="symbols">
           <t>[Pinky]: Gee, Brain. What are we going to do tonight?</t>
