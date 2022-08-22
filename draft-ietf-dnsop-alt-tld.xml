@@ -168,6 +168,11 @@
       projects of a similar nature have a designated place to create
       alternative resolution namespaces that will not conflict with the
       regular DNS context.</t>
+      
+      <!-- An off-list commenter says: maybe add advice for the expert(s) to the effect
+      that unless there is an obvious technical objection the default determination should
+      be to add the record, and to note explicitly that apparent duplication is not a reason
+      to reject? -->
 
     </section>
 
