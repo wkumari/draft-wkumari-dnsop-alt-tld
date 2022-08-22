@@ -126,7 +126,7 @@
       to signify that this is an alternative (non-DNS) namespace, and should
       not be looked up in a DNS context.</t>
       
-      <t>The use of ".alt" for the pseudo-TLD in this document uses the presentation
+      <t>This document uses ".alt" for the pseudo-TLD in the presentation
       format for the DNS, corresponding to a 0x03616c7400 suffix in DNS wire format.
       The presentation and on-the-wire formats for non-DNS protocols might be
       different.</t>
