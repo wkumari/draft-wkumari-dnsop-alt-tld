@@ -126,7 +126,7 @@
       to signify that this is an alternative (non-DNS) namespace, and should
       not be looked up in a DNS context.</t>
       
-      <t>For technical clarity, the on-the-wire format of a name that uses the
+      <t>For technical clarity, the DNS on-the-wire format of a name that uses the
       .alt label as a TLD always ends in the bytes 0x03616c7400.
       Any list of bytes can precede those in the non-DNS name.
       The use of ".alt" in this document uses the presentation format for the DNS,
