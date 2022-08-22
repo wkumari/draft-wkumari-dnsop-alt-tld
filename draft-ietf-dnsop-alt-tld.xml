@@ -125,6 +125,12 @@
       namespace. The .alt label can be used in any domain name as a pseudo-TLD
       to signify that this is an alternative (non-DNS) namespace, and should
       not be looked up in a DNS context.</t>
+      
+      <t>For technical clarity, the on-the-wire format of a name that uses the
+      .alt label as a TLD always ends in the bytes 0x03616c7400.
+      Any list of bytes can precede those in the non-DNS name.
+      The use of ".alt" in this document uses the presentation format for the DNS,
+      but the presentation format for non-DNS protocols might be different.</t>
 
       <t>Alternative namespaces should differentiate themselves from other
       alternative namespaces by choosing a name and using it in the label
