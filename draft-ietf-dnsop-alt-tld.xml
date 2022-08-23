@@ -147,7 +147,7 @@
       is always used to denote names that are to be resolved by non-DNS protocols.</t>
 
       <t>Note that using .alt as a pseudo-TLD does not mandate how the non-DNS protocol
-      will handle the name. To maximize compatiblity with existing applications,
+      will handle the name. To maximize compatibility with existing applications,
       it is suggested, but not required, that non-DNS protocols using names that end in .alt follow DNS
       name syntax. If the non-DNS protocol has a wire format like the DNS
       wire format, it might append the null label at the end of the name, but it also
