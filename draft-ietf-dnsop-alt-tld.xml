@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 ]>
 <!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-pre17" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-17" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -62,7 +62,7 @@
       developing alternative namespaces.</t>
 
       <t>[ This document is being
-      collaborated on in Github at <https://github.com/wkumari/draft-wkumari-dnsop-alt-tld>.
+      collaborated on in Github at &lt;https://github.com/wkumari/draft-wkumari-dnsop-alt-tld&gt;.
       The most recent version of the document, open
       issues, etc should all be available here. The authors (gratefully)
       accept pull requests. ]</t>
