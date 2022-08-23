@@ -79,7 +79,7 @@
       top-level label can be used as the final (rightmost) label to signify
       that the name is not rooted in the DNS, and that it should not be
       resolved using the DNS protocol.</t>
-      
+
       <t>Throughout the rest of this document, the top-level "alt" label is shown
       as ".alt" to match the common presentation form of DNS names.</t>
 
@@ -125,7 +125,7 @@
       namespace. The .alt label can be used in any domain name as a pseudo-TLD
       to signify that this is an alternative (non-DNS) namespace, and should
       not be looked up in a DNS context.</t>
-      
+
       <t>This document uses ".alt" for the pseudo-TLD in the presentation
       format for the DNS, corresponding to a 0x03616c7400 suffix in DNS wire format.
       The presentation and on-the-wire formats for non-DNS protocols might be
@@ -136,18 +136,20 @@
       position just before the .alt pseudo-TLD. For example, a group wishing
       to create a namespace for Friends Of Olaf might choose the string "foo"
       and use any set of labels under foo.alt.</t>
-      
+
       <t>Because names beneath .alt are in an alternative namespace, they have no
       significance in the regular DNS context. DNS stub and recursive resolvers
       do not need to look them up in the DNS context.</t>
-      
+
       <t>DNS resolvers that serve the DNS protocol and non-DNS protocols at the same time might consider
       .alt like an entry in the "Transport-Independent Locally-Served DNS Zone Registry"
       that is part of IANA's "Locally-Served DNS Zones" registry, except that .alt
       is always used to denote names that are to be resolved by non-DNS protocols.</t>
-      
+
       <t>Note that using .alt as a pseudo-TLD does not mandate how the non-DNS protocol
-      will handle the name. If the non-DNS protocol has a wire format like the DNS
+      will handle the name. To maximize compatiblity with existing applications,
+      it is suggested that non-DNS protocols using names that end in .alt follow DNS
+      name syntax. If the non-DNS protocol has a wire format like the DNS
       wire format, it might append the null label at the end of the name, but it also
       might not. This document does not make any suggestion for how non-DNS protocols
       deal with the wire format of their names.</t>
@@ -158,7 +160,7 @@
       unique among similar groups and, ideally, descriptive.
       Developers are wholly
       responsible for dealing with any collisions that may occur under .alt.</t>
-      
+
       <t>This document creates an IANA registry for specification documents that
       use the .alt pseudo-TLD. The intention of the registry is to let developers
       of non-DNS protocols using the .alt pseudo-TLD know which other developers
@@ -173,7 +175,7 @@
       projects of a similar nature have a designated place to create
       alternative resolution namespaces that will not conflict with the
       regular DNS context.</t>
-      
+
       <!-- An off-list commenter says: maybe add advice for the expert(s) to the effect
       that unless there is an obvious technical objection the default determination should
       be to add the record, and to note explicitly that apparent duplication is not a reason
@@ -182,13 +184,13 @@
     </section>
 
     <section title="IANA Considerations">
-    
+
       <section title="Special-Use Domain Name Registry">
-      
+
       <t>The IANA is requested to add the .alt name to the "Special-Use
       Domain Name" registry (<xref target="RFC6761"/>), and reference this
       document.</t>
-      
+
       </section>
 
       <section title="Non-DNS Protocols Using the .alt Pseudo-TLD Registry">
@@ -196,17 +198,17 @@
       <t>IANA is requested to create a new registry titled "Non-DNS Protocols
       Using the .alt Pseudo-TLD". That registry description should point to
       this document.</t>
-      
+
       <t>Entry to the registry is a combination of "Specification Required" and
       either "Expert Review" or "IESG Approval". See <xref target="RFC8126"/> for the
       definition of these three terms,</t>
-      
+
       <t>The registry will have two columns: "Reference" and "Name".
       The "Reference" column gives a brief title and linked URL of the
       reference for the non-DNS protocol. The "Name" column lists each name
       in the non-DNS protocol that would appear immediately to the left of the
       .alt pseudo-TLD.</t>
-      
+
       </section>
 
     </section>
