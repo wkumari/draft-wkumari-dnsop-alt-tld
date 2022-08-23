@@ -62,7 +62,7 @@
       developing alternative namespaces.</t>
 
       <t>[ This document is being
-      collaborated on in Github at: https://github.com/wkumari/draft-wkumari-dnsop-alt-tld.
+      collaborated on in Github at <https://github.com/wkumari/draft-wkumari-dnsop-alt-tld>.
       The most recent version of the document, open
       issues, etc should all be available here. The authors (gratefully)
       accept pull requests. ]</t>
@@ -148,7 +148,7 @@
 
       <t>Note that using .alt as a pseudo-TLD does not mandate how the non-DNS protocol
       will handle the name. To maximize compatiblity with existing applications,
-      it is suggested that non-DNS protocols using names that end in .alt follow DNS
+      it is suggested, but not required, that non-DNS protocols using names that end in .alt follow DNS
       name syntax. If the non-DNS protocol has a wire format like the DNS
       wire format, it might append the null label at the end of the name, but it also
       might not. This document does not make any suggestion for how non-DNS protocols
