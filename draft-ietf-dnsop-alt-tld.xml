@@ -77,7 +77,7 @@
       by IANA. This document reserves the top-level label "alt" (short for
       "alternative") as a special-use domain name (<xref target="RFC6761"/>). This
       top-level label can be used as the final (rightmost) label to signify
-      that the name is not rooted in the DNS, and that it should not be
+      that the name is not rooted in the global DNS, and that it should not be
       resolved using the DNS protocol.</t>
 
       <t>Throughout the rest of this document, the top-level "alt" label is shown
