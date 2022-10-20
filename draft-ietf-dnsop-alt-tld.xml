@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 ]>
 
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-18" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-pre19" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
