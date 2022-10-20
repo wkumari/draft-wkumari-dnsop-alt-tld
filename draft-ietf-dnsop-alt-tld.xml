@@ -2,8 +2,8 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 <!ENTITY rfc2119 PUBLIC "" "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 ]>
-<!-- WK: Set category, IPR, docName -->
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-pre18 ipr="trust200902">
+
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-pre18" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -79,7 +79,11 @@
       top-level label can be used as the final (rightmost) label to signify
       that the name is not rooted in the global DNS, and that it should not be
       resolved using the DNS protocol.</t>
-
+      
+      <t>In <xref target="iana-6761"/>, the IANA is requested to add the .alt name
+      to the "Special-Use Domain Name" registry. IANA sets aside names in that
+      registry, as described in &lt;https://www.iana.org/domains/reserved&gt;.</t>
+      
       <t>Throughout the rest of this document, the top-level "alt" label is shown
       as ".alt" to match the common presentation form of DNS names.</t>
 
@@ -97,7 +101,7 @@
 
       <section title="Terminology">
         <t>This document assumes familiarity with DNS terms; please see
-        <xref target="RFC8849"/>. Terminology that is specific to this document is:</t>
+        <xref target="RFC8499"/>. Terminology that is specific to this document is:</t>
 
         <t><list style="symbols">
             <t>DNS name: Domain names that are intended to be used with DNS
@@ -110,11 +114,10 @@
             <t>non-DNS context: Any other (alternative) namespace.</t>
 
             <t>pseudo-TLD: A label that appears in a fully-qualified domain
-            name in the position of a TLD, but which is not registered in the
+            name in the position of a TLD, but which is not part of the
             global DNS. This term is not intended to be pejorative.</t>
 
-            <t>TLD, top-level label: The last visible label in either a fully-qualified domain
-            name or a name that is qualified relative to the root.</t>
+            <t>TLD: See the definition in Section 2 of <xref target="RFC8499"/>.</t>
           </list></t>
       </section>
     </section>
@@ -160,14 +163,17 @@
       unique among similar groups and, ideally, descriptive.
       Developers are wholly
       responsible for dealing with any collisions that may occur under .alt.</t>
-
-      <t>This document creates an IANA registry for specification documents that
-      use the .alt pseudo-TLD. The intention of the registry is to let developers
-      of non-DNS protocols using the .alt pseudo-TLD know which other developers
-      are using names under .alt. It is possible for multiple different protocols
-      to use the same names as each other. Because there is no requirement or expectation
-      that developers of non-DNS protocols will use the registry, there is no
-      priority given to names that appear in the directory. </t>
+      
+      <t>(This paragraph exists to meet the requirements of <xref target="RFC6761"/>.)
+      Application software that uses alternative namespaces in .alt are expected
+      to have their own processing rules for their own names, probably in specialized
+      resolver APIs, libraries, and/or application software.
+      Users might or might not recognize that names in the .alt pseudo-TLD are special.
+      Caching DNS servers and authoritative DNS servers will treat all names in the
+      .alt pseudo-TLD just as they would any other name whose TLD does not appear in the
+      global DNS root.
+      DNS server operators and DNS registries/registrars for the global DNS will never register
+      names in the .alt pseudo-TLD because .alt will not exist in the global DNS root.</t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       may choose to move under the .alt pseudo-TLD, but this is not a requirement.
@@ -176,38 +182,15 @@
       alternative resolution namespaces that will not conflict with the
       regular DNS context.</t>
 
-      <!-- An off-list commenter says: maybe add advice for the expert(s) to the effect
-      that unless there is an obvious technical objection the default determination should
-      be to add the record, and to note explicitly that apparent duplication is not a reason
-      to reject? -->
-
     </section>
 
     <section title="IANA Considerations">
 
-      <section title="Special-Use Domain Name Registry">
+      <section title="Special-Use Domain Name Registry" anchor="iana-6761">
 
       <t>The IANA is requested to add the .alt name to the "Special-Use
       Domain Name" registry (<xref target="RFC6761"/>), and reference this
       document.</t>
-
-      </section>
-
-      <section title="Non-DNS Protocols Using the .alt Pseudo-TLD Registry">
-
-      <t>IANA is requested to create a new registry titled "Non-DNS Protocols
-      Using the .alt Pseudo-TLD". That registry description should point to
-      this document.</t>
-
-      <t>Entry to the registry is a combination of "Specification Required" and
-      either "Expert Review" or "IESG Approval". See <xref target="RFC8126"/> for the
-      definition of these three terms,</t>
-
-      <t>The registry will have two columns: "Reference" and "Name".
-      The "Reference" column gives a brief title and linked URL of the
-      reference for the non-DNS protocol. The "Name" column lists each name
-      in the non-DNS protocol that would appear immediately to the left of the
-      .alt pseudo-TLD.</t>
 
       </section>
 
@@ -250,19 +233,21 @@
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml'?>
 
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6761.xml'?>
-
-      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8126.xml'?>
     </references>
 
     <references title="Informative References">
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8244.xml'?>
 
-      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8849.xml'?>
+      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8499.xml'?>
 
     </references>
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+      
+        <t>From -17 to -18:<list style="symbols">
+          <t>Many changes from the WG discusson</t>
+        </list></t>
 
         <t>From -15 to -16:<list style="symbols">
           <t>Many simplifications to focus the document on the technical bits
