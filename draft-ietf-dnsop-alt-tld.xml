@@ -81,8 +81,8 @@
       resolved using the DNS protocol.</t>
       
       <t>In <xref target="iana-6761"/>, the IANA is requested to add the .alt name
-      to the "Special-Use Domain Name" registry. Such addition will prevent the
-      name from appearing in the global DNS root zone.</t>
+      to the "Special-Use Domain Name" registry. IANA sets aside names in that
+      registry, as described in &lt;https://www.iana.org/domains/reserved&gt;.</t>
       
       <t>Throughout the rest of this document, the top-level "alt" label is shown
       as ".alt" to match the common presentation form of DNS names.</t>
