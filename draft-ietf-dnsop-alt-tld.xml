@@ -6,8 +6,6 @@
 
 To do for mid-October:
 
-- Remove registry
-
 - Add 6761ish language
 
 -->
@@ -173,14 +171,6 @@ To do for mid-October:
       Developers are wholly
       responsible for dealing with any collisions that may occur under .alt.</t>
 
-      <t>This document creates an IANA registry for specification documents that
-      use the .alt pseudo-TLD. The intention of the registry is to let developers
-      of non-DNS protocols using the .alt pseudo-TLD know which other developers
-      are using names under .alt. It is possible for multiple different protocols
-      to use the same names as each other. Because there is no requirement or expectation
-      that developers of non-DNS protocols will use the registry, there is no
-      priority given to names that appear in the directory. </t>
-
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       may choose to move under the .alt pseudo-TLD, but this is not a requirement.
       Rather, the .alt pseudo-TLD is being reserved so that current and future
@@ -202,24 +192,6 @@ To do for mid-October:
       <t>The IANA is requested to add the .alt name to the "Special-Use
       Domain Name" registry (<xref target="RFC6761"/>), and reference this
       document.</t>
-
-      </section>
-
-      <section title="Non-DNS Protocols Using the .alt Pseudo-TLD Registry">
-
-      <t>IANA is requested to create a new registry titled "Non-DNS Protocols
-      Using the .alt Pseudo-TLD". That registry description should point to
-      this document.</t>
-
-      <t>Entry to the registry is a combination of "Specification Required" and
-      either "Expert Review" or "IESG Approval". See <xref target="RFC8126"/> for the
-      definition of these three terms,</t>
-
-      <t>The registry will have two columns: "Reference" and "Name".
-      The "Reference" column gives a brief title and linked URL of the
-      reference for the non-DNS protocol. The "Name" column lists each name
-      in the non-DNS protocol that would appear immediately to the left of the
-      .alt pseudo-TLD.</t>
 
       </section>
 
@@ -262,8 +234,6 @@ To do for mid-October:
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml'?>
 
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6761.xml'?>
-
-      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8126.xml'?>
     </references>
 
     <references title="Informative References">
