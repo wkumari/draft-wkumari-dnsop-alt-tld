@@ -164,7 +164,7 @@
       Developers are wholly
       responsible for dealing with any collisions that may occur under .alt.</t>
       
-      <t>(This paragraph is here to meet the requirements of <xref target="RFC6761"/>.)
+      <t>(This paragraph exists to meet the requirements of <xref target="RFC6761"/>.)
       Application software that uses alternative namespaces in .alt are expected
       to have their own processing rules for their own names, probably in specialized
       resolver APIs, libraries, and/or application software.
