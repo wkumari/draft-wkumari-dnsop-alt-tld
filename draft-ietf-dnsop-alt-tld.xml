@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 ]>
 
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-pre18" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-dnsop-alt-tld-18" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -245,8 +245,13 @@
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
       
-        <t>From -17 to -18:<list style="symbols">
-          <t>Many changes from the WG discusson</t>
+        <t>From -16 to -18:<list style="symbols">
+          <t>Lots of editorial fix-ups</t>
+          <t>Fixed reference to RFC 8499</t>
+          <t>Clarified presentation format for .alt</t>
+          <t>Clarified that IANA will set aside the name when it goes into the 6761 registry</t>
+          <t>Removed the loose registry for names under .alt</t>
+          <t>Added back the required discussion for RFC 6761</t>
         </list></t>
 
         <t>From -15 to -16:<list style="symbols">
