@@ -2,13 +2,6 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 <!ENTITY rfc2119 PUBLIC "" "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 ]>
-<!-- 
-
-To do for mid-October:
-
-- Add 6761ish language
-
--->
 
 <rfc category="info" docName="draft-ietf-dnsop-alt-tld-pre18" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
@@ -170,6 +163,17 @@ To do for mid-October:
       unique among similar groups and, ideally, descriptive.
       Developers are wholly
       responsible for dealing with any collisions that may occur under .alt.</t>
+      
+      <t>(This paragraph is here to meet the requirements of <xref target="RFC6761"/>.)
+      Application software that uses alternative namespaces in .alt are expected
+      to have their own processing rules for their own names, probably in specialized
+      resolver APIs, libraries, and/or application software.
+      Users might or might not recognize that names in the .alt pseudo-TLD are special.
+      Caching DNS servers and authoritative DNS servers will treat all names in the
+      .alt pseudo-TLD just as they would any other name whose TLD does not appear in the
+      global DNS root.
+      DNS server operators and DNS registries/registrars for the global DNS will never
+      names in the .alt pseudo-TLD because .alt will not be in the global DNS root.</t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       may choose to move under the .alt pseudo-TLD, but this is not a requirement.
@@ -177,11 +181,6 @@ To do for mid-October:
       projects of a similar nature have a designated place to create
       alternative resolution namespaces that will not conflict with the
       regular DNS context.</t>
-
-      <!-- An off-list commenter says: maybe add advice for the expert(s) to the effect
-      that unless there is an obvious technical objection the default determination should
-      be to add the record, and to note explicitly that apparent duplication is not a reason
-      to reject? -->
 
     </section>
 
