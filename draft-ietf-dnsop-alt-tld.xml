@@ -197,7 +197,7 @@ To do for mid-October:
 
     <section title="IANA Considerations">
 
-      <section title="Special-Use Domain Name Registry">
+      <section title="Special-Use Domain Name Registry" anchor="iana-6761">
 
       <t>The IANA is requested to add the .alt name to the "Special-Use
       Domain Name" registry (<xref target="RFC6761"/>), and reference this
