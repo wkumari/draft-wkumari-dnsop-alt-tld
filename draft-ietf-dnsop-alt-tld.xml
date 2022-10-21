@@ -171,7 +171,9 @@
       Caching DNS servers and authoritative DNS servers will treat all names in the
       .alt pseudo-TLD just as they would any other name whose TLD does not appear in the
       global DNS root.
-      DNS server operators and DNS registries/registrars for the global DNS will never register
+      DNS server operators will treat names in the .alt pseudo-TLD as they would names
+      in any other TLD not in the global DNS.
+      DNS registries/registrars for the global DNS will never register
       names in the .alt pseudo-TLD because .alt will not exist in the global DNS root.</t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
