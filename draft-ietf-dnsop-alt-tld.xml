@@ -207,10 +207,10 @@
     </section>
 
     <section anchor="security" title="Security Considerations">
-      <t>The unmanaged and "registration not required" nature of labels
-      beneath .alt provides the opportunity for an attacker to re-use the
-      chosen label and thereby possibly compromise applications dependent on
-      the special host name.</t>
+      <t>Because names in the .alt pseudo-TLD  are explicitly outside of the DNS context,
+      it is impossible to rely on any DNS-related security considerations.
+      Care must be taken to ensure that the mapping of the pseudo-TLD into its corresponding
+      non-DNS name resolution system in order to get whatever security is offered by that system.</t>
     </section>
 
     <section title="Acknowledgements">
