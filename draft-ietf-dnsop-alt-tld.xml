@@ -133,8 +133,8 @@
       The presentation and on-the-wire formats for non-DNS protocols might be
       different.</t>
 
-      <t>Alternative namespaces should differentiate themselves from other
-      alternative namespaces by choosing a name and using it in the label
+      <t>Systems using alternative namespaces should differentiate themselves from other
+      systems using alternative namespaces by choosing a name and using it in the label
       position just before the .alt pseudo-TLD. For example, a group wishing
       to create a namespace for Friends Of Olaf might choose the string "foo"
       and use any set of labels under foo.alt.</t>
