@@ -175,6 +175,19 @@
       in any other TLD not in the global DNS.
       DNS registries/registrars for the global DNS will never register
       names in the .alt pseudo-TLD because .alt will not exist in the global DNS root.</t>
+      
+      <t>Regardless of the expectations above, names in the .alt pseudo-TLD will leak
+      outside the context in which they are valid. Decades of experience show that
+      such names will appear at recursive resolvers, and will thus also appear at the
+      root servers for the global DNS.</t>
+      
+      <t>Sending traffic to the root servers that is known to always elicit an
+      NXDOMAIN response, such as queries for names ending in .alt, wastes
+      resources. Given this, it is noted that caching resolvers using QNAME
+      minimization (described in <xref target="RFC9156"/>)
+      will cause less of this traffic to the root servers because the negative
+      responses will cover all names under .alt.</t>
+
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       may choose to move under the .alt pseudo-TLD, but this is not a requirement.
@@ -240,6 +253,8 @@
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8244.xml'?>
 
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8499.xml'?>
+
+      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9156.xml'?>
 
     </references>
 
