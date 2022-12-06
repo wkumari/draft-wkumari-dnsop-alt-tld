@@ -156,19 +156,6 @@
       Developers are wholly
       responsible for dealing with any collisions that may occur under .alt.</t>
       
-      <t>(This paragraph exists to meet the requirements of <xref target="RFC6761"/>.)
-      Application software that uses alternative namespaces in .alt are expected
-      to have their own processing rules for their own names, probably in specialized
-      resolver APIs, libraries, and/or application software.
-      Users might or might not recognize that names in the .alt pseudo-TLD are special.
-      Caching DNS servers and authoritative DNS servers will treat all names in the
-      .alt pseudo-TLD just as they would any other name whose TLD does not appear in the
-      global DNS root.
-      DNS server operators will treat names in the .alt pseudo-TLD as they would names
-      in any other TLD not in the global DNS.
-      DNS registries/registrars for the global DNS will never register
-      names in the .alt pseudo-TLD because .alt will not exist in the global DNS root.</t>
-
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       may choose to move under the .alt pseudo-TLD, but this is not a requirement.
       Rather, the .alt pseudo-TLD is being reserved so that current and future
@@ -185,6 +172,23 @@
       <t>The IANA is requested to add the .alt name to the "Special-Use
       Domain Name" registry (<xref target="RFC6761"/>), and reference this
       document.</t>
+
+      </section>
+      
+      <section title="Domain Name Reservation Considerations">
+      
+      <t>(This paragraph exists to meet the requirements of <xref target="RFC6761"/>.)
+      Application software that uses alternative namespaces in .alt are expected
+      to have their own processing rules for their own names, probably in specialized
+      resolver APIs, libraries, and/or application software.
+      Users might or might not recognize that names in the .alt pseudo-TLD are special.
+      Caching DNS servers and authoritative DNS servers will treat all names in the
+      .alt pseudo-TLD just as they would any other name whose TLD does not appear in the
+      global DNS root.
+      DNS server operators will treat names in the .alt pseudo-TLD as they would names
+      in any other TLD not in the global DNS.
+      DNS registries/registrars for the global DNS will never register
+      names in the .alt pseudo-TLD because .alt will not exist in the global DNS root.</t>
 
       </section>
 
