@@ -3,7 +3,7 @@
 <!ENTITY rfc2119 PUBLIC "" "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 ]>
 
-<rfc category="info" docName="draft-ietf-dnsop-alt-tld-pre19" ipr="trust200902">
+<rfc category="std" consensus="true" docName="draft-ietf-dnsop-alt-tld-pre19" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -133,12 +133,6 @@
       The presentation and on-the-wire formats for non-DNS protocols might be
       different.</t>
 
-      <t>Systems using alternative namespaces should differentiate themselves from other
-      systems using alternative namespaces by choosing a name and using it in the label
-      position just before the .alt pseudo-TLD. For example, a group wishing
-      to create a namespace for Friends Of Olaf might choose the string "foo"
-      and use any set of labels under foo.alt.</t>
-
       <t>Because names beneath .alt are in an alternative namespace, they have no
       significance in the regular DNS context. DNS stub and recursive resolvers
       do not need to look them up in the DNS context.</t>
@@ -158,23 +152,9 @@
 
       <t>Groups wishing to create new alternative namespaces may create their
       alternative namespace under a label that names their namespace under the
-      .alt pseudo-TLD. They should attempt to choose a label that they expect to be
-      unique among similar groups and, ideally, descriptive.
+      .alt pseudo-TLD.
       Developers are wholly
       responsible for dealing with any collisions that may occur under .alt.</t>
-      
-      <t>(This paragraph exists to meet the requirements of <xref target="RFC6761"/>.)
-      Application software that uses alternative namespaces in .alt are expected
-      to have their own processing rules for their own names, probably in specialized
-      resolver APIs, libraries, and/or application software.
-      Users might or might not recognize that names in the .alt pseudo-TLD are special.
-      Caching DNS servers and authoritative DNS servers will treat all names in the
-      .alt pseudo-TLD just as they would any other name whose TLD does not appear in the
-      global DNS root.
-      DNS server operators will treat names in the .alt pseudo-TLD as they would names
-      in any other TLD not in the global DNS.
-      DNS registries/registrars for the global DNS will never register
-      names in the .alt pseudo-TLD because .alt will not exist in the global DNS root.</t>
       
       <t>Regardless of the expectations above, names in the .alt pseudo-TLD will leak
       outside the context in which they are valid. Decades of experience show that
@@ -187,7 +167,6 @@
       minimization (described in <xref target="RFC9156"/>)
       will cause less of this traffic to the root servers because the negative
       responses will cover all names under .alt.</t>
-
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
       may choose to move under the .alt pseudo-TLD, but this is not a requirement.
@@ -205,6 +184,23 @@
       <t>The IANA is requested to add the .alt name to the "Special-Use
       Domain Name" registry (<xref target="RFC6761"/>), and reference this
       document.</t>
+
+      </section>
+      
+      <section title="Domain Name Reservation Considerations">
+      
+      <t>(This paragraph exists to meet the requirements of <xref target="RFC6761"/>.)
+      Application software that uses alternative namespaces in .alt are expected
+      to have their own processing rules for their own names, probably in specialized
+      resolver APIs, libraries, and/or application software.
+      Users might or might not recognize that names in the .alt pseudo-TLD are special.
+      Caching DNS servers and authoritative DNS servers will treat all names in the
+      .alt pseudo-TLD just as they would any other name whose TLD does not appear in the
+      global DNS root.
+      DNS server operators will treat names in the .alt pseudo-TLD as they would names
+      in any other TLD not in the global DNS.
+      DNS registries/registrars for the global DNS will never register
+      names in the .alt pseudo-TLD because .alt will not exist in the global DNS root.</t>
 
       </section>
 
