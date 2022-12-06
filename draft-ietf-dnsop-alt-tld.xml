@@ -133,12 +133,6 @@
       The presentation and on-the-wire formats for non-DNS protocols might be
       different.</t>
 
-      <t>Systems using alternative namespaces should differentiate themselves from other
-      systems using alternative namespaces by choosing a name and using it in the label
-      position just before the .alt pseudo-TLD. For example, a group wishing
-      to create a namespace for Friends Of Olaf might choose the string "foo"
-      and use any set of labels under foo.alt.</t>
-
       <t>Because names beneath .alt are in an alternative namespace, they have no
       significance in the regular DNS context. DNS stub and recursive resolvers
       do not need to look them up in the DNS context.</t>
@@ -158,8 +152,7 @@
 
       <t>Groups wishing to create new alternative namespaces may create their
       alternative namespace under a label that names their namespace under the
-      .alt pseudo-TLD. They should attempt to choose a label that they expect to be
-      unique among similar groups and, ideally, descriptive.
+      .alt pseudo-TLD.
       Developers are wholly
       responsible for dealing with any collisions that may occur under .alt.</t>
       
