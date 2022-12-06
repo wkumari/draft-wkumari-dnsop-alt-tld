@@ -163,7 +163,11 @@
       
       <t>Sending traffic to the root servers that is known to always elicit an
       NXDOMAIN response, such as queries for names ending in .alt, wastes
-      resources. Given this, it is noted that caching resolvers using QNAME
+      resources.
+      Caching resolvers performing aggressive use of DNSSEC-validated caches
+      (described in <xref target="RFC8198"/>) will not send any queries for names
+      under .alt to the root zone.
+      Similarly, caching resolvers using QNAME
       minimization (described in <xref target="RFC9156"/>)
       will cause less of this traffic to the root servers because the negative
       responses will cover all names under .alt.</t>
@@ -246,6 +250,8 @@
     </references>
 
     <references title="Informative References">
+      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8198.xml'?>
+
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8244.xml'?>
 
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8499.xml'?>
