@@ -263,6 +263,17 @@
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
       
+        <t>From -18 to -19:<list style="symbols">
+          <t>Changed the intended status to Standards Track at the request of the responsible AD</t>
+          <t>Clarified that this only deals with some of the problems from RFC 8244</t>
+          <t>Removed text telling protocol designers that they should differentiate their names from other designers</t>
+          <t>Added a note that .alt names will leak out of the local context</t>
+          <t>Reminded resolver operators that there are already ways to reduce .alt traffic to the root servers</t>
+          <t>Moved the paragraph related to 6761 to the IANA Considerations section</t>
+          <t>Strengthened the security considerations</t>
+          <t>Added references for QNAME minimization and agressive NSEC caching</t>
+        </list></t>
+
         <t>From -16 to -18:<list style="symbols">
           <t>Lots of editorial fix-ups</t>
           <t>Fixed reference to RFC 8499</t>
