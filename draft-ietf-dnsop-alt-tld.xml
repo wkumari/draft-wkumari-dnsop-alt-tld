@@ -222,7 +222,7 @@
     <section anchor="security" title="Security Considerations">
       <t>Because names in the .alt pseudo-TLD  are explicitly outside of the DNS context,
       it is impossible to rely on any DNS-related security considerations.
-      Care must be taken to ensure that the mapping of the pseudo-TLD into its corresponding
+      Care must be taken when mapping of the pseudo-TLD into its corresponding
       non-DNS name resolution system in order to get whatever security is offered by that system.</t>
     </section>
 
