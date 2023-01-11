@@ -90,6 +90,12 @@
       <t>The techniques in this document are primarily intended to address some of the
       issues discussed in <xref target="RFC8244"/>, which contains
       additional background on the issues with special use domain names.</t>
+      
+      <t>In this document, ".alt" was chosen for the special-use domain name instead
+      of something like "alt.arpa" so that systems that use the name do not have to
+      worry that a parent of their name would be resolved if the name leaked to the
+      Internet. Historically, some systems that want to use non-DNS names wanted the
+      entire name to be not in the DNS, and reserving ".alt" fulfills that use case.</t>
 
       <section title="Requirements Notation">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
