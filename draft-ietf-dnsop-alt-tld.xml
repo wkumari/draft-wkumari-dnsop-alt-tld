@@ -90,13 +90,12 @@
       <t>The techniques in this document are primarily intended to address some of the
       issues discussed in <xref target="RFC8244"/>, which contains
       additional background on the issues with special use domain names.</t>
-
-      <section title="Requirements Notation">
-        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-        document are to be interpreted as described in <xref
-        target="RFC2119"/>.</t>
-      </section>
+      
+      <t>In this document, ".alt" was chosen for the special-use domain name instead
+      of something like "alt.arpa" so that systems that use the name do not have to
+      worry that a parent of their name would be resolved if the name leaked to the
+      Internet. Historically, some systems that want to use non-DNS names wanted the
+      entire name to be not in the DNS, and reserving ".alt" fulfills that use case.</t>
 
       <section title="Terminology">
         <t>This document assumes familiarity with DNS terms; please see
@@ -153,8 +152,13 @@
       <t>Groups wishing to create new alternative namespaces may create their
       alternative namespace under a label that names their namespace under the
       .alt pseudo-TLD.
-      Developers are wholly
-      responsible for dealing with any collisions that may occur under .alt.</t>
+      The .alt namespace is unmanaged.
+      This document does not define a registry or governance model for the .alt namespace.
+      Developers, applications and users should not expect unambiguous mappings from names
+      to name resolution mechanisms.
+      Mitigation or resolution of collisions that occur under .alt are outside the scope
+      of this document and outside the IETF's remit.
+      Users are advised to consider the associated risks when using names under .alt.</t>
       
       <t>Regardless of the expectations above, names in the .alt pseudo-TLD will leak
       outside the context in which they are valid. Decades of experience show that
@@ -163,10 +167,11 @@
       
       <t>Sending traffic to the root servers that is known to always elicit an
       NXDOMAIN response, such as queries for names ending in .alt, wastes
-      resources.
-      Caching resolvers performing aggressive use of DNSSEC-validated caches
-      (described in <xref target="RFC8198"/>) will not send any queries for names
-      under .alt to the root zone.
+      resources on both the resolver and the root server.
+      Caching resolvers performing aggressive use of DNSSEC-
+      validated caches (described in [RFC8198]) may mitigate this by
+      synthesizing negative answers from cached NSEC records for names
+      under .alt.
       Similarly, caching resolvers using QNAME
       minimization (described in <xref target="RFC9156"/>)
       will cause less of this traffic to the root servers because the negative
@@ -229,7 +234,7 @@
     <section anchor="security" title="Security Considerations">
       <t>Because names in the .alt pseudo-TLD  are explicitly outside of the DNS context,
       it is impossible to rely on any DNS-related security considerations.
-      Care must be taken to ensure that the mapping of the pseudo-TLD into its corresponding
+      Care must be taken when mapping of the pseudo-TLD into its corresponding
       non-DNS name resolution system in order to get whatever security is offered by that system.</t>
     </section>
 
@@ -272,6 +277,10 @@
 
         <t>From -19 to -20:<list style="symbols">
            <t>Expanded the privacy considerations</t>
+           <t>Clarified benefit of using aggressive NSEC</t>
+           <t>Clarified that the .alt namespace is unmanaged and thus comes with risks.</t>
+           <t>Added description of why .alt was chosen instead of alt.arpa</t>
+           <t>Removed 2119 language because there are no MUSTs or SHOULDs</t>
         </list></t>
       
         <t>From -18 to -19:<list style="symbols">
