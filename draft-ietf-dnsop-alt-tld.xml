@@ -163,7 +163,8 @@
       
       <t>Sending traffic to the root servers that is known to always elicit an
       NXDOMAIN response, such as queries for names ending in .alt, wastes
-      resources.  Caching resolvers performing aggressive use of DNSSEC-
+      resources on both the resolver and the root server.
+      Caching resolvers performing aggressive use of DNSSEC-
       validated caches (described in [RFC8198]) may mitigate this by
       synthesizing negative answers from cached NSEC records for names
       under .alt.
