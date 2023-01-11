@@ -222,6 +222,13 @@
       This is a
       general problem with alternative name spaces and not confined to names
       ending in .alt.</t>
+      
+      <t>For example, a value such as "somename.alt" could easily cause a privacy
+      issue for any names in that namespace that are leaked to the Internet.
+      In addition, if a name ending in .alt is sufficiently unique, long-lasting, and
+      frequently leaks into the global DNS, then regardless of how the value is constructed,
+      that value can act similar to a web cookie with all the associated downsides of
+      (re-)identification.</t>
     </section>
 
     <section anchor="security" title="Security Considerations">
@@ -269,7 +276,7 @@
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
         <t>From -19 to -20:<list style="symbols">
-
+           <t>Expanded the privacy considerations</t>
            <t>Clarified benefit of using aggressive NSEC</t>
            <t>Clarified that the .alt namespace is unmanaged and thus comes with risks.</t>
            <t>Added description of why .alt was chosen instead of alt.arpa</t>
