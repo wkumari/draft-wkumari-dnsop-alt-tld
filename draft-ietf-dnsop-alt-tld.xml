@@ -153,8 +153,13 @@
       <t>Groups wishing to create new alternative namespaces may create their
       alternative namespace under a label that names their namespace under the
       .alt pseudo-TLD.
-      Developers are wholly
-      responsible for dealing with any collisions that may occur under .alt.</t>
+      The .alt namespace is unmanaged.
+      This document does not define a registry or governance model for the .alt namespace.
+      Developers, applications and users should not expect unambiguous mappings from names
+      to name resolution mechanisms.
+      Mitigation or resolution of collisions that occur under .alt are outside the scope
+      of this document and outside the IETF's remit.
+      Users are advised to consider the associated risks when using names under .alt.</t>
       
       <t>Regardless of the expectations above, names in the .alt pseudo-TLD will leak
       outside the context in which they are valid. Decades of experience show that
@@ -264,7 +269,7 @@
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
         <t>From -19 to -20:<list style="symbols">
-        
+           <t>Clarified that the .alt namespace is unmanaged and thus comes with risks.</t>
         </list></t>
       
         <t>From -18 to -19:<list style="symbols">
