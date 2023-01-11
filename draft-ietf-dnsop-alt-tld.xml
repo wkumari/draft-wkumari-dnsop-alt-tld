@@ -167,10 +167,11 @@
       
       <t>Sending traffic to the root servers that is known to always elicit an
       NXDOMAIN response, such as queries for names ending in .alt, wastes
-      resources.
-      Caching resolvers performing aggressive use of DNSSEC-validated caches
-      (described in <xref target="RFC8198"/>) will not send any queries for names
-      under .alt to the root zone.
+      resources on both the resolver and the root server.
+      Caching resolvers performing aggressive use of DNSSEC-
+      validated caches (described in [RFC8198]) may mitigate this by
+      synthesizing negative answers from cached NSEC records for names
+      under .alt.
       Similarly, caching resolvers using QNAME
       minimization (described in <xref target="RFC9156"/>)
       will cause less of this traffic to the root servers because the negative
@@ -268,6 +269,8 @@
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
         <t>From -19 to -20:<list style="symbols">
+
+           <t>Clarified benefit of using aggressive NSEC</t>
            <t>Clarified that the .alt namespace is unmanaged and thus comes with risks.</t>
            <t>Added description of why .alt was chosen instead of alt.arpa</t>
            <t>Removed 2119 language because there are no MUSTs or SHOULDs</t>
