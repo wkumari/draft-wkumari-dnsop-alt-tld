@@ -97,13 +97,6 @@
       Internet. Historically, some systems that want to use non-DNS names wanted the
       entire name to be not in the DNS, and reserving ".alt" fulfills that use case.</t>
 
-      <section title="Requirements Notation">
-        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-        document are to be interpreted as described in <xref
-        target="RFC2119"/>.</t>
-      </section>
-
       <section title="Terminology">
         <t>This document assumes familiarity with DNS terms; please see
         <xref target="RFC8499"/>. Terminology that is specific to this document is:</t>
@@ -271,6 +264,7 @@
 
         <t>From -19 to -20:<list style="symbols">
            <t>Added description of why .alt was chosen instead of alt.arpa</t>
+           <t>Removed 2119 language because there are no MUSTs or SHOULDs</t>
         </list></t>
       
         <t>From -18 to -19:<list style="symbols">
