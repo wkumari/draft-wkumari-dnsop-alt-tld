@@ -7,12 +7,12 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Standards Track                              P. Hoffman
-Expires: 17 June 2023                                              ICANN
-                                                        14 December 2022
+Expires: 14 July 2023                                              ICANN
+                                                         10 January 2023
 
 
                   The ALT Special Use Top Level Domain
-                     draft-ietf-dnsop-alt-tld-pre20
+                      draft-ietf-dnsop-alt-tld-20
 
 Abstract
 
@@ -40,11 +40,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 June 2023.
+   This Internet-Draft will expire on 14 July 2023.
 
 Copyright Notice
 
-   Copyright (c) 2022 IETF Trust and the persons identified as the
+   Copyright (c) 2023 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -55,20 +55,19 @@ Copyright Notice
 
 
 
-Kumari & Hoffman          Expires 17 June 2023                  [Page 1]
+Kumari & Hoffman          Expires 14 July 2023                  [Page 1]
 
-Internet-Draft               Reserve ALT TLD               December 2022
+Internet-Draft               Reserve ALT TLD                January 2023
 
 
-   extracted from this document must include Revised BSD License text as
-   described in Section 4.e of the Trust Legal Provisions and are
-   provided without warranty as described in the Revised BSD License.
+   extracted from this document must include Simplified BSD License text
+   as described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Simplified BSD License.
 
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-     1.1.  Requirements Notation . . . . . . . . . . . . . . . . . .   3
-     1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
+     1.1.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
    2.  The alt Namespace . . . . . . . . . . . . . . . . . . . . . .   3
    3.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   4
      3.1.  Special-Use Domain Name Registry  . . . . . . . . . . . .   4
@@ -76,7 +75,7 @@ Table of Contents
    4.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .   5
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
    6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   5
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   5
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .   6
      7.2.  Informative References  . . . . . . . . . . . . . . . . .   6
    Appendix A.  Changes / Author Notes.  . . . . . . . . . . . . . .   6
@@ -111,18 +110,20 @@ Table of Contents
 
 
 
-Kumari & Hoffman          Expires 17 June 2023                  [Page 2]
+
+Kumari & Hoffman          Expires 14 July 2023                  [Page 2]
 
-Internet-Draft               Reserve ALT TLD               December 2022
+Internet-Draft               Reserve ALT TLD                January 2023
 
 
-1.1.  Requirements Notation
+   In this document, ".alt" was chosen for the special-use domain name
+   instead of something like "alt.arpa" so that systems that use the
+   name do not have to worry that a parent of their name would be
+   resolved if the name leaked to the Internet.  Historically, some
+   systems that want to use non-DNS names wanted the entire name to be
+   not in the DNS, and reserving ".alt" fulfills that use case.
 
-   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-   document are to be interpreted as described in [RFC2119].
-
-1.2.  Terminology
+1.1.  Terminology
 
    This document assumes familiarity with DNS terms; please see
    [RFC8499].  Terminology that is specific to this document is:
@@ -166,10 +167,9 @@ Internet-Draft               Reserve ALT TLD               December 2022
 
 
 
-
-Kumari & Hoffman          Expires 17 June 2023                  [Page 3]
+Kumari & Hoffman          Expires 14 July 2023                  [Page 3]
 
-Internet-Draft               Reserve ALT TLD               December 2022
+Internet-Draft               Reserve ALT TLD                January 2023
 
 
    Note that using .alt as a pseudo-TLD does not mandate how the non-DNS
@@ -183,8 +183,14 @@ Internet-Draft               Reserve ALT TLD               December 2022
 
    Groups wishing to create new alternative namespaces may create their
    alternative namespace under a label that names their namespace under
-   the .alt pseudo-TLD.  Developers are wholly responsible for dealing
-   with any collisions that may occur under .alt.
+   the .alt pseudo-TLD.  The .alt namespace is unmanaged.  This document
+   does not define a registry or governance model for the .alt
+   namespace.  Developers, applications and users should not expect
+   unambiguous mappings from names to name resolution mechanisms.
+   Mitigation or resolution of collisions that occur under .alt are
+   outside the scope of this document and outside the IETF's remit.
+   Users are advised to consider the associated risks when using names
+   under .alt.
 
    Regardless of the expectations above, names in the .alt pseudo-TLD
    will leak outside the context in which they are valid.  Decades of
@@ -193,12 +199,13 @@ Internet-Draft               Reserve ALT TLD               December 2022
 
    Sending traffic to the root servers that is known to always elicit an
    NXDOMAIN response, such as queries for names ending in .alt, wastes
-   resources.  Caching resolvers performing aggressive use of DNSSEC-
-   validated caches (described in [RFC8198]) will not send any queries
-   for names under .alt to the root zone.  Similarly, caching resolvers
-   using QNAME minimization (described in [RFC9156]) will cause less of
-   this traffic to the root servers because the negative responses will
-   cover all names under .alt.
+   resources on both the resolver and the root server.  Caching
+   resolvers performing aggressive use of DNSSEC- validated caches
+   (described in [RFC8198]) may mitigate this by synthesizing negative
+   answers from cached NSEC records for names under .alt.  Similarly,
+   caching resolvers using QNAME minimization (described in [RFC9156])
+   will cause less of this traffic to the root servers because the
+   negative responses will cover all names under .alt.
 
    Currently deployed projects and protocols that are using pseudo-TLDs
    may choose to move under the .alt pseudo-TLD, but this is not a
@@ -216,16 +223,9 @@ Internet-Draft               Reserve ALT TLD               December 2022
 
 
 
-
-
-
-
-
-
-
-Kumari & Hoffman          Expires 17 June 2023                  [Page 4]
+Kumari & Hoffman          Expires 14 July 2023                  [Page 4]
 
-Internet-Draft               Reserve ALT TLD               December 2022
+Internet-Draft               Reserve ALT TLD                January 2023
 
 
 3.2.  Domain Name Reservation Considerations
@@ -252,13 +252,21 @@ Internet-Draft               Reserve ALT TLD               December 2022
    global DNS.  This is a general problem with alternative name spaces
    and not confined to names ending in .alt.
 
+   For example, a value such as "somename.alt" could easily cause a
+   privacy issue for any names in that namespace that are leaked to the
+   Internet.  In addition, if a name ending in .alt is sufficiently
+   unique, long-lasting, and frequently leaks into the global DNS, then
+   regardless of how the value is constructed, that value can act
+   similar to a web cookie with all the associated downsides of
+   (re-)identification.
+
 5.  Security Considerations
 
    Because names in the .alt pseudo-TLD are explicitly outside of the
    DNS context, it is impossible to rely on any DNS-related security
-   considerations.  Care must be taken to ensure that the mapping of the
-   pseudo-TLD into its corresponding non-DNS name resolution system in
-   order to get whatever security is offered by that system.
+   considerations.  Care must be taken when mapping of the pseudo-TLD
+   into its corresponding non-DNS name resolution system in order to get
+   whatever security is offered by that system.
 
 6.  Acknowledgements
 
@@ -269,6 +277,13 @@ Internet-Draft               Reserve ALT TLD               December 2022
    Edward Lewis, John Levine, George Michaelson, Ed Pascoe, Jim Reid,
    Arturo Servin, Paul Vixie and Suzanne Woolf for feedback.
 
+
+
+Kumari & Hoffman          Expires 14 July 2023                  [Page 5]
+
+Internet-Draft               Reserve ALT TLD                January 2023
+
+
    Christian Grothoff was also very helpful and deserves special
    recognition.
 
@@ -277,19 +292,7 @@ Internet-Draft               Reserve ALT TLD               December 2022
 
 7.  References
 
-
-
-Kumari & Hoffman          Expires 17 June 2023                  [Page 5]
-
-Internet-Draft               Reserve ALT TLD               December 2022
-
-
 7.1.  Normative References
-
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
 
    [RFC6761]  Cheshire, S. and M. Krochmal, "Special-Use Domain Names",
               RFC 6761, DOI 10.17487/RFC6761, February 2013,
@@ -318,6 +321,27 @@ Appendix A.  Changes / Author Notes.
 
    [RFC Editor: Please remove this section before publication ]
 
+   From -19 to -20:
+
+   *  Expanded the privacy considerations
+
+   *  Clarified benefit of using aggressive NSEC
+
+   *  Clarified that the .alt namespace is unmanaged and thus comes with
+      risks.
+
+   *  Added description of why .alt was chosen instead of alt.arpa
+
+
+
+
+Kumari & Hoffman          Expires 14 July 2023                  [Page 6]
+
+Internet-Draft               Reserve ALT TLD                January 2023
+
+
+   *  Removed 2119 language because there are no MUSTs or SHOULDs
+
    From -18 to -19:
 
    *  Document was discussed at IETF115
@@ -332,13 +356,6 @@ Appendix A.  Changes / Author Notes.
       differentiate their names from other designers
 
    *  Added a note that .alt names will leak out of the local context
-
-
-
-Kumari & Hoffman          Expires 17 June 2023                  [Page 6]
-
-Internet-Draft               Reserve ALT TLD               December 2022
-
 
    *  Reminded resolver operators that there are already ways to reduce
       .alt traffic to the root servers
@@ -372,6 +389,13 @@ Internet-Draft               Reserve ALT TLD               December 2022
 
    *  Removed unused references.
 
+
+
+Kumari & Hoffman          Expires 14 July 2023                  [Page 7]
+
+Internet-Draft               Reserve ALT TLD                January 2023
+
+
    *  Removed the RFC 2119 language because it is no longer used in the
       document.
 
@@ -387,14 +411,6 @@ Internet-Draft               Reserve ALT TLD               December 2022
    *  [The Brain]: The same thing we do every 6 months, Pinky.  Post a
       new version of this document, with only the version number
       changed.
-
-
-
-
-Kumari & Hoffman          Expires 17 June 2023                  [Page 7]
-
-Internet-Draft               Reserve ALT TLD               December 2022
-
 
    From -13 to -14:
 
@@ -429,6 +445,13 @@ Internet-Draft               Reserve ALT TLD               December 2022
 
    From -06 to -07:
 
+
+
+Kumari & Hoffman          Expires 14 July 2023                  [Page 8]
+
+Internet-Draft               Reserve ALT TLD                January 2023
+
+
    *  Rolled up the GItHub releases in to a full release.
 
    From -07.2 to -07.3 (GitHub point release):
@@ -443,14 +466,6 @@ Internet-Draft               Reserve ALT TLD               December 2022
       Added some pointers to the SUTLD document.
 
    From -07.1 to -07.2 (Github point release):
-
-
-
-
-Kumari & Hoffman          Expires 17 June 2023                  [Page 8]
-
-Internet-Draft               Reserve ALT TLD               December 2022
-
 
    *  Reverted the <TBD> string (at request of chairs).
 
@@ -485,6 +500,14 @@ Internet-Draft               Reserve ALT TLD               December 2022
 
    From -02 to -03:
 
+
+
+
+Kumari & Hoffman          Expires 14 July 2023                  [Page 9]
+
+Internet-Draft               Reserve ALT TLD                January 2023
+
+
    *  Incorporate suggestions from Stephane and Paul Hoffman.
 
    From -01 to -02:
@@ -496,17 +519,6 @@ Internet-Draft               Reserve ALT TLD               December 2022
 
    *  Removed the "delegated to new style AS112 servers" text -this was
       legacy from the omnicient AS112 days.  (Joe Abley)
-
-
-
-
-
-
-
-Kumari & Hoffman          Expires 17 June 2023                  [Page 9]
-
-Internet-Draft               Reserve ALT TLD               December 2022
-
 
    *  Removed the "Advice to implemntors" section.  This used to
       recommend that people used a subdomain of a domain in the DNS.  It
@@ -545,6 +557,13 @@ Internet-Draft               Reserve ALT TLD               December 2022
 
    From -03 to -04
 
+
+
+Kumari & Hoffman          Expires 14 July 2023                 [Page 10]
+
+Internet-Draft               Reserve ALT TLD                January 2023
+
+
    *  Incorporated some comments from Paul Hoffman
 
    From -02 to -03
@@ -555,14 +574,6 @@ Internet-Draft               Reserve ALT TLD               December 2022
    From -01 to -02
 
    *  Removed some fluffy wording, tightened up the language some.
-
-
-
-
-Kumari & Hoffman          Expires 17 June 2023                 [Page 10]
-
-Internet-Draft               Reserve ALT TLD               December 2022
-
 
    From -00 to -01.
 
@@ -578,11 +589,13 @@ Authors' Addresses
    1600 Amphitheatre Parkway
    Mountain View, CA,  94043
    United States of America
+
    Email: warren@kumari.net
 
 
    Paul Hoffman
    ICANN
+
    Email: paul.hoffman@icann.org
 
 
@@ -602,18 +615,5 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Kumari & Hoffman          Expires 17 June 2023                 [Page 11]
+Kumari & Hoffman          Expires 14 July 2023                 [Page 11]
 ```
