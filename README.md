@@ -1,5 +1,3 @@
-**Important:** Read CONTRIBUTING.md before submitting feedback or contributing
-```
 
 
 
@@ -7,8 +5,8 @@
 dnsop                                                          W. Kumari
 Internet-Draft                                                    Google
 Intended status: Standards Track                              P. Hoffman
-Expires: 14 July 2023                                              ICANN
-                                                         10 January 2023
+Expires: 4 August 2023                                             ICANN
+                                                         31 January 2023
 
 
                   The ALT Special Use Top Level Domain
@@ -40,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 July 2023.
+   This Internet-Draft will expire on 4 August 2023.
 
 Copyright Notice
 
@@ -55,7 +53,7 @@ Copyright Notice
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                  [Page 1]
+Kumari & Hoffman          Expires 4 August 2023                 [Page 1]
 
 Internet-Draft               Reserve ALT TLD                January 2023
 
@@ -111,7 +109,7 @@ Table of Contents
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                  [Page 2]
+Kumari & Hoffman          Expires 4 August 2023                 [Page 2]
 
 Internet-Draft               Reserve ALT TLD                January 2023
 
@@ -167,7 +165,7 @@ Internet-Draft               Reserve ALT TLD                January 2023
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                  [Page 3]
+Kumari & Hoffman          Expires 4 August 2023                 [Page 3]
 
 Internet-Draft               Reserve ALT TLD                January 2023
 
@@ -223,7 +221,7 @@ Internet-Draft               Reserve ALT TLD                January 2023
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                  [Page 4]
+Kumari & Hoffman          Expires 4 August 2023                 [Page 4]
 
 Internet-Draft               Reserve ALT TLD                January 2023
 
@@ -279,7 +277,7 @@ Internet-Draft               Reserve ALT TLD                January 2023
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                  [Page 5]
+Kumari & Hoffman          Expires 4 August 2023                 [Page 5]
 
 Internet-Draft               Reserve ALT TLD                January 2023
 
@@ -335,7 +333,7 @@ Appendix A.  Changes / Author Notes.
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                  [Page 6]
+Kumari & Hoffman          Expires 4 August 2023                 [Page 6]
 
 Internet-Draft               Reserve ALT TLD                January 2023
 
@@ -391,7 +389,7 @@ Internet-Draft               Reserve ALT TLD                January 2023
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                  [Page 7]
+Kumari & Hoffman          Expires 4 August 2023                 [Page 7]
 
 Internet-Draft               Reserve ALT TLD                January 2023
 
@@ -447,7 +445,7 @@ Internet-Draft               Reserve ALT TLD                January 2023
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                  [Page 8]
+Kumari & Hoffman          Expires 4 August 2023                 [Page 8]
 
 Internet-Draft               Reserve ALT TLD                January 2023
 
@@ -503,7 +501,7 @@ Internet-Draft               Reserve ALT TLD                January 2023
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                  [Page 9]
+Kumari & Hoffman          Expires 4 August 2023                 [Page 9]
 
 Internet-Draft               Reserve ALT TLD                January 2023
 
@@ -559,7 +557,7 @@ Internet-Draft               Reserve ALT TLD                January 2023
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                 [Page 10]
+Kumari & Hoffman          Expires 4 August 2023                [Page 10]
 
 Internet-Draft               Reserve ALT TLD                January 2023
 
@@ -615,5 +613,4 @@ Authors' Addresses
 
 
 
-Kumari & Hoffman          Expires 14 July 2023                 [Page 11]
-```
+Kumari & Hoffman          Expires 4 August 2023                [Page 11]
