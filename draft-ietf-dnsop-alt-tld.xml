@@ -116,6 +116,14 @@
             <t>TLD: See the definition in Section 2 of <xref target="RFC8499"/>.</t>
           </list></t>
       </section>
+
+      <section title="Requirements Terminology">
+        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+        "OPTIONAL" in this document are to be interpreted as described in BCP 14
+        <xref target="RFC2119"/> <xref target="RFC8174"/> when, and only when, they
+        appear in all capitals, as shown here.</t>
+      </section>
     </section>
 
     <section title="The alt Namespace">
@@ -196,18 +204,44 @@
       
       <section title="Domain Name Reservation Considerations">
       
-      <t>(This paragraph exists to meet the requirements of <xref target="RFC6761"/>.)
-      Application software that uses alternative namespaces in .alt are expected
-      to have their own processing rules for their own names, probably in specialized
-      resolver APIs, libraries, and/or application software.
-      Users might or might not recognize that names in the .alt pseudo-TLD are special.
-      Caching DNS servers and authoritative DNS servers will treat all names in the
-      .alt pseudo-TLD just as they would any other name whose TLD does not appear in the
-      global DNS root.
-      DNS server operators will treat names in the .alt pseudo-TLD as they would names
-      in any other TLD not in the global DNS.
-      DNS registries/registrars for the global DNS will never register
-      names in the .alt pseudo-TLD because .alt will not exist in the global DNS root.</t>
+      <t>This section exists to meet the requirements of <xref target="RFC6761"/>.
+      The questions posed in RFC 6761 were largely written assuming a DNS resolution
+      system, and so some of the questions are not especially relevant or well
+      suited.</t>
+
+      <t>1. Users might or might not recognize that names in the .alt pseudo-TLD as
+      special.</t>
+
+      <t>2. Application software that uses alternative namespaces in the .alt
+      pseudo-TLD are expected to have their own processing rules for their own names,
+      probably in specialized resolver APIs, libraries, and/or application software.
+      Application software that is not specifically designed to use names in the .alt
+      pseudo-TLD are not expected to make their software recognize these names as
+      special.</t>
+
+      <t>3. Writers of name resolution APIs and libraries that are specifically
+      designed to implement resolution of an alternative name resolution system are
+      expected to recognize names in the .alt pseudo-TLD as special and thus perform
+      resolution of those names. The exact mechanism used by the name resolution APIs
+      and libraries will obviously depend on the particular alternative resolution
+      system. Regular DNS resolution APIs and libraries are not expected to recognize
+      or treat names in the .alt pseudo-TLD differently.</t>
+
+      <t>4. Caching DNS servers SHOULD NOT recognize names in the .alt pseudo-TLD as
+      special and SHOULD NOT perform any special handling with them.</t>
+
+      <t>5. Authoritative DNS servers SHOULD NOT recognize names in the .alt
+      pseudo-TLD as special and should not perform any special handling with
+      them.</t>
+
+      <t>6. DNS server operators will treat names in the .alt pseudo-TLD as they
+      would  names in any other TLD not in the global DNS. DNS server operators MAY
+      be aware that queries for name ending in .alt are not DNS names, and queries
+      for those names were leaked into the DNS context. This information can be
+      useful for support or debugging purposes.</t>
+
+      <t>7. DNS registries/registrars for the global DNS will never register names in
+      the .alt pseudo-TLD because .alt will not exist in the global DNS root.</t>
 
       </section>
 
@@ -254,8 +288,11 @@
 
   <back>
     <references title="Normative References">
-
+      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml'?>
+      
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6761.xml'?>
+      
+      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml'?>
     </references>
 
     <references title="Informative References">
@@ -272,6 +309,12 @@
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
+        <t>From -20 to -21:<list style="symbols">
+           <t>During AD review, replaced the descriptive text with the requirements from RFC 6761 with a list.
+           This in turn required adding in the BCP 14 boilerplate.</t>
+           <t>During AD review, made a few more requested changes</t>
+        </list></t>
+      
         <t>From -19 to -20:<list style="symbols">
            <t>Expanded the privacy considerations</t>
            <t>Clarified benefit of using aggressive NSEC</t>
