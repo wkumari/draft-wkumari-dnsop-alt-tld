@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" []>
 
-<rfc category="std" consensus="true" docName="draft-ietf-dnsop-alt-tld-21" ipr="trust200902">
+<rfc category="std" consensus="true" docName="draft-ietf-dnsop-alt-tld-22" ipr="trust200902">
   <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 
   <?rfc toc="yes" ?>
@@ -309,6 +309,10 @@
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
+        <t>From -21 to -22:<list style="symbols">
+           <t>DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. </t>
+        </list></t>
+      
         <t>From -20 to -21:<list style="symbols">
            <t>During AD review, replaced the descriptive text with the requirements from RFC 6761 with a list.
            This in turn required adding in the BCP 14 boilerplate.</t>
