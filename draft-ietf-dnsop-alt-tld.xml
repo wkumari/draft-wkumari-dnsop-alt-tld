@@ -249,7 +249,7 @@
 
     <section title="Privacy Considerations">
       <t>This document reserves .alt to be used to indicate that a name is not
-      a DNS name, and so should not attempt to be resolved using the global DNS.
+      a DNS name.
       Unfortunately, these queries will undoubtedly leak into the global DNS.
       This is a
       general problem with alternative name spaces and not confined to names
