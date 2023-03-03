@@ -77,18 +77,18 @@
       top-level label can be used as the final (rightmost) label to signify
       that the name is not rooted in the global DNS, and that it should not be
       resolved using the DNS protocol.</t>
-      
+
       <t>In <xref target="iana-6761"/>, the IANA is requested to add the .alt name
       to the "Special-Use Domain Name" registry. IANA sets aside names in that
       registry, as described in &lt;https://www.iana.org/domains/reserved&gt;.</t>
-      
+
       <t>Throughout the rest of this document, the top-level "alt" label is shown
       as ".alt" to match the common presentation form of DNS names.</t>
 
       <t>The techniques in this document are primarily intended to address some of the
       issues discussed in <xref target="RFC8244"/>, which contains
       additional background on the issues with special use domain names.</t>
-      
+
       <t>In this document, ".alt" was chosen for the special-use domain name instead
       of something like "alt.arpa" so that systems that use the name do not have to
       worry that a parent of their name would be resolved if the name leaked to the
@@ -157,20 +157,18 @@
 
       <t>Groups wishing to create new alternative namespaces may create their
       alternative namespace under a label that names their namespace under the
-      .alt pseudo-TLD.
-      The .alt namespace is unmanaged.
-      This document does not define a registry or governance model for the .alt namespace.
-      Developers, applications and users should not expect unambiguous mappings from names
-      to name resolution mechanisms.
-      Mitigation or resolution of collisions that occur under .alt are outside the scope
-      of this document and outside the IETF's remit.
+      .alt pseudo-TLD. This document defines neither a registry nor governance
+      model for the .alt namespace, as it is not managed by the IETF or IANA.
+      There is no guarantee of unambiguous mappings from names to name
+      resolution mechanisms. Mitigation or resolution of collisions that occur
+      under .alt are outside the scope of this document and outside the IETF's remit.
       Users are advised to consider the associated risks when using names under .alt.</t>
-      
+
       <t>Regardless of the expectations above, names in the .alt pseudo-TLD will leak
       outside the context in which they are valid. Decades of experience show that
       such names will appear at recursive resolvers, and will thus also appear at the
       root servers for the global DNS.</t>
-      
+
       <t>Sending traffic to the root servers that is known to always elicit an
       NXDOMAIN response, such as queries for names ending in .alt, wastes
       resources on both the resolver and the root server.
@@ -184,7 +182,7 @@
       responses will cover all names under .alt.</t>
 
       <t>Currently deployed projects and protocols that are using pseudo-TLDs
-      may choose to move under the .alt pseudo-TLD, but this is not a requirement.
+      are recommended to move under the .alt pseudo-TLD, but this is not a requirement.
       Rather, the .alt pseudo-TLD is being reserved so that current and future
       projects of a similar nature have a designated place to create
       alternative resolution namespaces that will not conflict with the
@@ -201,9 +199,9 @@
       document.</t>
 
       </section>
-      
+
       <section title="Domain Name Reservation Considerations">
-      
+
       <t>This section exists to meet the requirements of <xref target="RFC6761"/>.
       The questions posed in RFC 6761 were largely written assuming a DNS resolution
       system, and so some of the questions are not especially relevant or well
@@ -254,7 +252,7 @@
       This is a
       general problem with alternative name spaces and not confined to names
       ending in .alt.</t>
-      
+
       <t>For example, a value such as "somename.alt" could easily cause a privacy
       issue for any names in that namespace that are leaked to the Internet.
       In addition, if a name ending in .alt is sufficiently unique, long-lasting, and
@@ -266,21 +264,27 @@
     <section anchor="security" title="Security Considerations">
       <t>Because names in the .alt pseudo-TLD  are explicitly outside of the DNS context,
       it is impossible to rely on any DNS-related security considerations.
-      Care must be taken when mapping of the pseudo-TLD into its corresponding
+      Care must be taken when mapping the pseudo-TLD into its corresponding
       non-DNS name resolution system in order to get whatever security is offered by that system.</t>
     </section>
 
     <section title="Acknowledgements">
-      <t>We would like to thank Joe Abley, Mark Andrews, Erik Auerswald,
-      Marc Blanchet, John Bond, Stephane Bortzmeyer, David Cake, David Conrad,
-      Steve Crocker, Brian Dickson, Ralph Droms, Robert Edmonds,
-      Patrik Faltstrom, Olafur Gudmundsson, Bob Harold,
-      Joel Jaeggli, Ted Lemon, Edward Lewis, John Levine, George Michaelson,
-      Ed Pascoe, Jim Reid, Arturo Servin, Paul Vixie
-      and Suzanne Woolf for feedback.</t>
+      <t>We would like to thank Joe Abley, Mark Andrews, Erik Auerswald, Roy
+      Arends, Ray Bellis, Vittorio Bertola, Marc Blanchet, John Bond, Stephane
+      Bortzmeyer, David Cake, Vint Cerf, David Conrad, Steve Crocker, Vladimir
+      Cunat, Brian Dickson, Ralph Droms, Robert Edmonds, Patrik Faltstrom,
+      Olafur Gudmundsson, Ted Hardie, Bob Harold, Wes Hardaker, Geoff Huston,
+      Joel Jaeggli, John C Klensin, Eliot Lear, Ted Lemon, Edward Lewis, John
+      Levine, George Michaelson, Ed Pascoe, Libor Peltan, Jim Reid, Ben
+      Schwartz, Arturo Servin, Peter Thomassen, Paul Vixie, Paul Wouters, and
+      Suzanne Woolf for feedback.</t>
 
-      <t>Christian Grothoff was also very helpful and deserves special
-      recognition.</t>
+      <t>Christian Grothoff, Martin Schanzenbach, and Bernd Fix deserve
+      special mention, as does Duane Wessels.</t>
+      <t>This document was many years in the making, and we would like to
+      sincerely apolgized for anyone who we forgot to credit.</t>
+      <t>We would also like to thank Rob Wilton for serving as Responsible AD
+      for this document.</t>
       <t>In addition, Andrew Sullivan was an author from adoption (2015)
       through version 14 (2021).</t>
     </section>
@@ -289,9 +293,9 @@
   <back>
     <references title="Normative References">
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml'?>
-      
+
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6761.xml'?>
-      
+
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml'?>
     </references>
 
@@ -310,23 +314,24 @@
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
         <t>From -21 to -22:<list style="symbols">
-           <t>DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. DON'T IGNORE THIS STUFF. </t>
+            <t>DON'T IGNORE THIS STUFF.</t>
+            <t>Addressed nits from AD review - https://mailarchive.ietf.org/arch/msg/dnsop/aIkeZUqKDZzzseCPfiIJ9J6zYXc/</t>
         </list></t>
-      
+
         <t>From -20 to -21:<list style="symbols">
-           <t>During AD review, replaced the descriptive text with the requirements from RFC 6761 with a list.
-           This in turn required adding in the BCP 14 boilerplate.</t>
-           <t>During AD review, made a few more requested changes</t>
+            <t>During WGLC review, replaced the descriptive text with the requirements from RFC 6761 with a list.
+            This in turn required adding in the BCP 14 boilerplate.</t>
+            <t>During WGLC review, made a few more requested changes</t>
         </list></t>
-      
+
         <t>From -19 to -20:<list style="symbols">
-           <t>Expanded the privacy considerations</t>
-           <t>Clarified benefit of using aggressive NSEC</t>
-           <t>Clarified that the .alt namespace is unmanaged and thus comes with risks.</t>
-           <t>Added description of why .alt was chosen instead of alt.arpa</t>
-           <t>Removed 2119 language because there are no MUSTs or SHOULDs</t>
+            <t>Expanded the privacy considerations</t>
+            <t>Clarified benefit of using aggressive NSEC</t>
+            <t>Clarified that the .alt namespace is unmanaged and thus comes with risks.</t>
+            <t>Added description of why .alt was chosen instead of alt.arpa</t>
+            <t>Removed 2119 language because there are no MUSTs or SHOULDs</t>
         </list></t>
-      
+
         <t>From -18 to -19:<list style="symbols">
           <t>Document was discussed at IETF115</t>
           <t>Changed the intended status to Standards Track at the request of the responsible AD (Rob Wilton)</t>
