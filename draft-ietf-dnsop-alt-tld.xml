@@ -142,18 +142,22 @@
       significance in the regular DNS context. DNS stub and recursive resolvers
       do not need to look them up in the DNS context.</t>
 
-      <t>DNS resolvers that serve the DNS protocol and non-DNS protocols at the same time might consider
-      .alt like an entry in the "Transport-Independent Locally-Served DNS Zone Registry"
-      that is part of IANA's "Locally-Served DNS Zones" registry, except that .alt
-      is always used to denote names that are to be resolved by non-DNS protocols.</t>
+      <t>DNS resolvers that serve the DNS protocol and non-DNS protocols at the
+      same time might consider .alt like a DNS entry in the
+      "Transport-Independent Locally-Served DNS Zone Registry" that is part of
+      IANA's "Locally-Served DNS Zones" registry, except that .alt is always
+      used to denote names that are to be resolved by non-DNS protocols. Note
+      that this document does not request adding .alt to these registries
+      because .alt, by definition, is not a DNS name.</t>
 
-      <t>Note that using .alt as a pseudo-TLD does not mandate how the non-DNS protocol
-      will handle the name. To maximize compatibility with existing applications,
-      it is suggested, but not required, that non-DNS protocols using names that end in .alt follow DNS
-      name syntax. If the non-DNS protocol has a wire format like the DNS
-      wire format, it might append the null label at the end of the name, but it also
-      might not. This document does not make any suggestion for how non-DNS protocols
-      deal with the wire format of their names.</t>
+      <t>Note that using .alt as a pseudo-TLD does not mandate how the non-DNS
+      protocol will handle the name. To maximize compatibility with existing
+      applications, it is suggested, but not required, that non-DNS protocols
+      using names that end in .alt follow DNS name syntax. If the non-DNS
+      protocol has a wire format like the DNS wire format, it might append the
+      null label at the end of the name, but it also might not. This document
+      does not make any suggestion for how non-DNS protocols deal with the wire
+      format of their names.</t>
 
       <t>Groups wishing to create new alternative namespaces may create their
       alternative namespace under a label that names their namespace under the
