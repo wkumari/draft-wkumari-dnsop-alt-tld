@@ -135,7 +135,7 @@
 
       <t>This document uses ".alt" for the pseudo-TLD in the presentation
       format for the DNS, corresponding to a 0x03616c7400 suffix in DNS wire format.
-      The presentation and on-the-wire formats for non-DNS protocols might be
+      The on-the-wire formats for non-DNS protocols might be
       different.</t>
 
       <t>Because names beneath .alt are in an alternative namespace, they have no
@@ -273,14 +273,13 @@
       Arends, Ray Bellis, Vittorio Bertola, Marc Blanchet, John Bond, Stephane
       Bortzmeyer, David Cake, Vint Cerf, David Conrad, Steve Crocker, Vladimir
       Cunat, Brian Dickson, Ralph Droms, Robert Edmonds, Patrik Faltstrom,
-      Olafur Gudmundsson, Ted Hardie, Bob Harold, Wes Hardaker, Geoff Huston,
-      Joel Jaeggli, John C Klensin, Eliot Lear, Ted Lemon, Edward Lewis, John
-      Levine, George Michaelson, Ed Pascoe, Libor Peltan, Jim Reid, Ben
-      Schwartz, Arturo Servin, Peter Thomassen, Paul Vixie, Paul Wouters, and
+      Bernd Fix, Christian Grothoff, Olafur Gudmundsson, Ted Hardie, Bob
+      Harold, Wes Hardaker, Geoff Huston, Joel Jaeggli, John C Klensin, Eliot
+      Lear, Ted Lemon, Edward Lewis, John Levine, George Michaelson, Ed Pascoe,
+      Libor Peltan, Jim Reid,  Martin Schanzenbach, Ben Schwartz, Arturo
+      Servin, Peter Thomassen, Paul Vixie, Duane Wessels, Paul Wouters, and
       Suzanne Woolf for feedback.</t>
 
-      <t>Christian Grothoff, Martin Schanzenbach, and Bernd Fix deserve
-      special mention, as does Duane Wessels.</t>
       <t>This document was many years in the making, and we would like to
       sincerely apolgized for anyone who we forgot to credit.</t>
       <t>We would also like to thank Rob Wilton for serving as Responsible AD
