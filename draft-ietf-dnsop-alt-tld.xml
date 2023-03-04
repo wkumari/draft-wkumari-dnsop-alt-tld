@@ -317,8 +317,8 @@
       <t>[RFC Editor: Please remove this section before publication ]</t>
 
         <t>From -21 to -22:<list style="symbols">
-            <t>DON'T IGNORE THIS STUFF.</t>
-            <t>Addressed nits from AD review - https://mailarchive.ietf.org/arch/msg/dnsop/aIkeZUqKDZzzseCPfiIJ9J6zYXc/</t>
+            <t>Addressed issues from AD review - https://mailarchive.ietf.org/arch/msg/dnsop/aIkeZUqKDZzzseCPfiIJ9J6zYXc/</t>
+            <t>Combined some of the acknowledgements into one paragraph.</t>
         </list></t>
 
         <t>From -20 to -21:<list style="symbols">
