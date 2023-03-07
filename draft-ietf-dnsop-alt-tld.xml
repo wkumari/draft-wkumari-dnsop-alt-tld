@@ -251,11 +251,9 @@
 
     <section title="Privacy Considerations">
       <t>This document reserves .alt to be used to indicate that a name is not
-      a DNS name.
-      Unfortunately, these queries will undoubtedly leak into the global DNS.
-      This is a
-      general problem with alternative name spaces and not confined to names
-      ending in .alt.</t>
+      a DNS name. Unfortunately, these queries will undoubtedly leak into the
+      global DNS. This is a general problem with alternative namespaces and not
+      confined to names ending in .alt.</t>
 
       <t>For example, a value such as "somename.alt" could easily cause a privacy
       issue for any names in that namespace that are leaked to the Internet.
