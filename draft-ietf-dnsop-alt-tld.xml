@@ -255,7 +255,7 @@
       global DNS. This is a general problem with alternative namespaces and not
       confined to names ending in .alt.</t>
 
-      <t>For example, a value such as "somename.alt" could easily cause a privacy
+      <t>For example, a value such as "example.alt" could easily cause a privacy
       issue for any names in that namespace that are leaked to the Internet.
       In addition, if a name ending in .alt is sufficiently unique, long-lasting, and
       frequently leaks into the global DNS, then regardless of how the value is constructed,
@@ -298,12 +298,12 @@
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6761.xml'?>
 
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml'?>
+      
+      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8244.xml'?>
     </references>
 
     <references title="Informative References">
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8198.xml'?>
-
-      <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8244.xml'?>
 
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8499.xml'?>
 
