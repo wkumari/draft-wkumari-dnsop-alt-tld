@@ -277,7 +277,7 @@
       Cunat, Brian Dickson, Ralph Droms, Robert Edmonds, Patrik Faltstrom,
       Bernd Fix, Christian Grothoff, Olafur Gudmundsson, Ted Hardie, Bob
       Harold, Wes Hardaker, Geoff Huston, Joel Jaeggli, John C Klensin, Eliot
-      Lear, Ted Lemon, Edward Lewis, John Levine, George Michaelson, Ed Pascoe,
+      Lear, Barry Leiba, Ted Lemon, Edward Lewis, John Levine, George Michaelson, Ed Pascoe,
       Libor Peltan, Jim Reid,  Martin Schanzenbach, Ben Schwartz, Arturo
       Servin, Peter Thomassen, Paul Vixie, Duane Wessels, Paul Wouters, and
       Suzanne Woolf for feedback.</t>
@@ -313,6 +313,10 @@
 
     <section title="Changes / Author Notes.">
       <t>[RFC Editor: Please remove this section before publication ]</t>
+
+        <t>From -22 to -23:<list style="symbols">
+            <t>Small changes based on inputs from IETF Last Call.</t>
+        </list></t>
 
         <t>From -21 to -22:<list style="symbols">
             <t>Addressed issues from AD review - https://mailarchive.ietf.org/arch/msg/dnsop/aIkeZUqKDZzzseCPfiIJ9J6zYXc/</t>
