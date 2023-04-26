@@ -148,7 +148,7 @@
       IANA's "Locally-Served DNS Zones" registry, except that .alt is always
       used to denote names that are to be resolved by non-DNS protocols. Note
       that this document does not request adding .alt to these registries
-      because .alt, by definition, is not a DNS name.</t>
+      because .alt, by this specification, is not a DNS name.</t>
 
       <t>Note that using .alt as a pseudo-TLD does not mandate how the non-DNS
       protocol will handle the name. To maximize compatibility with existing
@@ -176,11 +176,10 @@
       <t>Sending traffic to the root servers that is known to always elicit an
       NXDOMAIN response, such as queries for names ending in .alt, wastes
       resources on both the resolver and the root server.
-      Caching resolvers performing aggressive use of DNSSEC-
-      validated caches (described in <xref target="RFC8198"/>) may mitigate this by
-      synthesizing negative answers from cached NSEC records for names
-      under .alt.
-      Similarly, caching resolvers using QNAME
+      Caching resolvers performing aggressive use of DNSSEC-validated caches
+      (described in <xref target="RFC8198"/>) may mitigate this by
+      synthesizing negative answers from cached NSEC records for names under
+      .alt. Similarly, caching resolvers using QNAME
       minimization (described in <xref target="RFC9156"/>)
       will cause less of this traffic to the root servers because the negative
       responses will cover all names under .alt.</t>
@@ -221,7 +220,7 @@
       pseudo-TLD are not expected to make their software recognize these names as
       special.</t>
 
-      <t>3. Writers of name resolution APIs and libraries that are specifically
+      <t>3. Developers of name resolution APIs and libraries that are specifically
       designed to implement resolution of an alternative name resolution system are
       expected to recognize names in the .alt pseudo-TLD as special and thus perform
       resolution of those names. The exact mechanism used by the name resolution APIs
@@ -242,8 +241,8 @@
       for those names were leaked into the DNS context. This information can be
       useful for support or debugging purposes.</t>
 
-      <t>7. DNS registries/registrars for the global DNS will never register names in
-      the .alt pseudo-TLD because .alt will not exist in the global DNS root.</t>
+      <t>7. It is not possible for DNS registries/registrars to register names in
+      the .alt pseudo-TLD as the .alt will not exist in the global DNS root.</t>
 
       </section>
 
@@ -298,7 +297,7 @@
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6761.xml'?>
 
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml'?>
-      
+
       <?rfc include='https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8244.xml'?>
     </references>
 
