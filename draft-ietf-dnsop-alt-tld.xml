@@ -180,7 +180,7 @@
       (described in <xref target="RFC8198"/>) may mitigate this by
       synthesizing negative answers from cached NSEC records for names under
       .alt. Similarly, caching resolvers using QNAME
-      minimization (described in <xref target="RFC9156"/>)
+      minimisation (described in <xref target="RFC9156"/>)
       will cause less of this traffic to the root servers because the negative
       responses will cover all names under .alt.</t>
 
@@ -236,13 +236,13 @@
       them.</t>
 
       <t>6. DNS server operators will treat names in the .alt pseudo-TLD as they
-      would  names in any other TLD not in the global DNS. DNS server operators MAY
-      be aware that queries for name ending in .alt are not DNS names, and queries
+      would  names in any other TLD not in the global DNS. DNS server operators may
+      be aware that queries for names ending in .alt are not DNS names, and queries
       for those names were leaked into the DNS context. This information can be
       useful for support or debugging purposes.</t>
 
-      <t>7. It is not possible for DNS registries/registrars to register names in
-      the .alt pseudo-TLD as the .alt will not exist in the global DNS root.</t>
+      <t>7. It is not possible for DNS registries/registrars to register DNS names
+      in the .alt pseudo-TLD as the .alt will not exist in the global DNS root.</t>
 
       </section>
 
